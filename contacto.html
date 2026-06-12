@@ -1,0 +1,139 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X Congreso - Contacto y Ayuda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --verde-malaquita: #167a67;
+            --verde-profundo: #0d4b3f;
+            --crema-marmol: #fbfaf5;
+            --terracota: #c66a46;
+            --texto-oscuro: #212529;
+            --lineas-oro: #d4af37;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--crema-marmol);
+            color: var(--texto-oscuro);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        h1, h2, h3 { font-family: 'Cinzel', serif; color: var(--verde-profundo); }
+
+        nav {
+            background-color: #ffffff;
+            border-bottom: 3px solid var(--verde-malaquita);
+            padding: 1.2rem 2rem;
+            position: sticky;
+            top: 0; z-index: 100;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+        }
+        .nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--verde-profundo); letter-spacing: 1px; }
+        .nav-links { list-style: none; display: flex; gap: 20px; }
+        .nav-links a { text-decoration: none; color: var(--texto-oscuro); font-weight: 500; font-size: 1rem; padding: 6px 12px; transition: all 0.2s; border-radius: 4px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--verde-malaquita); background-color: rgba(22, 122, 103, 0.05); }
+
+        .banner-container {
+            width: 100%; max-width: 1200px; margin: 30px auto; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05); background-color: #e2e8f0; border: 1px solid rgba(22, 122, 103, 0.15);
+        }
+        .banner-placeholder { padding: 50px 20px; text-align: center; }
+
+        .main-container { max-width: 900px; margin: 0 auto; padding: 10px 20px 60px 20px; }
+        section { margin-bottom: 35px; background: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.02); border-left: 6px solid var(--verde-malaquita); }
+        section h2 { font-size: 1.6rem; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #f0f2f5; }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: 500; margin-bottom: 8px; color: var(--verde-profundo); }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 6px;
+            font-family: 'Roboto', sans-serif; font-size: 1rem; background-color: #fafafa;
+        }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--verde-malaquita); background-color: #ffffff; }
+        
+        .btn-submit {
+            background-color: var(--terracota); color: #ffffff; border: none; padding: 14px 35px;
+            font-family: 'Roboto', sans-serif; font-weight: 700; border-radius: 6px; cursor: pointer; transition: background 0.2s;
+        }
+        .btn-submit:hover { background-color: var(--verde-profundo); }
+
+        .faq-item { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px dashed #e2e8f0; }
+        .faq-item h3 { font-family: 'Roboto', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--verde-profundo); margin-bottom: 5px; }
+        
+        footer { background-color: var(--verde-profundo); color: #ffffff; text-align: center; padding: 45px 20px; margin-top: 60px; border-top: 4px solid var(--lineas-oro); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-logo">X CONGRESO 2026</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="expositores.html">Expositores</a></li>
+            <li><a href="programa.html">Programa</a></li>
+            <li><a href="util.html">Información Útil</a></li>
+            <li><a href="repositorio.html">Repositorio</a></li>
+            <li><a href="contacto.html" class="active">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <div class="banner-container">
+        <div class="banner-placeholder">
+            <h1>CONTACTO Y AYUDA</h1>
+            <p style="color: var(--terracota); font-weight: 700; letter-spacing: 0.5px;">ESTAMOS PARA RESOLVER TUS DUDAS</p>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <section>
+            <h2>Escríbenos directamente</h2>
+            <p style="margin-bottom: 20px;">Completa los campos a continuación y el comité organizador te responderá en un plazo máximo de 48 horas hábiles.</p>
+            
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej. María García" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" placeholder="Ej. maria@correo.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Tu consulta o mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe aquí tu duda..." required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Mensaje</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Preguntas Frecuentes</h2>
+            <div class="faq-item">
+                <h3>¿El congreso entrega certificados de asistencia?</h3>
+                <p>Sí. Se emitirán certificados digitales oficiales tanto para los ponentes como para los asistentes que cumplan con el 80% de participación.</p>
+            </div>
+            <div class="faq-item">
+                <h3>¿Puedo participar de forma virtual?</h3>
+                <p>Sí, el evento cuenta con una modalidad híbrida. Al registrarte podrás elegir si asistirás presencialmente o mediante las transmisiones en vivo.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 X Congreso Internacional. Desarrollado por <strong>Meraki Creative</strong>.</p>
+    </footer>
+
+</body>
+</html>
