@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>X Congreso - Repositorio Académico</title>
+    <title>Repositorio Documental - Simposio 2028</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -12,119 +11,71 @@
     
     <style>
         :root {
-            --verde-malaquita: #167a67;
-            --verde-profundo: #0d4b3f;
-            --crema-marmol: #fbfaf5;
-            --terracota: #c66a46;
-            --texto-oscuro: #212529;
-            --lineas-oro: #d4af37;
+            --color-principal: #2a445e;
+            --rosa-pompeya: #b84a39;
+            --verde-laurel: #4a6b52;
+            --crema-antiguo: #f5f0e6;
+            --marfil-suave: #ffffff;
+            --texto-oscuro: #2c2523;
+            --oro-viejo: #c5a059;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--crema-marmol);
-            color: var(--texto-oscuro);
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
+        body { font-family: 'Roboto', sans-serif; color: var(--texto-oscuro); background-color: var(--crema-antiguo); line-height: 1.8; }
 
-        h1, h2, h3 { font-family: 'Cinzel', serif; color: var(--verde-profundo); }
+        /* Zócalo superior en Verde Laurel para dinamismo visual */
+        .top-bar { background-color: var(--verde-laurel); color: var(--marfil-suave); padding: 8px 20px; display: flex; justify-content: flex-end; gap: 15px; font-size: 0.85rem; font-weight: 500; }
+        .top-bar a { color: var(--marfil-suave); text-decoration: none; }
 
-        /* NAVEGACIÓN */
-        nav {
-            background-color: #ffffff;
-            border-bottom: 3px solid var(--verde-malaquita);
-            padding: 1.2rem 2rem;
-            position: sticky;
-            top: 0; z-index: 100;
-            display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
-        }
-        .nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--verde-profundo); letter-spacing: 1px; }
+        nav { background-color: var(--marfil-suave); border-bottom: 4px solid var(--color-principal); padding: 1.2rem 2rem; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.1rem; color: var(--color-principal); }
         .nav-links { list-style: none; display: flex; gap: 20px; }
-        .nav-links a { text-decoration: none; color: var(--texto-oscuro); font-weight: 500; font-size: 1rem; padding: 6px 12px; transition: all 0.2s; border-radius: 4px; }
-        .nav-links a:hover, .nav-links a.active { color: var(--verde-malaquita); background-color: rgba(22, 122, 103, 0.05); }
+        .nav-links a { text-decoration: none; color: var(--texto-oscuro); font-weight: 500; font-size: 1rem; padding: 6px 12px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--color-principal); background-color: rgba(42, 68, 94, 0.08); border-radius: 4px; }
 
-        /* BANNER */
-        .banner-container {
-            width: 100%; max-width: 1200px; margin: 30px auto; border-radius: 12px; overflow: hidden;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.05); background-color: #e2e8f0; border: 1px solid rgba(22, 122, 103, 0.15);
-        }
-        .banner-placeholder { padding: 50px 20px; text-align: center; }
+        .banner-container { width: 100%; max-width: 1200px; margin: 30px auto; border-radius: 15px; overflow: hidden; background-color: #cedae5; border: 3px solid var(--oro-viejo); }
+        .banner-placeholder { padding: 60px 20px; text-align: center; }
+        .banner-placeholder h1 { font-family: 'Cinzel', serif; color: var(--color-principal); }
+        .banner-placeholder p { color: var(--rosa-pompeya); font-weight: 700; letter-spacing: 1px; }
 
-        .main-container { max-width: 900px; margin: 0 auto; padding: 10px 20px 60px 20px; }
+        .main-container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        section { margin-bottom: 40px; background: var(--marfil-suave); padding: 45px; border-radius: 12px; border: 1px solid rgba(197, 160, 89, 0.2); border-top: 6px solid var(--color-principal); }
+        section h2 { font-family: 'Cinzel', serif; color: var(--color-principal); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--crema-antiguo); }
+
+        .repo-notice { background: rgba(197, 160, 89, 0.12); border-left: 5px solid var(--oro-viejo); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px; font-size: 1rem; }
         
-        section { margin-bottom: 35px; background: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.02); border-left: 6px solid var(--verde-malaquita); }
-        section h2 { font-size: 1.6rem; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #f0f2f5; }
+        .file-list { margin-top: 20px; }
+        .file-item { display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #fafafa; border: 1px solid #e9e3d8; border-radius: 6px; margin-bottom: 12px; }
+        .file-info { display: flex; align-items: center; gap: 15px; }
+        .file-info i { font-size: 1.8rem; color: var(--rosa-pompeya); }
+        .file-title { font-weight: 500; color: var(--texto-oscuro); }
+        .file-meta { font-size: 0.85rem; color: #777; }
+        .btn-download { background-color: var(--color-principal); color: white; padding: 8px 16px; text-decoration: none; border-radius: 4px; font-size: 0.9rem; font-weight: 500; transition: background 0.2s; }
+        .btn-download:hover { background-color: var(--rosa-pompeya); }
 
-        /* LISTADO DE DESCARGAS */
-        .download-list {
-            list-style: none;
-            margin-top: 15px;
-        }
+        /* Espaciado extra de aire solicitado */
+        .global-contact-bar { background-color: #eee6d8; text-align: center; padding: 20px; margin: 60px 0 30px 0; border-top: 1px dashed var(--oro-viejo); border-bottom: 1px dashed var(--oro-viejo); font-size: 1rem; }
+        .global-contact-bar a { color: var(--rosa-pompeya); font-weight: 700; text-decoration: none; }
 
-        .download-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            border-bottom: 1px solid #e2e8f0;
-            transition: background 0.2s;
-        }
-
-        .download-item:hover {
-            background-color: rgba(22, 122, 103, 0.02);
-        }
-
-        .file-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .file-info i {
-            font-size: 1.4rem;
-            color: var(--verde-malaquita);
-        }
-
-        .file-name {
-            font-weight: 500;
-            color: var(--texto-oscuro);
-        }
-
-        .file-meta {
-            font-size: 0.85rem;
-            color: #64748b;
-            display: block;
-        }
-
-        .btn-download {
-            color: var(--terracota);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            border-radius: 4px;
-            transition: all 0.2s;
-        }
-
-        .btn-download:hover {
-            color: var(--verde-profundo);
-            background-color: rgba(198, 106, 70, 0.05);
-        }
-
-        /* FOOTER */
-        footer { background-color: var(--verde-profundo); color: #ffffff; text-align: center; padding: 45px 20px; margin-top: 60px; border-top: 4px solid var(--lineas-oro); }
+        footer { background-color: var(--texto-oscuro); color: var(--crema-antiguo); text-align: center; padding: 40px 20px; border-top: 5px solid var(--oro-viejo); }
+        .share-text { font-size: 1.1rem; font-weight: 500; color: var(--crema-antiguo); margin-bottom: 12px; }
+        .share-buttons { margin-bottom: 30px; }
+        .share-buttons a { color: var(--crema-antiguo); margin: 0 12px; font-size: 1.4rem; }
+        .credits-text { font-size: 0.8rem; color: #a09592; letter-spacing: 0.5px; }
     </style>
 </head>
 <body>
 
+    <div class="top-bar">
+        <span>Nuestras redes:</span>
+        <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="#"><i class="fab fa-whatsapp"></i> Canal de WhatsApp</a>
+        <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+    </div>
+
     <nav>
-        <div class="nav-logo">X CONGRESO 2026</div>
+        <div class="nav-logo">SIMPOSIO ESTUDIOS CLÁSICOS 2028</div>
         <ul class="nav-links">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="expositores.html">Expositores</a></li>
@@ -137,56 +88,57 @@
 
     <div class="banner-container">
         <div class="banner-placeholder">
-            <h1>REPOSITORIO ACADÉMICO</h1>
-            <p style="color: var(--terracota); font-weight: 700; letter-spacing: 0.5px;">DOCUMENTOS, MEMORIAS Y MATERIAL DESCARGABLE</p>
+            <h1>Repositorio digital</h1>
+            <p>ACCESO A DOCUMENTACIÓN PERMANENTE Y CIRCULARES</p>
         </div>
     </div>
 
     <div class="main-container">
-
-        <!-- SECCIÓN 1: MEMORIAS -->
         <section>
-            <h2>Actas y Memorias Anteriores</h2>
-            <p>Acceso abierto a las recopilaciones de investigaciones y ponencias aprobadas en las ediciones previas de nuestro encuentro.</p>
-            
-            <ul class="download-list">
-                <li class="download-item">
+            <h2>Descarga de materiales generales</h2>
+            <div class="repo-notice">
+                <i class="fas fa-info-circle"></i> <strong>Nota aclaratoria:</strong> Las ponencias particulares y el material de lectura de cada mesa deben descargarse directamente desde la pestaña de <a href="programa.html" style="color:var(--rosa-pompeya); font-weight:700; text-decoration:none;">Programa</a> en su bloque horario asignado. Este repositorio está destinado únicamente a la documentación general regulatoria.
+            </div>
+
+            <div class="file-list">
+                <div class="file-item">
                     <div class="file-info">
-                        <i class="fa-solid fa-file-pdf"></i>
+                        <i class="fas fa-file-pdf"></i>
                         <div>
-                            <span class="file-name">Actas completas del IX Congreso Internacional</span>
-                            <span class="file-meta">PDF (14.2 MB) • Edición 2024</span>
+                            <div class="file-title">Primera circular informativa - Simposio 2028</div>
+                            <div class="file-meta">PDF / 1.2 MB — Plazos generales de presentación de resúmenes.</div>
                         </div>
                     </div>
-                    <!-- Cuando subas tus PDFs reales a GitHub, pondrás su nombre en el href -->
-                    <a href="#" class="btn-download"><i class="fa-solid fa-cloud-arrow-down"></i> Descargar</a>
-                </li>
-            </ul>
-        </section>
-
-        <!-- SECCIÓN 2: PLANTILLAS -->
-        <section>
-            <h2>Recursos para Ponentes</h2>
-            <p>Descarga los formatos obligatorios y las guías de estilo requeridas por el comité editorial para la presentación de resúmenes y artículos finales.</p>
-            
-            <ul class="download-list">
-                <li class="download-item">
+                    <a href="#" class="btn-download"><i class="fas fa-arrow-down"></i> Descargar</a>
+                </div>
+                <div class="file-item">
                     <div class="file-info">
-                        <i class="fa-solid fa-file-word"></i>
+                        <i class="fas fa-file-pdf"></i>
                         <div>
-                            <span class="file-name">Plantilla oficial para presentación de resúmenes</span>
-                            <span class="file-meta">DOCX (1.5 MB) • Requisito obligatorio</span>
+                            <div class="file-title">Segunda circular - Normas de formato de ponencias</div>
+                            <div class="file-meta">PDF / 850 KB — Requisitos tipográficos oficiales.</div>
                         </div>
                     </div>
-                    <a href="#" class="btn-download"><i class="fa-solid fa-cloud-arrow-down"></i> Descargar</a>
-                </li>
-            </ul>
+                    <a href="#" class="btn-download"><i class="fas fa-arrow-down"></i> Descargar</a>
+                </div>
+            </div>
         </section>
+    </div>
 
+    <div class="global-contact-bar">
+        Para mayor información, podés escribirnos a: <a href="mailto:estoa.sur@gmail.com">estoa.sur@gmail.com</a>
     </div>
 
     <footer>
-        <p>&copy; 2026 X Congreso Internacional. Desarrollado por <strong>Meraki Creative</strong>.</p>
+        <p class="share-text">Te animamos a compartir esta información en tus redes:</p>
+        <div class="share-buttons">
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p class="credits-text">&copy; 2028 Comité Organizador. Desarrollado por Meraki Creative.</p>
     </footer>
 
 </body>
