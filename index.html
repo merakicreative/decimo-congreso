@@ -30,7 +30,7 @@
             line-height: 1.6; 
         }
 
-        /* BARRA SUPERIOR */
+        /* BARRA SUPERIOR REDEFINIDA */
         .top-bar { 
             background-color: var(--azul-academico); 
             color: rgba(255, 255, 255, 0.85); 
@@ -46,7 +46,7 @@
         .top-bar a { color: rgba(255, 255, 255, 0.85); text-decoration: none; display: flex; align-items: center; gap: 4px; }
         .top-bar a:hover { color: var(--oro-atenas); }
 
-        /* NAVEGACIÓN ELEGANTE */
+        /* NAVEGACIÓN PROFESIONAL */
         nav { 
             background: var(--superficie-pura); 
             border-bottom: 1px solid rgba(0, 0, 0, 0.06); 
@@ -82,7 +82,7 @@
 
         .main-container { max-width: 1050px; margin: 0 auto; padding: 30px 20px; }
         
-        /* BANNER PRINCIPAL REFORMADO (Más alto para que no se pierdan imágenes) */
+        /* COCHE CINEMATOGRÁFICO DE BANNER (Más alto, 540px y ciclo lento) */
         .carousel-wrapper { 
             width: 100%; 
             margin: 0 auto 40px auto; 
@@ -92,28 +92,51 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.06); 
             border: 1px solid var(--borde-fino); 
         }
-        /* Altura subida a 480px y velocidad ralentizada (80s) */
-        .slider { display: flex; width: 1600%; height: 480px; animation: trailerVisual 80s infinite ease-in-out; }
-        .slide { width: 6.25%; height: 100%; position: relative; }
         
-        /* object-position: top obliga a encuadrar la parte superior de las obras de arte */
-        .slide img { width: 100%; height: 100%; object-fit: cover; object-position: top; filter: brightness(0.5); display: block; }
+        /* Animación lenta de 96 segundos para recorrer las 16 imágenes con pausa */
+        .slider { display: flex; width: 1600%; height: 540px; animation: trailerVisual 96s infinite ease-in-out; }
+        .slide { width: 6.25%; height: 100%; position: relative; overflow: hidden; }
         
+        /* Animación: El fondo entra sutilmente desde la izquierda */
+        .slide img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            object-position: top; 
+            filter: brightness(0.45); 
+            display: block;
+            animation: paneoIzquierda 6s infinite alternate ease-in-out;
+        }
+        
+        /* Animación: Los textos entran flotando desde la derecha */
         .slide-caption { 
             position: absolute; 
             bottom: 0; left: 0; right: 0; 
             background: linear-gradient(transparent, rgba(0, 0, 0, 0.85)); 
-            padding: 40px; 
+            padding: 45px; 
             text-align: left; 
+            animation: entradaDerecha 1s ease-out;
         }
         .slide-caption h3 { 
             font-family: 'Cinzel', serif; 
-            font-size: 1.55rem; 
+            font-size: 1.65rem; 
             margin-bottom: 6px; 
             color: var(--oro-atenas); 
+            letter-spacing: 0.5px;
         }
-        .slide-caption p { font-size: 0.95rem; color: #f8fafc; opacity: 0.9; }
+        .slide-caption p { font-size: 0.98rem; color: #f8fafc; opacity: 0.9; max-width: 800px; }
 
+        /* Keyframes Efectos Cruzados */
+        @keyframes paneoIzquierda {
+            0% { transform: scale(1.03) translateX(-10px); }
+            100% { transform: scale(1.03) translateX(0px); }
+        }
+        @keyframes entradaDerecha {
+            0% { opacity: 0; transform: translateX(25px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Transición del carrusel principal */
         @keyframes trailerVisual {
             0%, 4.5% { transform: translateX(0); }
             6.25%, 10.75% { transform: translateX(-6.25%); }
@@ -154,29 +177,6 @@
         }
         section p { color: var(--texto-principal); font-size: 0.98rem; margin-bottom: 18px; text-align: justify; }
 
-        /* REPRODUCTOR DE AUDIO ELEGANTE E INDESTRUCTIBLE */
-        .audio-wrapper {
-            margin-top: 30px;
-            background: var(--blanco-marfil);
-            padding: 15px 20px;
-            border-radius: 6px;
-            border: 1px solid var(--borde-fino);
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .audio-wrapper label {
-            font-family: 'Cinzel', serif;
-            font-size: 0.85rem;
-            color: var(--rojo-pompeya-delicado);
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-        .audio-wrapper audio {
-            width: 100%;
-            height: 32px;
-        }
-
         /* CUADRÍCULA DE EJES */
         .highlights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin: 30px 0; }
         .highlight-item { 
@@ -204,7 +204,21 @@
             transform: translateY(-1px); 
         }
 
-        /* NUEVO MINI-CARRUSEL AUTOMÁTICO PARA LA UNR */
+        /* REPRODUCTOR INTEGRADO SEGURO - EL CANTO DE AQUILES */
+        .video-container { 
+            position: relative; 
+            padding-bottom: 56.25%; 
+            height: 0; 
+            overflow: hidden; 
+            background: #111; 
+            border-radius: 6px; 
+            margin-top: 35px; 
+            border: 1px solid var(--borde-fino);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+        /* SEDE: DOS IMÁGENES CÍCLICAS LENTAS */
         .sede-container { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 35px; align-items: center; }
         @media (max-width: 768px) { .sede-container { grid-template-columns: 1fr; } }
         
@@ -212,18 +226,18 @@
             border-radius: 6px; 
             overflow: hidden; 
             border: 1px solid var(--borde-fino); 
-            height: 300px; 
+            height: 320px; 
             position: relative;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
+        /* Ancho de 200% para albergar exactamente 2 imágenes */
         .unr-slider {
             display: flex;
-            width: 300%;
+            width: 200%;
             height: 100%;
-            animation: unrVisual 18s infinite ease-in-out;
+            animation: unrVisualLento 14s infinite ease-in-out;
         }
         .unr-slide {
-            width: 33.333%;
+            width: 50%;
             height: 100%;
         }
         .unr-slide img {
@@ -233,11 +247,10 @@
             display: block;
         }
 
-        /* Animación cíclica lenta para recorrer tus 3 fotos de la UNR */
-        @keyframes unrVisual {
-            0%, 28% { transform: translateX(0); }
-            33%, 61% { transform: translateX(-33.333%); }
-            66%, 94% { transform: translateX(-66.666%); }
+        /* Animación ultra pausada para alternar entre las 2 fotos reales */
+        @keyframes unrVisualLento {
+            0%, 45% { transform: translateX(0); }
+            50%, 95% { transform: translateX(-50%); }
             100% { transform: translateX(0); }
         }
 
@@ -283,9 +296,9 @@
         <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
     </div>
 
-    <!-- MENÚ -->
+    <!-- MENÚ CORREGIDO -->
     <nav>
-        <div class="nav-logo">SIMPOSIO ESTUDIOS CLÁSICES 2028</div>
+        <div class="nav-logo">SIMPOSIO ESTUDIOS CLÁSICOS 2028</div>
         <ul class="nav-links">
             <li><a href="index.html" class="active">Inicio</a></li>
             <li><a href="expositores.html">Expositores</a></li>
@@ -296,7 +309,7 @@
         </ul>
     </nav>
 
-    <!-- TRÁILER VISUAL PRINCIPAL (Más alto y pausado) -->
+    <!-- BANNERS PRINCIPALES ANIMADOS EN EFECTO CRUZADO LENTO -->
     <div class="carousel-wrapper">
         <div class="slider">
             
@@ -433,14 +446,13 @@
                 <a href="programa.html" class="btn-action">Ver cronograma de actividades <i class="fas fa-calendar-alt"></i></a>
             </div>
 
-            <!-- REPRODUCTOR DE AUDIO PREMIUM INTEGRADO (Adiós fallas de YouTube) -->
-            <div class="audio-wrapper">
-                <label><i class="fa-solid fa-gavin"></i> AMBIENTACIÓN ÉPICA DEL SIMPOSIO</label>
-                <audio controls loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+            <!-- REPRODUCTOR DE VIDEO REINICIADO CON TEMÁTICA DEL CANTO DE AQUILES -->
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/UP7AVA__Fdw" title="La Canción de Aquiles - Ambientación Épica Homérica" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </section>
 
-        <!-- SECCIÓN SEDE CON CARRUSEL DE TUS 3 FOTOS REALES -->
+        <!-- SECCIÓN SEDE OPTIMIZADA (SÓLO 2 FOTOS REALES Y LENTAS) -->
         <section>
             <h2>La Sede: Universidad Nacional de Rosario</h2>
             <div class="sede-container">
@@ -449,12 +461,11 @@
                     <p style="margin-top: 15px;">Este distinguido espacio, reconocido como patrimonio arquitectónico invaluable de la ciudad, destaca por su imponente estructura de principios del siglo pasado. Sus galerías concéntricas, techos vidriados que bañan de luz natural los patios comunes y detalles ornamentales de corte clásico, configuran la atmósfera perfecta para albergar los altos debates, las conferencias magistrales y el enriquecedor intercambio intelectual de nuestro simposio.</p>
                 </div>
                 
-                <!-- MINI CARRUSEL DE LAS 3 FOTOS DE LA UNR -->
+                <!-- MINI CARRUSEL PAUSADO EXCLUSIVO PARA DOS FOTOS -->
                 <div class="unr-carousel-box">
                     <div class="unr-slider">
-                        <div class="unr-slide"><img src="unr/unr-1.jpg" alt="UNR Sede Claustros"></div>
-                        <div class="unr-slide"><img src="unr/unr-2.jpg" alt="UNR Fachada Histórica"></div>
-                        <div class="unr-slide"><img src="unr/unr-3.jpg" alt="UNR Patio Central"></div>
+                        <div class="unr-slide"><img src="unr/unr-1.jpg" alt="UNR Fachada Claustros"></div>
+                        <div class="unr-slide"><img src="unr/unr-2.jpg" alt="UNR Detalles Interiores"></div>
                     </div>
                 </div>
             </div>
