@@ -3,134 +3,393 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repositorio Documental - Simposio 2028</title>
+    <title>Repositorio Académico - Simposio Internacional de Estudios Clásicos 2028</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         :root {
-            --color-principal: #2a445e;
-            --rosa-pompeya: #b84a39;
-            --verde-laurel: #4a6b52;
-            --crema-antiguo: #f5f0e6;
-            --marfil-suave: #ffffff;
-            --texto-oscuro: #2c2523;
-            --oro-viejo: #c5a059;
+            --blanco-marfil: #fcfbfa;
+            --superficie-pura: #ffffff;
+            --azul-academico: #1a2e40;
+            --rojo-pompeya-delicado: #a33829;
+            --oro-atenas: #b59353;
+            --texto-principal: #2d3135;
+            --texto-suave: #64748b;
+            --borde-fino: rgba(181, 147, 83, 0.25);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Roboto', sans-serif; color: var(--texto-oscuro); background-color: var(--crema-antiguo); line-height: 1.8; }
-
-        /* Zócalo superior en Verde Laurel para dinamismo visual */
-        .top-bar { background-color: var(--verde-laurel); color: var(--marfil-suave); padding: 8px 20px; display: flex; justify-content: flex-end; gap: 15px; font-size: 0.85rem; font-weight: 500; }
-        .top-bar a { color: var(--marfil-suave); text-decoration: none; }
-
-        nav { background-color: var(--marfil-suave); border-bottom: 4px solid var(--color-principal); padding: 1.2rem 2rem; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; }
-        .nav-logo { font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.1rem; color: var(--color-principal); }
-        .nav-links { list-style: none; display: flex; gap: 20px; }
-        .nav-links a { text-decoration: none; color: var(--texto-oscuro); font-weight: 500; font-size: 1rem; padding: 6px 12px; }
-        .nav-links a:hover, .nav-links a.active { color: var(--color-principal); background-color: rgba(42, 68, 94, 0.08); border-radius: 4px; }
-
-        .banner-container { width: 100%; max-width: 1200px; margin: 30px auto; border-radius: 15px; overflow: hidden; background-color: #cedae5; border: 3px solid var(--oro-viejo); }
-        .banner-placeholder { padding: 60px 20px; text-align: center; }
-        .banner-placeholder h1 { font-family: 'Cinzel', serif; color: var(--color-principal); }
-        .banner-placeholder p { color: var(--rosa-pompeya); font-weight: 700; letter-spacing: 1px; }
-
-        .main-container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-        section { margin-bottom: 40px; background: var(--marfil-suave); padding: 45px; border-radius: 12px; border: 1px solid rgba(197, 160, 89, 0.2); border-top: 6px solid var(--color-principal); }
-        section h2 { font-family: 'Cinzel', serif; color: var(--color-principal); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--crema-antiguo); }
-
-        .repo-notice { background: rgba(197, 160, 89, 0.12); border-left: 5px solid var(--oro-viejo); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px; font-size: 1rem; }
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.25s ease; }
         
-        .file-list { margin-top: 20px; }
-        .file-item { display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #fafafa; border: 1px solid #e9e3d8; border-radius: 6px; margin-bottom: 12px; }
-        .file-info { display: flex; align-items: center; gap: 15px; }
-        .file-info i { font-size: 1.8rem; color: var(--rosa-pompeya); }
-        .file-title { font-weight: 500; color: var(--texto-oscuro); }
-        .file-meta { font-size: 0.85rem; color: #777; }
-        .btn-download { background-color: var(--color-principal); color: white; padding: 8px 16px; text-decoration: none; border-radius: 4px; font-size: 0.9rem; font-weight: 500; transition: background 0.2s; }
-        .btn-download:hover { background-color: var(--rosa-pompeya); }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            color: var(--texto-principal); 
+            background-color: var(--blanco-marfil);
+            line-height: 1.6; 
+        }
 
-        /* Espaciado extra de aire solicitado */
-        .global-contact-bar { background-color: #eee6d8; text-align: center; padding: 20px; margin: 60px 0 30px 0; border-top: 1px dashed var(--oro-viejo); border-bottom: 1px dashed var(--oro-viejo); font-size: 1rem; }
-        .global-contact-bar a { color: var(--rosa-pompeya); font-weight: 700; text-decoration: none; }
+        /* BARRA SUPERIOR */
+        .top-bar { 
+            background-color: var(--azul-academico); 
+            color: rgba(255, 255, 255, 0.85); 
+            padding: 6px 24px; 
+            display: flex; 
+            justify-content: flex-end; 
+            gap: 18px; 
+            font-size: 0.78rem; 
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--oro-atenas);
+        }
+        .top-bar a { color: rgba(255, 255, 255, 0.85); text-decoration: none; display: flex; align-items: center; gap: 4px; }
+        .top-bar a:hover { color: var(--oro-atenas); }
 
-        footer { background-color: var(--texto-oscuro); color: var(--crema-antiguo); text-align: center; padding: 40px 20px; border-top: 5px solid var(--oro-viejo); }
-        .share-text { font-size: 1.1rem; font-weight: 500; color: var(--crema-antiguo); margin-bottom: 12px; }
-        .share-buttons { margin-bottom: 30px; }
-        .share-buttons a { color: var(--crema-antiguo); margin: 0 12px; font-size: 1.4rem; }
-        .credits-text { font-size: 0.8rem; color: #a09592; letter-spacing: 0.5px; }
+        /* NAVEGACIÓN ACTUALIZADA CON "CIRCULARES" */
+        nav { 
+            background: var(--superficie-pura); 
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06); 
+            padding: 1rem 2rem; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        .nav-logo { 
+            font-family: 'Cinzel', serif; 
+            font-weight: 800; 
+            font-size: 1.15rem; 
+            color: var(--azul-academico); 
+            letter-spacing: 1px;
+        }
+        .nav-links { list-style: none; display: flex; gap: 6px; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--texto-suave); 
+            font-weight: 500; 
+            font-size: 0.88rem; 
+            padding: 8px 12px; 
+            border-radius: 4px;
+        }
+        .nav-links a:hover, .nav-links a.active { 
+            color: var(--rojo-pompeya-delicado); 
+            background: rgba(163, 56, 41, 0.04); 
+        }
+
+        .main-container { max-width: 1050px; margin: 0 auto; padding: 40px 20px; }
+
+        /* ENCABEZADO */
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .page-header h1 {
+            font-family: 'Cinzel', serif;
+            color: var(--azul-academico);
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
+        .page-header p {
+            color: var(--texto-suave);
+            font-size: 1.05rem;
+        }
+
+        /* SECCIÓN DE FILTROS Y BÚSQUEDA */
+        .repo-controls {
+            background: var(--superficie-pura);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+        }
+        .search-wrapper {
+            position: relative;
+            width: 100%;
+        }
+        .search-wrapper input {
+            width: 100%;
+            padding: 14px 16px 14px 45px;
+            border: 1px solid rgba(0,0,0,0.12);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            color: var(--texto-principal);
+        }
+        .search-wrapper input:focus {
+            outline: none;
+            border-color: var(--oro-atenas);
+            box-shadow: 0 0 0 3px rgba(181, 147, 83, 0.1);
+        }
+        .search-wrapper i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--texto-suave);
+            font-size: 1.1rem;
+        }
+        .filter-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .filter-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--azul-academico);
+            text-transform: uppercase;
+            margin-right: 8px;
+        }
+        .tag {
+            background: rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.05);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--texto-suave);
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .tag.active, .tag:hover {
+            background: var(--azul-academico);
+            color: white;
+            border-color: var(--azul-academico);
+        }
+
+        /* LISTADO DE MATERIALES */
+        .materials-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .material-card {
+            background: var(--superficie-pura);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 8px;
+            padding: 24px;
+            display: grid;
+            grid-template-columns: 1fr 160px;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.01);
+        }
+        @media (max-width: 600px) {
+            .material-card { grid-template-columns: 1fr; gap: 16px; }
+        }
+        .material-info h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--azul-academico);
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+        .meta-container {
+            display: flex;
+            gap: 16px;
+            font-size: 0.82rem;
+            color: var(--texto-suave);
+            flex-wrap: wrap;
+        }
+        .meta-item { display: flex; align-items: center; gap: 5px; }
+        .meta-item strong { color: var(--oro-atenas); font-weight: 600; text-transform: uppercase; }
+        
+        .area-badge {
+            background: rgba(163, 56, 41, 0.06);
+            color: var(--rojo-pompeya-delicado);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        /* BOTÓN PREMIUM DE DESCARGA */
+        .action-download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: transparent;
+            border: 1px solid var(--rojo-pompeya-delicado);
+            color: var(--rojo-pompeya-delicado);
+            padding: 10px 18px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 4px;
+            text-decoration: none;
+            width: 100%;
+            text-align: center;
+        }
+        .action-download-btn:hover {
+            background: var(--rojo-pompeya-delicado);
+            color: white;
+            box-shadow: 0 4px 10px rgba(163, 56, 41, 0.15);
+        }
+
+        /* MENSAJE DE AVISO REPOSITORIO DINÁMICO */
+        .repo-disclaimer {
+            background: rgba(26, 46, 64, 0.03);
+            border: 1px dashed rgba(26, 46, 64, 0.15);
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 35px;
+            font-size: 0.92rem;
+            color: var(--texto-principal);
+            text-align: center;
+        }
+
+        /* BARRA DE CONTACTO FORMAL */
+        .global-contact-bar { 
+            background: var(--superficie-pura); 
+            text-align: center; 
+            padding: 24px; 
+            border-radius: 6px;
+            margin: 40px 0; 
+            border: 1px solid rgba(0,0,0,0.05); 
+            font-size: 0.98rem;
+            color: var(--texto-principal);
+        }
+        .global-contact-bar a { color: var(--rojo-pompeya-delicado); font-weight: 600; text-decoration: none; }
+
+        footer { 
+            background-color: var(--azul-academico); 
+            color: rgba(255,255,255,0.7); 
+            text-align: center; 
+            padding: 40px 20px; 
+            border-top: 2px solid var(--oro-atenas); 
+            font-size: 0.88rem;
+        }
+        .share-text { font-size: 1rem; font-weight: 600; margin-bottom: 15px; color: var(--oro-atenas); font-family: 'Cinzel', serif; }
+        .share-buttons a { color: rgba(255,255,255,0.7); margin: 0 12px; font-size: 1.3rem; }
+        .share-buttons a:hover { color: var(--oro-atenas); }
     </style>
 </head>
 <body>
 
+    <!-- BARRA SUPERIOR -->
     <div class="top-bar">
-        <span>Nuestras redes:</span>
         <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
         <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
-        <a href="#"><i class="fab fa-whatsapp"></i> Canal de WhatsApp</a>
+        <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
     </div>
 
+    <!-- MENÚ INTEGRADO CON "CIRCULARES" -->
     <nav>
         <div class="nav-logo">SIMPOSIO ESTUDIOS CLÁSICOS 2028</div>
         <ul class="nav-links">
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="expositores.html">Expositores</a></li>
+            <li><a href="expositores.html">Expositores/as</a></li>
             <li><a href="programa.html">Programa</a></li>
-            <li><a href="util.html">Información Útil</a></li>
+            <li><a href="circulares.html">Circulares</a></li>
             <li><a href="repositorio.html" class="active">Repositorio</a></li>
+            <li><a href="util.html">Información Útil</a></li>
             <li><a href="contacto.html">Contacto</a></li>
         </ul>
     </nav>
 
-    <div class="banner-container">
-        <div class="banner-placeholder">
-            <h1>Repositorio digital</h1>
-            <p>ACCESO A DOCUMENTACIÓN PERMANENTE Y CIRCULARES</p>
-        </div>
-    </div>
-
+    <!-- CONTENIDO PRINCIPAL -->
     <div class="main-container">
-        <section>
-            <h2>Descarga de materiales generales</h2>
-            <div class="repo-notice">
-                <i class="fas fa-info-circle"></i> <strong>Nota aclaratoria:</strong> Las ponencias particulares y el material de lectura de cada mesa deben descargarse directamente desde la pestaña de <a href="programa.html" style="color:var(--rosa-pompeya); font-weight:700; text-decoration:none;">Programa</a> en su bloque horario asignado. Este repositorio está destinado únicamente a la documentación general regulatoria.
+        
+        <header class="page-header">
+            <h1>Repositorio Digital</h1>
+            <p>Acceso abierto a materiales pedagógicos, fuentes, resúmenes y ponencias autorizadas por los/as expositores.</p>
+        </header>
+
+        <!-- BUSCADOR Y FILTROS -->
+        <div class="repo-controls">
+            <div class="search-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Buscar por apellido de expositor/a, palabra clave o título de la ponencia...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-label">Filtrar área:</span>
+                <span class="tag active">Todos</span>
+                <span class="tag">Filología & Lingüística</span>
+                <span class="tag">Literatura Griega y Latina</span>
+                <span class="tag">Didáctica de Lenguas Clásicas</span>
+                <span class="tag">Historia e Historiografía</span>
+            </div>
+        </div>
+
+        <!-- LISTA DE MATERIALES -->
+        <div class="materials-list">
+            
+            <!-- Entrada 1 (Salta Real) -->
+            <div class="material-card">
+                <div class="material-info">
+                    <h3>"Dialoguías para la enseñanza inicial del griego clásico"</h3>
+                    <div class="meta-container">
+                        <div class="meta-item"><i class="fas fa-user"></i> <span>Dra. Ivana Chialva (UNL)</span></div>
+                        <div class="meta-item"><i class="fas fa-folder"></i> <span class="area-badge">Didáctica</span></div>
+                        <div class="meta-item"><i class="fas fa-file-alt"></i> <span>PDF (Texto y Guías)</span></div>
+                    </div>
+                </div>
+                <div>
+                    <a href="#" class="action-download-btn"><i class="fas fa-download"></i> Bajar Archivo</a>
+                </div>
             </div>
 
-            <div class="file-list">
-                <div class="file-item">
-                    <div class="file-info">
-                        <i class="fas fa-file-pdf"></i>
-                        <div>
-                            <div class="file-title">Primera circular informativa - Simposio 2028</div>
-                            <div class="file-meta">PDF / 1.2 MB — Plazos generales de presentación de resúmenes.</div>
-                        </div>
+            <!-- Entrada 2 (Salta Real) -->
+            <div class="material-card">
+                <div class="material-info">
+                    <h3>"Recorriendo Esopo. Lecciones de griego. Una selección de fábulas esópicas con explicaciones gramaticales"</h3>
+                    <div class="meta-container">
+                        <div class="meta-item"><i class="fas fa-user"></i> <span>Prof. María Inés Moretti (UNLP)</span></div>
+                        <div class="meta-item"><i class="fas fa-folder"></i> <span class="area-badge">Filología & Lingüística</span></div>
+                        <div class="meta-item"><i class="fas fa-file-powerpoint"></i> <span>Presentación Diapositivas</span></div>
                     </div>
-                    <a href="#" class="btn-download"><i class="fas fa-arrow-down"></i> Descargar</a>
                 </div>
-                <div class="file-item">
-                    <div class="file-info">
-                        <i class="fas fa-file-pdf"></i>
-                        <div>
-                            <div class="file-title">Segunda circular - Normas de formato de ponencias</div>
-                            <div class="file-meta">PDF / 850 KB — Requisitos tipográficos oficiales.</div>
-                        </div>
-                    </div>
-                    <a href="#" class="btn-download"><i class="fas fa-arrow-down"></i> Descargar</a>
+                <div>
+                    <a href="#" class="action-download-btn"><i class="fas fa-download"></i> Bajar Archivo</a>
                 </div>
             </div>
-        </section>
+
+            <!-- Entrada 3 (Ejemplo Formal) -->
+            <div class="material-card">
+                <div class="material-info">
+                    <h3>"Análisis métrico y variantes críticas en las fuentes primarias homéricas"</h3>
+                    <div class="meta-container">
+                        <div class="meta-item"><i class="fas fa-user"></i> <span>Dr. Alejandro S. Martínez (UBA)</span></div>
+                        <div class="meta-item"><i class="fas fa-folder"></i> <span class="area-badge">Literatura Griega</span></div>
+                        <div class="meta-item"><i class="fas fa-file-archive"></i> <span>Fuentes y Anexos (.ZIP)</span></div>
+                    </div>
+                </div>
+                <div>
+                    <a href="#" class="action-download-btn"><i class="fas fa-download"></i> Bajar Archivo</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- NOTA INFORMATIVA SENSATA -->
+        <div class="repo-disclaimer">
+            <i class="fas fa-info-circle" style="color: var(--oro-atenas); margin-right: 6px;"></i>
+            <strong>Nota para Expositores y Expositoras:</strong> Este repositorio se actualiza progresivamente a medida que los comités de mesa reciben los soportes autorizados. Si desea que su material figure en este listado oficial, por favor remítalo vía correo institucional.
+        </div>
+
     </div>
 
+    <!-- CONTACTO FORMAL COMPARTIDO -->
     <div class="global-contact-bar">
-        Para mayor información, podés escribirnos a: <a href="mailto:estoa.sur@gmail.com">estoa.sur@gmail.com</a>
+        Ante alguna consulta sobre programa u otros temas, escríbanos al correo: <a href="mailto:estoa.sur@gmail.com">estoa.sur@gmail.com</a>
     </div>
 
+    <!-- PIE DE PÁGINA -->
     <footer>
-        <p class="share-text">Te animamos a compartir esta información en tus redes:</p>
+        <p class="share-text">Te animamos a compartir esta info en tus redes:</p>
         <div class="share-buttons">
             <a href="#"><i class="fab fa-x-twitter"></i></a>
             <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -138,7 +397,7 @@
             <a href="#"><i class="fab fa-whatsapp"></i></a>
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
-        <p class="credits-text">&copy; 2028 Comité Organizador. Desarrollado por Meraki Creative.</p>
+        <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 25px;">&copy; 2028 Comité Organizador. Desarrollado con elegancia por Meraki Creative.</p>
     </footer>
 
 </body>
