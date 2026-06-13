@@ -82,7 +82,7 @@
 
         .main-container { max-width: 1050px; margin: 0 auto; padding: 40px 20px; }
 
-        /* ENCABEZADO DE PÁGINA SESTENTADO */
+        /* ENCABEZADO CORREGIDO */
         .page-header {
             text-align: center;
             margin-bottom: 50px;
@@ -93,87 +93,99 @@
             font-family: 'Cinzel', serif;
             color: var(--azul-academico);
             font-size: 2.2rem;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         .page-header p {
             color: var(--texto-suave);
             font-size: 1.05rem;
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
+        }
+
+        /* TITULARES DE CATEGORÍAS (Estilo Bariloche) */
+        .categoria-section {
+            margin-bottom: 45px;
+        }
+        .categoria-titulo {
+            font-family: 'Cinzel', serif;
+            color: var(--rojo-pompeya-delicado);
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--borde-fino);
+            letter-spacing: 0.5px;
         }
 
         /* CUADRÍCULA EDITORIAL DE EXPOSITORES */
         .expositores-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 25px;
+        }
+        @media(max-width: 550px) {
+            .expositores-grid { grid-template-columns: 1fr; }
         }
 
+        /* TARJETA CON MAQUETA DE FOTO (AVATAR) */
         .expositor-card {
             background: var(--superficie-pura);
             border: 1px solid rgba(0,0,0,0.06);
-            border-top: 4px solid var(--azul-academico);
             border-radius: 6px;
-            padding: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.01);
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            gap: 20px;
+            align-items: center;
         }
         
         .expositor-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(181, 147, 83, 0.08);
-            border-top-color: var(--rojo-pompeya-delicado);
+            border-color: var(--oro-atenas);
+            box-shadow: 0 4px 15px rgba(26, 46, 64, 0.04);
+        }
+
+        /* CONTENEDOR FOTO / AVATAR REEMPLAZABLE */
+        .expositor-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: var(--blanco-marfil);
+            border: 2px solid var(--borde-fino);
+            flex-shrink: 0;
+        }
+
+        .expositor-info {
+            flex-grow: 1;
         }
 
         .expositor-info h3 {
             font-family: 'Cinzel', serif;
             color: var(--azul-academico);
-            font-size: 1.25rem;
-            margin-bottom: 4px;
+            font-size: 1.15rem;
+            margin-bottom: 2px;
         }
 
         .expositor-institucion {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--oro-atenas);
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 15px;
+            letter-spacing: 0.3px;
+            margin-bottom: 8px;
         }
 
         .expositor-ponencia {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--texto-principal);
-            font-style: italic;
-            margin-bottom: 20px;
-            position: relative;
-            padding-left: 15px;
-            border-left: 2px solid var(--borde-fino);
+            line-height: 1.4;
         }
-
-        /* BOTÓN DE DESCARGA RESUMEN */
-        .btn-abstract {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: transparent;
-            color: var(--rojo-pompeya-delicado);
-            border: 1px solid var(--rojo-pompeya-delicado);
-            text-decoration: none;
-            padding: 8px 16px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            border-radius: 4px;
-            width: 100%;
-        }
-
-        .btn-abstract:hover {
-            background: var(--rojo-pompeya-delicado);
-            color: white;
+        .expositor-ponencia span {
+            font-weight: 500;
+            color: var(--texto-suave);
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 2px;
         }
 
         /* BARRA DE CONTACTO */
@@ -235,91 +247,97 @@
     <div class="main-container">
         
         <header class="page-header">
-            <h1>Plenarios y Expositores</h1>
-            <p>Conocé a los destacados especialistas nacionales e internacionales que enriquecerán nuestro Simposio con sus últimas investigaciones y debates epistemológicos.</p>
+            <h1>Expositores y Temáticas</h1>
+            <p>Conocé a los profesores, doctores, especialistas y estudiantes nacionales e internacionales que enriquecerán nuestro Simposio compartiendo sus investigaciones en curso.</p>
         </header>
 
-        <main class="expositores-grid">
+        <!-- SECCIÓN: DOCENTES / INVESTIGADORES -->
+        <section class="categoria-section">
+            <h2 class="categoria-titulo">Expositores Docentes e Investigadores</h2>
             
-            <!-- EXPOSITOR 1 -->
-            <div class="expositor-card">
-                <div class="expositor-info">
-                    <h3>Dr. Alejandro S. Martínez</h3>
-                    <div class="expositor-institucion">Universidad de Buenos Aires (UBA)</div>
-                    <p class="expositor-ponencia">"Ecdótica y variantes críticas en la tradición manuscrita de la Ilíada homérica."</p>
+            <div class="expositores-grid">
+                <!-- Expositor 1 -->
+                <div class="expositor-card">
+                    <!-- Podés cambiar este src por "fotos/apellido.jpg" cuando te los manden -->
+                    <img src="https://picsum.photos/id/64/150/150" alt="Expositor" class="expositor-avatar">
+                    <div class="expositor-info">
+                        <h3>Dr. Alejandro S. Martínez</h3>
+                        <div class="expositor-institucion">Universidad de Buenos Aires (UBA)</div>
+                        <p class="expositor-ponencia"><span>Tema:</span> "Ecdótica y variantes críticas en la tradición manuscrita de la Ilíada homérica."</p>
+                    </div>
                 </div>
-                <a href="repositorio/abstract-martinez.pdf" class="btn-abstract" target="_blank">
-                    <i class="fas fa-file-pdf"></i> Descargar Resumen
-                </a>
-            </div>
 
-            <!-- EXPOSITOR 2 -->
-            <div class="expositor-card">
-                <div class="expositor-info">
-                    <h3>Dra. Helena Ribeiro</h3>
-                    <div class="expositor-institucion">Universidade de Coimbra</div>
-                    <p class="expositor-ponencia">"Papirología del siglo XXI: Recuperación digital de fragmentos poéticos helenísticos."</p>
+                <!-- Expositor 2 -->
+                <div class="expositor-card">
+                    <img src="https://picsum.photos/id/91/150/150" alt="Expositor" class="expositor-avatar">
+                    <div class="expositor-info">
+                        <h3>Dra. Helena Ribeiro</h3>
+                        <div class="expositor-institucion">Universidade de Coimbra</div>
+                        <p class="expositor-ponencia"><span>Tema:</span> "Papirología del siglo XXI: Recuperación digital de fragmentos poéticos helenísticos."</p>
+                    </div>
                 </div>
-                <a href="repositorio/abstract-ribeiro.pdf" class="btn-abstract" target="_blank">
-                    <i class="fas fa-file-pdf"></i> Descargar Resumen
-                </a>
             </div>
+        </section>
 
-            <!-- EXPOSITOR 3 -->
-            <div class="expositor-card">
-                <div class="expositor-info">
-                    <h3>Mag. Valeria Rossi</h3>
-                    <div class="expositor-institucion">Universidad Nacional de Rosario (UNR)</div>
-                    <p class="expositor-ponencia">"Relecturas de las metamorfosis ovidianas en la plástica barroca rioplatense."</p>
+        <!-- SECCIÓN: GRADUADOS -->
+        <section class="categoria-section">
+            <h2 class="categoria-titulo">Expositores Graduados</h2>
+            
+            <div class="expositores-grid">
+                <!-- Expositor 3 -->
+                <div class="expositor-card">
+                    <img src="https://picsum.photos/id/338/150/150" alt="Expositor" class="expositor-avatar">
+                    <div class="expositor-info">
+                        <h3>Mag. Valeria Rossi</h3>
+                        <div class="expositor-institucion">Universidad Nacional de Rosario (UNR)</div>
+                        <p class="expositor-ponencia"><span>Tema:</span> "Relecturas de las metamorfosis ovidianas en la plástica barroca rioplatense."</p>
+                    </div>
                 </div>
-                <a href="repositorio/abstract-rossi.pdf" class="btn-abstract" target="_blank">
-                    <i class="fas fa-file-pdf"></i> Descargar Resumen
-                </a>
-            </div>
 
-            <!-- EXPOSITOR 4 -->
-            <div class="expositor-card">
-                <div class="expositor-info">
-                    <h3>Dr. Marcus Dupont</h3>
-                    <div class="expositor-institucion">Sorbonne Université</div>
-                    <p class="expositor-ponencia">"El giro computacional: Redes neuronales aplicadas a la paleografía latina."</p>
+                <!-- Expositor 4 -->
+                <div class="expositor-card">
+                    <img src="https://picsum.photos/id/365/150/150" alt="Expositor" class="expositor-avatar">
+                    <div class="expositor-info">
+                        <h3>Prof. Lucas Di Marco</h3>
+                        <div class="expositor-institucion">Universidad Nacional de Córdoba (UNC)</div>
+                        <p class="expositor-ponencia"><span>Tema:</span> "Elementos trágicos y retórica clásica en las cartas líricas coloniales."</p>
+                    </div>
                 </div>
-                <a href="repositorio/abstract-dupont.pdf" class="btn-abstract" target="_blank">
-                    <i class="fas fa-file-pdf"></i> Descargar Resumen
-                </a>
             </div>
+        </section>
 
-            <!-- EXPOSITOR 5 -->
-            <div class="expositor-card">
-                <div class="expositor-info">
-                    <h3>Dra. Claudia M. Fontana</h3>
-                    <div class="expositor-institucion">Universidad Nacional de Córdoba (UNC)</div>
-                    <p class="expositor-ponencia">"Mito y tragedia: La vigencia del lamento ético en el teatro contemporáneo argentino."</p>
+        <!-- SECCIÓN: ESTUDIANTES -->
+        <section class="categoria-section">
+            <h2 class="categoria-titulo">Expositores Estudiantes</h2>
+            
+            <div class="expositores-grid">
+                <!-- Expositor 5 -->
+                <div class="expositor-card">
+                    <img src="https://picsum.photos/id/566/150/150" alt="Expositor" class="expositor-avatar">
+                    <div class="expositor-info">
+                        <h3>Srita. Florencia Beltrán</h3>
+                        <div class="expositor-institucion">Universidad Nacional de Rosario (UNR)</div>
+                        <p class="expositor-ponencia"><span>Tema:</span> "Aproximaciones estéticas a los catálogos de naves homéricos en el siglo XIX."</p>
+                    </div>
                 </div>
-                <a href="repositorio/abstract-fontana.pdf" class="btn-abstract" target="_blank">
-                    <i class="fas fa-file-pdf"></i> Descargar Resumen
-                </a>
-            </div>
 
-            <!-- EXPOSITOR 6 -->
-            <div class="expositor-card">
-                <div class="expositor-info">
-                    <h3>Dr. Julian Vance</h3>
-                    <div class="expositor-institucion">University of Oxford</div>
-                    <p class="expositor-ponencia">"Arqueología de la memoria monumental: Nuevos hallazgos en el foro de Augusto."</p>
+                <!-- Expositor 6 -->
+                <div class="expositor-card">
+                    <img src="https://picsum.photos/id/447/150/150" alt="Expositor" class="expositor-avatar">
+                    <div class="expositor-info">
+                        <h3>Sr. Tomás E. Gomez</h3>
+                        <div class="expositor-institucion">Universidad Nacional del Litoral (UNL)</div>
+                        <p class="expositor-ponencia"><span>Tema:</span> "La noción de la 'polis' ideal en las lecturas políticas juveniles actuales."</p>
+                    </div>
                 </div>
-                <a href="repositorio/abstract-vance.pdf" class="btn-abstract" target="_blank">
-                    <i class="fas fa-file-pdf"></i> Descargar Resumen
-                </a>
             </div>
-
-        </main>
+        </section>
 
     </div>
 
     <!-- CONTACTO -->
     <div class="global-contact-bar">
-        ¿Sos expositor y necesitás realizar una consulta técnica? Escribinos a: <a href="mailto:estoa.sur@gmail.com">estoa.sur@gmail.com</a>
+        ¿Querés consultar o actualizar los datos de tu presentación? Escribinos a: <a href="mailto:estoa.sur@gmail.com">estoa.sur@gmail.com</a>
     </div>
 
     <!-- PIE DE PÁGINA -->
