@@ -3,84 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Información Útil - Simposio 2028</title>
+    <title>Información Útil - Simposio Internacional de Estudios Clásicos 2028</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         :root {
-            --color-principal: #2a445e; /* Azul Profundo */
-            --rosa-pompeya: #b84a39;
-            --crema-antiguo: #f5f0e6;
-            --marfil-suave: #ffffff;
-            --texto-oscuro: #2c2523;
-            --oro-viejo: #c5a059;
+            --blanco-marfil: #fcfbfa;
+            --superficie-pura: #ffffff;
+            --azul-academico: #1a2e40;
+            --rojo-pompeya-delicado: #a33829;
+            --oro-atenas: #b59353;
+            --texto-principal: #2d3135;
+            --texto-suave: #64748b;
+            --borde-fino: rgba(181, 147, 83, 0.25);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Roboto', sans-serif; color: var(--texto-oscuro); background-color: var(--crema-antiguo); line-height: 1.8; }
-
-        /* Zócalo superior en Azul Profundo para variar */
-        .top-bar { background-color: var(--color-principal); color: var(--marfil-suave); padding: 8px 20px; display: flex; justify-content: flex-end; gap: 15px; font-size: 0.85rem; font-weight: 500; }
-        .top-bar a { color: var(--marfil-suave); text-decoration: none; }
-
-        nav { background-color: var(--marfil-suave); border-bottom: 4px solid var(--color-principal); padding: 1.2rem 2rem; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; }
-        .nav-logo { font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.1rem; color: var(--color-principal); }
-        .nav-links { list-style: none; display: flex; gap: 20px; }
-        .nav-links a { text-decoration: none; color: var(--texto-oscuro); font-weight: 500; font-size: 1rem; padding: 6px 12px; }
-        .nav-links a:hover, .nav-links a.active { color: var(--color-principal); background-color: rgba(42, 68, 94, 0.08); border-radius: 4px; }
-
-        .banner-container { width: 100%; max-width: 1200px; margin: 30px auto; border-radius: 15px; overflow: hidden; background-color: #cedae5; border: 3px solid var(--oro-viejo); }
-        .banner-placeholder { padding: 60px 20px; text-align: center; }
-        .banner-placeholder h1 { font-family: 'Cinzel', serif; color: var(--color-principal); }
-        .banner-placeholder p { color: var(--rosa-pompeya); font-weight: 700; letter-spacing: 1px; }
-
-        .main-container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-        section { margin-bottom: 40px; background: var(--marfil-suave); padding: 45px; border-radius: 12px; border: 1px solid rgba(197, 160, 89, 0.2); border-top: 6px solid var(--color-principal); }
-        section h2 { font-family: 'Cinzel', serif; color: var(--color-principal); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--crema-antiguo); }
-
-        .table-container { margin-top: 20px; overflow-x: auto; }
-        table { width: 100%; border-collapse: collapse; background: #fafafa; border-radius: 8px; overflow: hidden; }
-        th, td { padding: 15px 20px; text-align: left; border-bottom: 1px solid #e9e3d8; }
-        th { background-color: var(--color-principal); color: white; font-weight: 500; font-family: 'Cinzel', serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.25s ease; }
         
-        .badge-categoria { font-weight: 700; color: var(--color-principal); }
-        .costo-valor { font-weight: 700; color: var(--rosa-pompeya); }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            color: var(--texto-principal); 
+            background-color: var(--blanco-marfil);
+            line-height: 1.6; 
+        }
 
-        .logistic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 25px; }
-        @media (max-width: 768px) { .logistic-grid { grid-template-columns: 1fr; } }
-        .logistic-card { background: #fafafa; padding: 25px; border-radius: 8px; border-left: 4px solid var(--oro-viejo); }
-        .logistic-card h3 { font-family: 'Cinzel', serif; font-size: 1.2rem; color: var(--color-principal); margin-bottom: 12px; }
-        .logistic-card ul { list-style-position: inside; padding-left: 5px; margin-bottom: 15px; }
+        /* BARRA SUPERIOR */
+        .top-bar { 
+            background-color: var(--azul-academico); 
+            color: rgba(255, 255, 255, 0.85); 
+            padding: 6px 24px; 
+            display: flex; 
+            justify-content: flex-end; 
+            gap: 18px; 
+            font-size: 0.78rem; 
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--oro-atenas);
+        }
+        .top-bar a { color: rgba(255, 255, 255, 0.85); text-decoration: none; display: flex; align-items: center; gap: 4px; }
+        .top-bar a:hover { color: var(--oro-atenas); }
 
-        /* Espaciado extra de aire solicitado */
-        .global-contact-bar { background-color: #eee6d8; text-align: center; padding: 20px; margin: 60px 0 30px 0; border-top: 1px dashed var(--oro-viejo); border-bottom: 1px dashed var(--oro-viejo); font-size: 1rem; }
-        .global-contact-bar a { color: var(--rosa-pompeya); font-weight: 700; text-decoration: none; }
+        /* NAVEGACIÓN UNIFICADA */
+        nav { 
+            background: var(--superficie-pura); 
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06); 
+            padding: 1rem 2rem; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        .nav-logo { 
+            font-family: 'Cinzel', serif; 
+            font-weight: 800; 
+            font-size: 1.15rem; 
+            color: var(--azul-academico); 
+            letter-spacing: 1px;
+        }
+        .nav-links { list-style: none; display: flex; gap: 8px; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--texto-suave); 
+            font-weight: 500; 
+            font-size: 0.88rem; 
+            padding: 8px 14px; 
+            border-radius: 4px;
+        }
+        .nav-links a:hover, .nav-links a.active { 
+            color: var(--rojo-pompeya-delicado); 
+            background: rgba(163, 56, 41, 0.04); 
+        }
 
-        footer { background-color: var(--texto-oscuro); color: var(--crema-antiguo); text-align: center; padding: 40px 20px; border-top: 5px solid var(--oro-viejo); }
-        .share-text { font-size: 1.1rem; font-weight: 500; color: var(--crema-antiguo); margin-bottom: 12px; }
-        .share-buttons { margin-bottom: 30px; }
-        .share-buttons a { color: var(--crema-antiguo); margin: 0 12px; font-size: 1.4rem; }
-        .credits-text { font-size: 0.8rem; color: #a09592; letter-spacing: 0.5px; }
+        .main-container { max-width: 1050px; margin: 0 auto; padding: 40px 20px; }
+
+        /* ENCABEZADO */
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .page-header h1 {
+            font-family: 'Cinzel', serif;
+            color: var(--azul-academico);
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
+        .page-header p {
+            color: var(--texto-suave);
+            font-size: 1.05rem;
+        }
+
+        /* GRID SECCIONES */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .info-card {
+            background: var(--superficie-pura);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 8px;
+            padding: 35px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.01);
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            color: var(--azul-academico);
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid var(--borde-fino);
+            padding-bottom: 10px;
+        }
+        .section-title i { color: var(--oro-atenas); font-size: 1.2rem; }
+
+        /* TABLAS DE ARANCELES */
+        .aranceles-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        .aranceles-table th, .aranceles-table td {
+            padding: 14px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .aranceles-table th {
+            background-color: rgba(26, 46, 64, 0.02);
+            color: var(--azul-academico);
+            font-weight: 700;
+        }
+        .aranceles-table td.price-col {
+            font-weight: 600;
+            color: var(--rojo-pompeya-delicado);
+            text-align: right;
+        }
+        .aranceles-table th.price-col { text-align: right; }
+
+        .note-box {
+            background: rgba(181, 147, 83, 0.08);
+            border-left: 4px solid var(--oro-atenas);
+            padding: 15px 20px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.92rem;
+            color: var(--texto-principal);
+            margin-top: 15px;
+        }
+
+        /* SECCIÓN INSCRIPCIONES (BOTONES SEGMENTADOS) */
+        .registration-intro {
+            font-size: 0.98rem;
+            color: var(--texto-principal);
+            margin-bottom: 25px;
+        }
+        .btn-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .register-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--superficie-pura);
+            border: 1px solid var(--azul-academico);
+            color: var(--azul-academico);
+            padding: 18px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 8px rgba(26, 46, 64, 0.03);
+        }
+        .register-btn:hover {
+            background: var(--azul-academico);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(26, 46, 64, 0.15);
+        }
+        .register-btn i {
+            color: var(--oro-atenas);
+            font-size: 1.1rem;
+        }
+        .register-btn:hover i { color: white; }
+
+        /* TRANSPORTE Y CONEXIONES */
+        .transport-item {
+            margin-bottom: 20px;
+        }
+        .transport-item:last-child { margin-bottom: 0; }
+        .transport-item h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--azul-academico);
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .transport-item h4 i { color: var(--rojo-pompeya-delicado); font-size: 0.95rem; }
+        .transport-item p {
+            font-size: 0.92rem;
+            color: var(--texto-suave);
+            padding-left: 22px;
+        }
+
+        /* BARRA DE CONTACTO FORMAL */
+        .global-contact-bar { 
+            background: var(--superficie-pura); 
+            text-align: center; 
+            padding: 24px; 
+            border-radius: 6px;
+            margin: 40px 0; 
+            border: 1px solid rgba(0,0,0,0.05); 
+            font-size: 0.98rem;
+            color: var(--texto-principal);
+        }
+        .global-contact-bar a { color: var(--rojo-pompeya-delicado); font-weight: 600; text-decoration: none; }
+
+        footer { 
+            background-color: var(--azul-academico); 
+            color: rgba(255,255,255,0.7); 
+            text-align: center; 
+            padding: 40px 20px; 
+            border-top: 2px solid var(--oro-atenas); 
+            font-size: 0.88rem;
+        }
+        .share-text { font-size: 1rem; font-weight: 600; margin-bottom: 15px; color: var(--oro-atenas); font-family: 'Cinzel', serif; }
+        .share-buttons a { color: rgba(255,255,255,0.7); margin: 0 12px; font-size: 1.3rem; }
+        .share-buttons a:hover { color: var(--oro-atenas); }
     </style>
 </head>
 <body>
 
+    <!-- BARRA SUPERIOR -->
     <div class="top-bar">
-        <span>Nuestras redes:</span>
         <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
         <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
-        <a href="#"><i class="fab fa-whatsapp"></i> Canal de WhatsApp</a>
+        <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
     </div>
 
+    <!-- MENÚ -->
     <nav>
         <div class="nav-logo">SIMPOSIO ESTUDIOS CLÁSICOS 2028</div>
         <ul class="nav-links">
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="expositores.html">Expositores</a></li>
+            <li><a href="expositores.html">Expositores/as</a></li>
             <li><a href="programa.html">Programa</a></li>
             <li><a href="util.html" class="active">Información Útil</a></li>
             <li><a href="repositorio.html">Repositorio</a></li>
@@ -88,78 +269,114 @@
         </ul>
     </nav>
 
-    <div class="banner-container">
-        <div class="banner-placeholder">
-            <h1>Información práctica</h1>
-            <p>ARANCELES, REQUISITOS Y LOGÍSTICA DE LA SEDE</p>
-        </div>
-    </div>
-
+    <!-- CONTENIDO PRINCIPAL -->
     <div class="main-container">
-        <section>
-            <h2>Aranceles e Inscripción</h2>
-            <p>La inscripción general habilita el acceso a todas las conferencias plenarias y foros. Las categorías vigentes se detallan a continuación:</p>
+        
+        <header class="page-header">
+            <h1>Información Útil</h1>
+            <p>Aranceles vigentes, accesos directos a formularios de inscripción y guías de traslado para los y las asistentes.</p>
+        </header>
+
+        <div class="info-grid">
             
-            <div class="table-container">
-                <table>
+            <!-- SECCIÓN ARANCELES -->
+            <section class="info-card">
+                <h2 class="section-title"><i class="fas fa-credit-card"></i> Aranceles de Inscripción</h2>
+                
+                <table class="aranceles-table">
                     <thead>
                         <tr>
-                            <th>Categoría de participación</th>
-                            <th>Arancel general</th>
+                            <th>Categoría de Participación</th>
+                            <th class="price-col">Monto Nacional</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="badge-categoria">Expositores (Docentes e investigadores)</td>
-                            <td class="costo-valor">$12.000 ARS</td>
+                            <td>Expositores / Expositoras (Docentes e Investigadores)</td>
+                            <td class="price-col">$ XX.XXX</td>
                         </tr>
                         <tr>
-                            <td class="badge-categoria">Graduados expositores</td>
-                            <td class="costo-valor">$8.000 ARS</td>
+                            <td>Expositores / Expositoras (Graduados / Graduadas)</td>
+                            <td class="price-col">$ XX.XXX</td>
                         </tr>
                         <tr>
-                            <td class="badge-categoria">Estudiantes expositores</td>
-                            <td class="costo-valor">$4.000 ARS</td>
+                            <td>Expositores / Expositoras (Estudiantes de Grado)</td>
+                            <td class="price-col">$ XX.XXX</td>
                         </tr>
                         <tr>
-                            <td class="badge-categoria">Asistentes generales</td>
-                            <td class="costo-valor">Sin costo (Requiere registro)</td>
+                            <td>Asistentes Generales (Con certificación institucional)</td>
+                            <td class="price-col">$ XX.XXX</td>
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </section>
 
-        <section>
-            <h2>Movilidad y Transporte Local</h2>
-            <p>Para aquellos asistentes que nos visitan desde otras regiones de Argentina y del exterior, les dejamos las siguientes pautas de movilidad urbana dentro de la ciudad de Rosario:</p>
+                <div class="note-box">
+                    <strong>Inversión para Participantes Extranjeros:</strong><br>
+                    Se establece un arancel unificado de inversión fijado en <strong>U$S XX (Dólares Estadounidenses)</strong> para todas las modalidades de exposición internacional. Los canales formales de pago internacional serán informados de manera personalizada tras la admisión de los resúmenes.
+                </div>
+            </section>
 
-            <div class="logistic-grid">
-                <div class="logistic-card">
-                    <h3>Sede del Evento y Conectividad</h3>
-                    <ul>
-                        <li><strong>Transporte Urbano (Colectivos):</strong> En Rosario está vigente el sistema de tarjeta <strong>SUBE</strong> nacional. Sirve la misma tarjeta que se usa en Buenos Aires, Neuquén y el resto del país.</li>
-                        <li><strong>Terminal de Ómnibus Mariano Moreno:</strong> Ubicada a unos 3.5 km del predio. Un viaje en taxi o Uber desde allí demora entre 10 y 15 minutos.</li>
-                    </ul>
+            <!-- SECCIÓN ACCESOS DIRECTOS INSCRIPCIÓN -->
+            <section class="info-card">
+                <h2 class="section-title"><i class="fas fa-clipboard-list"></i> Canales de Inscripción Directa</h2>
+                <p class="registration-intro">Por favor, seleccione el acceso correspondiente a su perfil académico para tramitar su debida incorporación en el registro del simposio:</p>
+                
+                <div class="btn-container">
+                    <!-- Cada botón simula una entrada directa según lo solicitado -->
+                    <a href="https://forms.google.com" target="_blank" class="register-btn">
+                        <span>Inscripción: Docentes / Investigadores/as</span>
+                        <i class="fas fa-user-tie"></i>
+                    </a>
+                    
+                    <a href="https://forms.google.com" target="_blank" class="register-btn">
+                        <span>Inscripción: Graduados / Graduadas</span>
+                        <i class="fas fa-graduation-cap"></i>
+                    </a>
+                    
+                    <a href="https://forms.google.com" target="_blank" class="register-btn">
+                        <span>Inscripción: Estudiantes de Grado</span>
+                        <i class="fas fa-user-graduate"></i>
+                    </a>
+
+                    <a href="https://forms.google.com" target="_blank" class="register-btn">
+                        <span>Inscripción: Asistentes con Certificación</span>
+                        <i class="fas fa-id-card"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- SECCIÓN TRASLADO Y CONEXIONES -->
+            <section class="info-card">
+                <h2 class="section-title"><i class="fas fa-map-marked-alt"></i> Conexiones y Traslado hacia Rosario</h2>
+                
+                <div class="transport-item">
+                    <h4><i class="fas fa-bus"></i> Desde la Ciudad de Buenos Aires</h4>
+                    <p>Múltiples servicios diarios terrestres operan desde la Terminal de Ómnibus de Retiro hacia la Terminal de Rosario Mariano Moreno (vía Autopista Bs. As. - Rosario). El tiempo estimado de viaje es de aproximadamente 4 horas.</p>
                 </div>
 
-                <div class="logistic-card">
-                    <h3>Costos y Aplicaciones de Viaje</h3>
-                    <ul>
-                        <li><strong>Plataformas digitales:</strong> En la ciudad funcionan con total normalidad las aplicaciones <strong>Uber</strong> y <strong>Cabify</strong>. Un viaje promedio desde el centro hacia la sede ronda los $3.500 - $5.000 ARS (valores de referencia).</li>
-                        <li><strong>Taxis Oficiales:</strong> Rosario cuenta con una amplia flota de taxis (color negro y amarillo) que operan con reloj taxímetro digital regulado.</li>
-                    </ul>
+                <div class="transport-item">
+                    <h4><i class="fas fa-train"></i> Conexión Ferroviaria (Buenos Aires)</h4>
+                    <p>Trenes Argentinos ofrece servicios de línea desde la Estación Retiro Mitre con destino directo a la Estación Rosario Norte. Se recomienda realizar la reserva de pasajes con la debida antelación debido a la alta demanda estacional.</p>
                 </div>
-            </div>
-        </section>
+
+                <div class="transport-item">
+                    <h4><i class="fas fa-plane"></i> Desde el Resto del País</h4>
+                    <p>El Aeropuerto Internacional Rosario (AIR "Islas Malvinas") cuenta con conectividad directa y escalas coordinadas con los principales hubs del territorio nacional a través de Aerolíneas Argentinas y operadores regionales.</p>
+                </div>
+            </section>
+
+        </div>
+
     </div>
 
+    <!-- CONTACTO FORMAL COMPARTIDO -->
     <div class="global-contact-bar">
-        Para mayor información, podés escribirnos a: <a href="mailto:estoa.sur@gmail.com">estoa.sur@gmail.com</a>
+        Ante alguna consulta sobre programa u otros temas, escríbanos al correo: <a href="mailto:estoa.sur@gmail.com">estoa.sur@gmail.com</a>
     </div>
 
+    <!-- PIE DE PÁGINA -->
     <footer>
-        <p class="share-text">Te animamos a compartir esta información en tus redes:</p>
+        <p class="share-text">Te animamos a compartir esta info en tus redes:</p>
         <div class="share-buttons">
             <a href="#"><i class="fab fa-x-twitter"></i></a>
             <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -167,7 +384,7 @@
             <a href="#"><i class="fab fa-whatsapp"></i></a>
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
-        <p class="credits-text">&copy; 2028 Comité Organizador. Desarrollado por Meraki Creative.</p>
+        <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 25px;">&copy; 2028 Comité Organizador. Desarrollado con elegancia por Meraki Creative.</p>
     </footer>
 
 </body>
