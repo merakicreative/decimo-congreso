@@ -28,11 +28,11 @@
             background-color: var(--crema-antiguo);
         }
 
-        /* Barra de redes en Terracota */
+        /* Barra de redes global */
         .top-bar {
             background-color: var(--color-principal);
             color: var(--marfil-suave);
-            padding: 6px 20px;
+            padding: 8px 20px;
             display: flex;
             justify-content: flex-end;
             gap: 15px;
@@ -56,7 +56,6 @@
         .nav-links a { text-decoration: none; color: var(--texto-oscuro); font-weight: 500; font-size: 1rem; padding: 6px 12px; transition: all 0.2s; }
         .nav-links a:hover, .nav-links a.active { color: var(--color-principal); background-color: rgba(184, 74, 57, 0.08); border-radius: 4px; }
 
-        /* Contenedor preparado para recibir la imagen de fondo */
         .banner-container {
             width: 100%; max-width: 1200px; margin: 30px auto; border-radius: 15px; overflow: hidden;
             box-shadow: 0 10px 25px rgba(0,0,0,0.08); background-color: #dfd5c6; border: 3px solid var(--oro-viejo);
@@ -73,11 +72,12 @@
         }
         section h2 { font-family: 'Cinzel', serif; color: var(--color-principal); font-size: 1.8rem; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--crema-antiguo); }
 
-        .btn-action {
-            display: inline-block; background-color: var(--color-principal); color: #ffffff; padding: 12px 30px;
-            text-decoration: none; font-weight: 700; border-radius: 6px; margin-top: 15px; transition: background 0.2s;
+        .map-placeholder {
+            width: 100%; height: 350px; background-color: #e2dee2; border: 2px solid var(--oro-viejo);
+            border-radius: 8px; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: #555; margin-top: 20px; text-align: center; padding: 20px;
         }
-        .btn-action:hover { background-color: var(--azul-profundo); }
+        .map-placeholder i { font-size: 3rem; color: var(--color-principal); margin-bottom: 10px; }
 
         .video-container {
             position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; 
@@ -133,14 +133,24 @@
         <section>
             <h2>Sobre el simposio</h2>
             <p>Este espacio académico reúne a investigadores, docentes, graduados y estudiantes del campo de las humanidades para debatir las complejidades de nuestra disciplina desde una perspectiva situada y actual. Buscamos promover un intercambio dinámico y horizontal que enriquezca nuestros trayectos de investigación.</p>
-            <a href="programa.html" class="btn-action">Ver cronograma de actividades</a>
         </section>
 
         <section>
-            <h2>Presentación en video</h2>
-            <p>Compartimos la apertura de las jornadas previas y las líneas de trabajo que guiarán los paneles de este año.</p>
+            <h2>La sede: Rosario, Santa Fe</h2>
+            <p>En esta oportunidad, el evento tendrá lugar en la ciudad de Rosario, provincia de Santa Fe, Argentina. Las salas de exposición se localizan a pocas cuadras del centro histórico y comercial, facilitando el acceso a museos, paseos ribereños y espacios culturales emblemáticos de la costa del Paraná.</p>
+            <div class="map-placeholder">
+                <i class="fas fa-map-marked-alt"></i>
+                <strong>Espacio reservado para el mapa interactivo de Rosario</strong>
+                <p style="font-size:0.9rem; color:#777; margin-top:5px;">Aquí se incrustará el mapa de ubicación satelital (Google Maps) con las referencias del predio universitario.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Invitación y spot promocional</h2>
+            <p>Te invitamos a agendar esta fecha clave y disfrutar del spot promocional del simposio, musicalizado con una suite épica inspirada en la Odisea clásica.</p>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <!-- Se utiliza un enlace representativo de música épica sobre la temática solicitada -->
+                <iframe src="https://www.youtube.com/embed/8ZreV82wV_g" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </section>
     </div>
