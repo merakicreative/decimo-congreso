@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programa de Actividades - Simposio 2028</title>
+    <title>Programa - Simposio 2028</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
     
     <style>
         :root {
-            --color-principal: #2a445e;
+            --color-principal: #2a445e; /* Azul Profundo */
             --rosa-pompeya: #b84a39;
             --crema-antiguo: #f5f0e6;
             --marfil-suave: #ffffff;
@@ -40,18 +40,34 @@
         section { margin-bottom: 40px; background: var(--marfil-suave); padding: 45px; border-radius: 12px; border-top: 6px solid var(--color-principal); border: 1px solid rgba(197, 160, 89, 0.2); }
         section h2 { font-family: 'Cinzel', serif; color: var(--color-principal); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--crema-antiguo); }
 
-        /* Estructura de Jornadas Extensas */
-        .jornada-dia { margin-top: 30px; background-color: #fafafa; border: 1px solid #e6e0d4; padding: 30px; border-radius: 8px; }
-        .jornada-dia h3 { font-family: 'Cinzel', serif; color: var(--rosa-pompeya); margin-bottom: 20px; font-size: 1.4rem; }
+        /* Sistema Interactivo de Pestañas (Tabs) en CSS Puro */
+        .tabs-container { display: flex; flex-direction: column; margin-top: 20px; }
+        .tab-radio { display: none; }
+        .tabs-nav { display: flex; gap: 10px; border-bottom: 2px solid var(--crema-antiguo); padding-bottom: 10px; margin-bottom: 20px; overflow-x: auto; }
+        .tab-label { padding: 10px 20px; background: #e6dfd3; border-radius: 6px; cursor: pointer; font-weight: 500; transition: all 0.3s; white-space: nowrap; }
+        .tab-label:hover { background: #dfd5c4; }
         
-        .bloque-horario { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
-        .turno-badge { display: inline-block; background-color: var(--color-principal); color: white; padding: 2px 10px; font-size: 0.8rem; border-radius: 4px; font-weight: bold; text-transform: uppercase; margin-bottom: 5px; }
-        .horario-hora { font-weight: 700; color: var(--texto-oscuro); display: block; margin-bottom: 5px; }
+        .tab-content { display: none; background: #fafafa; padding: 30px; border-radius: 8px; border: 1px solid #e6e0d4; }
+
+        /* Lógica de activación de pestañas */
+        #tab1:checked ~ .tabs-nav .label1,
+        #tab2:checked ~ .tabs-nav .label2 { background: var(--color-principal); color: white; font-weight: bold; }
+        #tab1:checked ~ .content-container #content1,
+        #tab2:checked ~ .content-container #content2 { display: block; }
+
+        /* Agenda de actividades interna */
+        .agenda-item { display: grid; grid-template-columns: 140px 1fr 120px; gap: 15px; padding: 15px 0; border-bottom: 1px solid #eee; align-items: start; }
+        .agenda-item:last-child { border-bottom: none; }
+        .time { font-weight: 700; color: var(--rosa-pompeya); }
+        .activity-details h4 { font-size: 1.1rem; color: var(--texto-oscuro); margin-bottom: 4px; }
+        .activity-details p { font-size: 0.95rem; color: #555; line-height: 1.5; }
+        .location { font-size: 0.9rem; font-weight: 500; color: var(--color-principal); background: rgba(42,68,94,0.08); padding: 2px 8px; border-radius: 4px; text-align: center; }
         
-        /* Enlace al Repositorio de la Mesa */
-        .repo-link { display: inline-block; margin-top: 10px; color: var(--rosa-pompeya); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
-        .repo-link i { margin-right: 5px; }
-        .repo-link:hover { text-decoration: underline; }
+        /* Divisores de turnos */
+        .session-divider { background: #dfd5c4; padding: 6px 15px; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; border-radius: 4px; margin: 20px 0 10px 0; color: var(--texto-oscuro); }
+
+        .repo-inline-link { display: inline-block; margin-top: 6px; color: var(--rosa-pompeya); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+        .repo-inline-link:hover { text-decoration: underline; }
 
         .global-contact-bar { background-color: #eee6d8; text-align: center; padding: 20px; margin-top: 50px; border-top: 1px dashed var(--oro-viejo); border-bottom: 1px dashed var(--oro-viejo); font-size: 1rem; }
         .global-contact-bar a { color: var(--rosa-pompeya); font-weight: 700; text-decoration: none; }
@@ -94,27 +110,111 @@
 
     <div class="main-container">
         <section>
-            <h2>Programa del simposio</h2>
-            <p>Organización de los bloques de ponencias, conferencias y foros de proyectos acreditados según la estructura tradicional del evento[cite: 2].</p>
+            <h2>Programa diario de actividades</h2>
+            <p>Seleccioná las pestañas para visualizar la distribución de los bloques académicos correspondientes a cada jornada del simposio[cite: 3].</p>
 
-            <!-- Ejemplo de Día Completo Extenso -->
-            <div class="jornada-dia">
-                <h3>Primer día de actividades</h3>
-                
-                <!-- Turno Mañana -->
-                <div class="bloque-horario">
-                    <span class="turno-badge">Turno mañana</span>
-                    <span class="horario-hora">09:00 - 12:30</span>
-                    <p><strong>Mesa temática 1:</strong> Filología y hermenéutica de los textos griegos antiguos.</p>
-                    <a href="repositorio.html#mesa1" class="repo-link"><i class="fas fa-folder-open"></i> Descargar material compartidos de esta mesa</a>
+            <div class="tabs-container">
+                <!-- Manejadores de Estado de las Pestañas -->
+                <input type="radio" id="tab1" name="program-tabs" class="tab-radio" checked>
+                <input type="radio" id="tab2" name="program-tabs" class="tab-radio">
+
+                <!-- Botones de Navegación -->
+                <div class="tabs-nav">
+                    <label for="tab1" class="tab-label label1">Martes 24 de noviembre</label>
+                    <label for="tab2" class="tab-label label2">Miércoles 25 de noviembre</label>
                 </div>
 
-                <!-- Turno Tarde -->
-                <div class="bloque-horario">
-                    <span class="turno-badge" style="background-color: var(--rosa-pompeya);">Turno tarde</span>
-                    <span class="horario-hora">14:30 - 18:30</span>
-                    <p><strong>Mesa temática 2:</strong> Recepción clásica en la literatura decimonónica latinoamericana.</p>
-                    <a href="repositorio.html#mesa2" class="repo-link"><i class="fas fa-folder-open"></i> Descargar material compartidos de esta mesa</a>
+                <!-- Contenedores de Contenido -->
+                <div class="content-container">
+                    
+                    <!-- CONTENIDO: MARTES 24 -->
+                    <div id="content1" class="tab-content">
+                        <div class="session-divider">Bloque mañana</div>
+                        
+                        <div class="agenda-item">
+                            <div class="time">08:00 hs.</div>
+                            <div class="activity-details">
+                                <h4>Acreditación institucional</h4>
+                                p>Recepción de participantes y entrega de carpetas materiales[cite: 3].</p>
+                            </div>
+                            <div class="location">Aula 3</div>
+                        </div>
+
+                        <div class="agenda-item">
+                            <div class="time">09:00 a 10:00 hs.</div>
+                            <div class="activity-details">
+                                <h4>Apertura formal del simposio</h4>
+                                p>Palabras de bienvenida a cargo de las autoridades del comité organizador[cite: 1, 3].</p>
+                            </div>
+                            <div class="location">Salón de actos</div>
+                        </div>
+
+                        <div class="agenda-item">
+                            <div class="time">10:00 a 11:00 hs.</div>
+                            <div class="activity-details">
+                                <h4>Conferencia de apertura</h4>
+                                <p><em>Narrativas del entorno clásico: pasiones y retóricas en la literatura antigua</em>[cite: 3].</p>
+                                <p style="color: #666; font-size: 0.9rem;">Dr. Julián Albarracín (UNR)</p>
+                            </div>
+                            <div class="location">Salón de actos</div>
+                        </div>
+
+                        <div class="agenda-item">
+                            <div class="time">12:30 hs.</div>
+                            <div class="activity-details">
+                                <h4>Lunch de bienvenida</h4>
+                                p>Espacio de vinculación social para todos los asistentes y expositores acreditados[cite: 3].</p>
+                            </div>
+                            <div class="location">Galería central</div>
+                        </div>
+
+                        <div class="session-divider">Bloque tarde</div>
+
+                        <div class="agenda-item">
+                            <div class="time">15:00 a 16:15 hs.</div>
+                            <div class="activity-details">
+                                <h4>Cursillos temáticos simultáneos (Primer encuentro)</h4>
+                                <p><strong>Cursillo 1:</strong> <em>Aproximaciones rítmicas a la prosa y métrica latina</em>. Dr. Mario Benítez (UBA)[cite: 3].</p>
+                                <p><strong>Cursillo 2:</strong> <em>Arquitectura teatral y puesta en escena en las comedias antiguas</em>. Dra. Laura Estévez (UNS)[cite: 3].</p>
+                            </div>
+                            <div class="location">Aulas 3 y 5</div>
+                        </div>
+
+                        <div class="agenda-item">
+                            <div class="time">16:45 a 18:15 hs.</div>
+                            <div class="activity-details">
+                                <h4>Mesas de ponencias disciplinarias</h4>
+                                <p>Presentación de avances de investigación por categorías de expositores[cite: 2, 3].</p>
+                                <a href="repositorio.html#martes-tarde" class="repo-inline-link"><i class="fas fa-download"></i> Descargar material compartido de estas mesas</a>
+                            </div>
+                            <div class="location">Aula 3</div>
+                        </div>
+                    </div>
+
+                    <!-- CONTENIDO: MIÉRCOLES 25 -->
+                    <div id="content2" class="tab-content">
+                        <div class="session-divider">Bloque mañana</div>
+                        
+                        <div class="agenda-item">
+                            <div class="time">08:30 a 09:45 hs.</div>
+                            <div class="activity-details">
+                                <h4>Cursillos temáticos simultáneos (Segundo encuentro)</h4>
+                                <p>Continuación de las líneas prácticas de los trayectos formativos iniciados el martes[cite: 3].</p>
+                            </div>
+                            <div class="location">Aulas 3 y 5</div>
+                        </div>
+
+                        <div class="agenda-item">
+                            <div class="time">10:15 a 11:45 hs.</div>
+                            <div class="activity-details">
+                                <h4>Mesas de ponencias e informes de proyectos</h4>
+                                <p>Foros de proyectos de investigación acreditados y ponencias de graduados[cite: 2, 3].</p>
+                                <a href="repositorio.html#miercoles-manana" class="repo-inline-link"><i class="fas fa-download"></i> Descargar material de las mesas de hoy</a>
+                            </div>
+                            <div class="location">Aula 5</div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
