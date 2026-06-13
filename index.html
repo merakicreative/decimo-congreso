@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simposio Nacional de Estudios Clásicos 2028</title>
+    <title>Simposio Internacional de Estudios Clásicos 2028</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -11,8 +11,9 @@
     
     <style>
         :root {
-            --color-principal: #b84a39; /* Terracota / Rosa Pompeya */
-            --azul-profundo: #2a445e;
+            --color-principal: #2a445e; /* Azul Profundo */
+            --rosa-pompeya: #b84a39;
+            --verde-laurel: #4a6b52;
             --crema-antiguo: #f5f0e6;
             --marfil-suave: #ffffff;
             --texto-oscuro: #2c2523;
@@ -20,83 +21,52 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Roboto', sans-serif;
-            color: var(--texto-oscuro);
-            line-height: 1.8;
-            font-size: 1.1rem;
-            background-color: var(--crema-antiguo);
-        }
+        body { font-family: 'Roboto', sans-serif; color: var(--texto-oscuro); background-color: var(--crema-antiguo); line-height: 1.8; }
 
-        /* Barra de redes global */
-        .top-bar {
-            background-color: var(--color-principal);
-            color: var(--marfil-suave);
-            padding: 8px 20px;
-            display: flex;
-            justify-content: flex-end;
-            gap: 15px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-        .top-bar a { color: var(--marfil-suave); text-decoration: none; transition: color 0.2s; }
-        .top-bar a:hover { opacity: 0.9; }
+        /* Zócalo superior dinámico */
+        .top-bar { background-color: var(--verde-laurel); color: var(--marfil-suave); padding: 8px 20px; display: flex; justify-content: flex-end; gap: 15px; font-size: 0.85rem; font-weight: 500; }
+        .top-bar a { color: var(--marfil-suave); text-decoration: none; }
 
-        nav {
-            background-color: var(--marfil-suave);
-            border-bottom: 4px solid var(--color-principal);
-            padding: 1.2rem 2rem;
-            position: sticky;
-            top: 0; z-index: 100;
-            display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-        .nav-logo { font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.1rem; color: var(--color-principal); letter-spacing: 1px; }
+        nav { background-color: var(--marfil-suave); border-bottom: 4px solid var(--color-principal); padding: 1.2rem 2rem; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.1rem; color: var(--color-principal); }
         .nav-links { list-style: none; display: flex; gap: 20px; }
-        .nav-links a { text-decoration: none; color: var(--texto-oscuro); font-weight: 500; font-size: 1rem; padding: 6px 12px; transition: all 0.2s; }
-        .nav-links a:hover, .nav-links a.active { color: var(--color-principal); background-color: rgba(184, 74, 57, 0.08); border-radius: 4px; }
-
-        .banner-container {
-            width: 100%; max-width: 1200px; margin: 30px auto; border-radius: 15px; overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08); background-color: #dfd5c6; border: 3px solid var(--oro-viejo);
-        }
-        .banner-placeholder { padding: 80px 20px; text-align: center; background: rgba(255,255,255,0.2); }
-        .banner-placeholder h1 { font-family: 'Cinzel', serif; color: var(--color-principal); font-size: 2.5rem; }
-        .banner-placeholder p { color: var(--azul-profundo); font-weight: 700; letter-spacing: 2px; margin-top: 10px; }
+        .nav-links a { text-decoration: none; color: var(--texto-oscuro); font-weight: 500; font-size: 1rem; padding: 6px 12px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--color-principal); background-color: rgba(42, 68, 94, 0.08); border-radius: 4px; }
 
         .main-container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-        section { 
-            margin-bottom: 30px; background: var(--marfil-suave); padding: 45px; border-radius: 12px; 
-            box-shadow: 0 6px 12px rgba(44, 37, 35, 0.03); border: 1px solid rgba(197, 160, 89, 0.2);
-            border-top: 6px solid var(--color-principal);
-        }
-        section h2 { font-family: 'Cinzel', serif; color: var(--color-principal); font-size: 1.8rem; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--crema-antiguo); }
+        
+        /* --- ESTILOS DEL CARRUSEL DINÁMICO EN CSS --- */
+        .carousel-wrapper { width: 100%; max-width: 1200px; margin: 20px auto 40px auto; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border: 3px solid var(--oro-viejo); }
+        .slider { display: flex; width: 300%; height: 450px; animation: cambiarFoto 15s infinite ease-in-out; }
+        .slide { width: 33.333%; height: 100%; position: relative; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); }
+        .slide-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.85)); color: white; padding: 25px; text-align: left; }
+        .slide-caption h3 { font-family: 'Cinzel', serif; font-size: 1.5rem; margin-bottom: 5px; color: var(--oro-viejo); }
+        .slide-caption p { font-size: 0.95rem; font-weight: 400; }
 
-        .map-placeholder {
-            width: 100%; height: 350px; background-color: #e2dee2; border: 2px solid var(--oro-viejo);
-            border-radius: 8px; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            color: #555; margin-top: 20px; text-align: center; padding: 20px;
+        /* Animación cíclica para que las fotos pasen solas */
+        @keyframes cambiarFoto {
+            0%, 25% { transform: translateX(0); }
+            33%, 58% { transform: translateX(-33.333%); }
+            66%, 91% { transform: translateX(-66.666%); }
+            100% { transform: translateX(0); }
         }
-        .map-placeholder i { font-size: 3rem; color: var(--color-principal); margin-bottom: 10px; }
 
-        .video-container {
-            position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; 
-            background: #000; border-radius: 8px; margin-top: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
+        section { margin-bottom: 40px; background: var(--marfil-suave); padding: 45px; border-radius: 12px; border: 1px solid rgba(197, 160, 89, 0.2); border-top: 6px solid var(--color-principal); }
+        section h2 { font-family: 'Cinzel', serif; color: var(--color-principal); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--crema-antiguo); }
+
+        /* Contenedor del Video de YouTube Real */
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 8px; margin-top: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        .global-contact-bar {
-            background-color: #eee6d8; text-align: center; padding: 20px; margin-top: 50px;
-            border-top: 1px dashed var(--oro-viejo); border-bottom: 1px dashed var(--oro-viejo);
-            font-size: 1rem; color: var(--texto-oscuro);
-        }
-        .global-contact-bar a { color: var(--color-principal); font-weight: 700; text-decoration: none; }
+        /* Zócalo de contacto global corregido */
+        .global-contact-bar { background-color: #eee6d8; text-align: center; padding: 20px; margin: 60px 0 30px 0; border-top: 1px dashed var(--oro-viejo); border-bottom: 1px dashed var(--oro-viejo); font-size: 1rem; }
+        .global-contact-bar a { color: var(--rosa-pompeya); font-weight: 700; text-decoration: none; }
 
         footer { background-color: var(--texto-oscuro); color: var(--crema-antiguo); text-align: center; padding: 40px 20px; border-top: 5px solid var(--oro-viejo); }
         .share-text { font-size: 1.1rem; font-weight: 500; color: var(--crema-antiguo); margin-bottom: 12px; }
         .share-buttons { margin-bottom: 30px; }
-        .share-buttons a { color: var(--crema-antiguo); margin: 0 12px; font-size: 1.4rem; transition: color 0.2s; }
-        .share-buttons a:hover { color: var(--oro-viejo); }
+        .share-buttons a { color: var(--crema-antiguo); margin: 0 12px; font-size: 1.4rem; }
         .credits-text { font-size: 0.8rem; color: #a09592; letter-spacing: 0.5px; }
     </style>
 </head>
@@ -104,10 +74,10 @@
 
     <div class="top-bar">
         <span>Nuestras redes:</span>
-        <a href="#" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-        <a href="#" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
-        <a href="#" target="_blank"><i class="fab fa-whatsapp"></i> Canal de WhatsApp</a>
-        <a href="#" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+        <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="#"><i class="fab fa-whatsapp"></i> Canal de WhatsApp</a>
+        <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
     </div>
 
     <nav>
@@ -122,51 +92,61 @@
         </ul>
     </nav>
 
-    <div class="banner-container">
-        <div class="banner-placeholder">
-            <h1>Simposio Nacional e Internacional</h1>
-            <p>BIENVENIDOS A LA SEDE VIRTUAL</p>
+    <!-- CARRUSEL FOTOGRÁFICO ILUSTRATIVO DINÁMICO -->
+    <div class="carousel-wrapper">
+        <div class="slider">
+            <!-- Foto 1: Arquitectura Institucional -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1200&auto=format&fit=cover" alt="Sede del Simposio">
+                <div class="slide-caption">
+                    <h3>Sede Institucional</h3>
+                    <p>Facultad de Humanidades y Artes — Espacios históricos acondicionados para las jornadas académicas.</p>
+                </div>
+            </div>
+            <!-- Foto 2: Aula / Debate -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1200&auto=format&fit=cover" alt="Aulas y Comisiones">
+                <div class="slide-caption">
+                    <h3>Paneles y Comisiones de Lectura</h3>
+                    <p>Mesas de debate interdisciplinario, presentación de actas y conferencias plenarias.</p>
+                </div>
+            </div>
+            <!-- Foto 3: Rosario / Costanera -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1612455949516-ec4fb703e74a?q=80&w=1200&auto=format&fit=cover" alt="Ciudad de Rosario">
+                <div class="slide-caption">
+                    <h3>Ciudad de Rosario</h3>
+                    <p>Entorno ribereño y cultural que recibirá a las delegaciones e investigadores de todo el país.</p>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="main-container">
         <section>
-            <h2>Sobre el simposio</h2>
-            <p>Este espacio académico reúne a investigadores, docentes, graduados y estudiantes del campo de las humanidades para debatir las complejidades de nuestra disciplina desde una perspectiva situada y actual. Buscamos promover un intercambio dinámico y horizontal que enriquezca nuestros trayectos de investigación.</p>
-        </section>
-
-        <section>
-            <h2>La sede: Rosario, Santa Fe</h2>
-            <p>En esta oportunidad, el evento tendrá lugar en la ciudad de Rosario, provincia de Santa Fe, Argentina. Las salas de exposición se localizan a pocas cuadras del centro histórico y comercial, facilitando el acceso a museos, paseos ribereños y espacios culturales emblemáticos de la costa del Paraná.</p>
-            <div class="map-placeholder">
-                <i class="fas fa-map-marked-alt"></i>
-                <strong>Espacio reservado para el mapa interactivo de Rosario</strong>
-                <p style="font-size:0.9rem; color:#777; margin-top:5px;">Aquí se incrustará el mapa de ubicación satelital (Google Maps) con las referencias del predio universitario.</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Invitación y spot promocional</h2>
-            <p>Te invitamos a agendar esta fecha clave y disfrutar del spot promocional del simposio, musicalizado con una suite épica inspirada en la Odisea clásica.</p>
+            <h2>Sobre el Simposio</h2>
+            <p>El Simposio de Estudios Clásicos es un espacio de intercambio científico consolidado que reúne a investigadores del ámbito nacional e internacional. El evento se enfoca en el examen crítico de las fuentes grecolatinas, su recepción lingüística, histórica y filosófica, promoviendo el diálogo interdisciplinario entre especialistas del mundo clásico y la cultura contemporánea.</p>
+            
+            <!-- VIDEO DE YOUTUBE INSTITUCIONAL INTEGRADO REAL -->
             <div class="video-container">
-                <!-- Se utiliza un enlace representativo de música épica sobre la temática solicitada -->
-                <iframe src="https://www.youtube.com/embed/8ZreV82wV_g" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/lB3MsSgevAdQ" title="Presentación Oficial del Simposio" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </section>
     </div>
 
+    <!-- CORRECCIÓN DEL MAIL CENTRAL -->
     <div class="global-contact-bar">
-        Para mayor información, podés escribirnos a: <a href="mailto:stoa.sur@gmail.com">stoa.sur@gmail.com</a>
+        Para mayor información, podés escribirnos a: <a href="mailto:estoa.sur@gmail.com">estoa.sur@gmail.com</a>
     </div>
 
     <footer>
-        <p class="share-text">Si te interesa el simposio, compartilo en tus redes:</p>
+        <p class="share-text">Te animamos a compartir esta información en tus redes:</p>
         <div class="share-buttons">
-            <a href="#" title="Compartir en X"><i class="fab fa-x-twitter"></i></a>
-            <a href="#" title="Compartir en Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" title="Compartir en Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" title="Compartir por WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            <a href="#" title="Compartir en LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
         <p class="credits-text">&copy; 2028 Comité Organizador. Desarrollado por Meraki Creative.</p>
     </footer>
