@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>X Congreso - Información Útil</title>
+    <title>Información Útil - Simposio 2028</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -11,77 +11,73 @@
     
     <style>
         :root {
+            --color-principal: #2a445e; /* Azul Profundo */
             --rosa-pompeya: #b84a39;
             --crema-antiguo: #f5f0e6;
             --marfil-suave: #ffffff;
             --texto-oscuro: #2c2523;
             --oro-viejo: #c5a059;
-            --verde-oliva: #4a5d4e;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Roboto', sans-serif;
-            color: var(--texto-oscuro);
-            line-height: 1.8;
-            font-size: 1.1rem;
-            background-color: var(--crema-antiguo);
-            background-image: radial-gradient(rgba(184, 74, 57, 0.02) 1px, transparent 0);
-            background-size: 24px 24px;
-        }
+        body { font-family: 'Roboto', sans-serif; color: var(--texto-oscuro); background-color: var(--crema-antiguo); line-height: 1.8; }
 
-        h1, h2, h3 { font-family: 'Cinzel', serif; color: var(--rosa-pompeya); }
+        /* Zócalo superior en Azul Profundo para variar */
+        .top-bar { background-color: var(--color-principal); color: var(--marfil-suave); padding: 8px 20px; display: flex; justify-content: flex-end; gap: 15px; font-size: 0.85rem; font-weight: 500; }
+        .top-bar a { color: var(--marfil-suave); text-decoration: none; }
 
-        nav {
-            background-color: var(--marfil-suave);
-            border-bottom: 4px solid var(--rosa-pompeya);
-            padding: 1.2rem 2rem;
-            position: sticky;
-            top: 0; z-index: 100;
-            display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-        .nav-logo { font-weight: 700; font-size: 1.2rem; color: var(--rosa-pompeya); letter-spacing: 1px; }
+        nav { background-color: var(--marfil-suave); border-bottom: 4px solid var(--color-principal); padding: 1.2rem 2rem; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.1rem; color: var(--color-principal); }
         .nav-links { list-style: none; display: flex; gap: 20px; }
-        .nav-links a { text-decoration: none; color: var(--texto-oscuro); font-weight: 500; font-size: 1rem; padding: 6px 12px; transition: all 0.2s; border-radius: 4px; }
-        .nav-links a:hover, .nav-links a.active { color: var(--rosa-pompeya); background-color: rgba(184, 74, 57, 0.08); }
+        .nav-links a { text-decoration: none; color: var(--texto-oscuro); font-weight: 500; font-size: 1rem; padding: 6px 12px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--color-principal); background-color: rgba(42, 68, 94, 0.08); border-radius: 4px; }
 
-        .banner-container {
-            width: 100%; max-width: 1200px; margin: 40px auto; border-radius: 15px; overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08); background-color: #dfd5c6; border: 3px solid var(--oro-viejo);
-        }
+        .banner-container { width: 100%; max-width: 1200px; margin: 30px auto; border-radius: 15px; overflow: hidden; background-color: #cedae5; border: 3px solid var(--oro-viejo); }
         .banner-placeholder { padding: 60px 20px; text-align: center; }
+        .banner-placeholder h1 { font-family: 'Cinzel', serif; color: var(--color-principal); }
+        .banner-placeholder p { color: var(--rosa-pompeya); font-weight: 700; letter-spacing: 1px; }
 
-        .main-container { max-width: 950px; margin: 0 auto; padding: 20px; }
-        section { 
-            margin-bottom: 40px; background: var(--marfil-suave); padding: 45px; border-radius: 12px; 
-            box-shadow: 0 6px 12px rgba(44, 37, 35, 0.03); border: 1px solid rgba(197, 160, 89, 0.2);
-            border-top: 6px solid var(--rosa-pompeya);
-        }
-        section h2 { font-size: 1.8rem; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--crema-antiguo); }
+        .main-container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        section { margin-bottom: 40px; background: var(--marfil-suave); padding: 45px; border-radius: 12px; border: 1px solid rgba(197, 160, 89, 0.2); border-top: 6px solid var(--color-principal); }
+        section h2 { font-family: 'Cinzel', serif; color: var(--color-principal); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--crema-antiguo); }
 
-        /* TABLA MEJORADA Y CÁLIDA */
-        table {
-            width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 1rem;
-            background: var(--marfil-suave); border-radius: 8px; overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02); border: 1px solid #e2e8f0;
-        }
-        th, td { padding: 16px 20px; text-align: left; border-bottom: 1px solid #edf2f7; }
-        th { background-color: var(--rosa-pompeya); color: #ffffff; font-weight: 500; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; }
+        .table-container { margin-top: 20px; overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; background: #fafafa; border-radius: 8px; overflow: hidden; }
+        th, td { padding: 15px 20px; text-align: left; border-bottom: 1px solid #e9e3d8; }
+        th { background-color: var(--color-principal); color: white; font-weight: 500; font-family: 'Cinzel', serif; }
         
-        /* Fila separadora de categorías */
-        .categoria-header { background-color: rgba(197, 160, 89, 0.15); font-weight: 700; color: var(--texto-oscuro); font-size: 0.95rem; }
-        
-        tr:hover { background-color: rgba(184, 74, 57, 0.02); }
-        .precio { font-weight: 700; color: var(--rosa-pompeya); }
+        .badge-categoria { font-weight: 700; color: var(--color-principal); }
+        .costo-valor { font-weight: 700; color: var(--rosa-pompeya); }
 
-        footer { background-color: var(--texto-oscuro); color: var(--crema-antiguo); text-align: center; padding: 50px 20px; margin-top: 80px; border-top: 5px solid var(--oro-viejo); }
+        .logistic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 25px; }
+        @media (max-width: 768px) { .logistic-grid { grid-template-columns: 1fr; } }
+        .logistic-card { background: #fafafa; padding: 25px; border-radius: 8px; border-left: 4px solid var(--oro-viejo); }
+        .logistic-card h3 { font-family: 'Cinzel', serif; font-size: 1.2rem; color: var(--color-principal); margin-bottom: 12px; }
+        .logistic-card ul { list-style-position: inside; padding-left: 5px; margin-bottom: 15px; }
+
+        /* Espaciado extra de aire solicitado */
+        .global-contact-bar { background-color: #eee6d8; text-align: center; padding: 20px; margin: 60px 0 30px 0; border-top: 1px dashed var(--oro-viejo); border-bottom: 1px dashed var(--oro-viejo); font-size: 1rem; }
+        .global-contact-bar a { color: var(--rosa-pompeya); font-weight: 700; text-decoration: none; }
+
+        footer { background-color: var(--texto-oscuro); color: var(--crema-antiguo); text-align: center; padding: 40px 20px; border-top: 5px solid var(--oro-viejo); }
+        .share-text { font-size: 1.1rem; font-weight: 500; color: var(--crema-antiguo); margin-bottom: 12px; }
+        .share-buttons { margin-bottom: 30px; }
+        .share-buttons a { color: var(--crema-antiguo); margin: 0 12px; font-size: 1.4rem; }
+        .credits-text { font-size: 0.8rem; color: #a09592; letter-spacing: 0.5px; }
     </style>
 </head>
 <body>
 
+    <div class="top-bar">
+        <span>Nuestras redes:</span>
+        <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="#"><i class="fab fa-whatsapp"></i> Canal de WhatsApp</a>
+        <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+    </div>
+
     <nav>
-        <div class="nav-logo">X CONGRESO 2026</div>
+        <div class="nav-logo">SIMPOSIO ESTUDIOS CLÁSICOS 2028</div>
         <ul class="nav-links">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="expositores.html">Expositores</a></li>
@@ -94,71 +90,84 @@
 
     <div class="banner-container">
         <div class="banner-placeholder">
-            <h1>Aranceles e Inscripción</h1>
-            <p style="color: var(--verde-oliva); font-weight: 700;">VALORES DE INVERSIÓN PARA PARTICIPANTES</p>
+            <h1>Información práctica</h1>
+            <p>ARANCELES, REQUISITOS Y LOGÍSTICA DE LA SEDE</p>
         </div>
     </div>
 
     <div class="main-container">
         <section>
-            <h2>Estructura de Costos</h2>
-            <p>A continuación se detallan los aranceles vigentes según el rol de participación y la fecha en la que se realice la inscripción.</p>
+            <h2>Aranceles e Inscripción</h2>
+            <p>La inscripción general habilita el acceso a todas las conferencias plenarias y foros. Las categorías vigentes se detallan a continuación:</p>
             
-            <table>
-                <thead>
-                    <tr>
-                        <th>Categoría de Participante</th>
-                        <th>Inscripción Temprana</th>
-                        <th>Inscripción Plena</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- GRUPO 1: EXPOSITORES -->
-                    <tr class="categoria-header">
-                        <td colspan="3"><i class="fa-solid fa-microphone-lines"></i> MODALIDAD EXPOSITORES / PONENTES</td>
-                    </tr>
-                    <tr>
-                        <td>Docentes e Investigadores Nacionales</td>
-                        <td class="precio">$00.000</td>
-                        <td class="precio">$00.000</td>
-                    </tr>
-                    <tr>
-                        <td>Expositores Internacionales</td>
-                        <td class="precio">USD 000</td>
-                        <td class="precio">USD 000</td>
-                    </tr>
-                    <tr>
-                        <td>Estudiantes Expositores (Posgrado/Grado)</td>
-                        <td class="precio">$00.000</td>
-                        <td class="precio">$00.000</td>
-                    </tr>
-
-                    <!-- GRUPO 2: ASISTENTES -->
-                    <tr class="categoria-header">
-                        <td colspan="3"><i class="fa-solid fa-users"></i> MODALIDAD ASISTENTES</td>
-                    </tr>
-                    <tr>
-                        <td>Profesionales y Público General</td>
-                        <td class="precio">$00.000</td>
-                        <td class="precio">$00.000</td>
-                    </tr>
-                    <tr>
-                        <td>Estudiantes de Grado (Asistentes)</td>
-                        <td class="precio">$00.000</td>
-                        <td class="precio">$00.000</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Categoría de participación</th>
+                            <th>Arancel general</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="badge-categoria">Expositores (Docentes e investigadores)</td>
+                            <td class="costo-valor">$12.000 ARS</td>
+                        </tr>
+                        <tr>
+                            <td class="badge-categoria">Graduados expositores</td>
+                            <td class="costo-valor">$8.000 ARS</td>
+                        </tr>
+                        <tr>
+                            <td class="badge-categoria">Estudiantes expositores</td>
+                            <td class="costo-valor">$4.000 ARS</td>
+                        </tr>
+                        <tr>
+                            <td class="badge-categoria">Asistentes generales</td>
+                            <td class="costo-valor">Sin costo (Requiere registro)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
         <section>
-            <h2>Sede del Evento</h2>
-            <p>Las mesas temáticas presenciales se desarrollarán en el Aula Magna de la institución. Las sesiones virtuales se transmitirán mediante la plataforma oficial cuyos accesos se enviarán tras confirmar el pago.</p>
+            <h2>Movilidad y Transporte Local</h2>
+            <p>Para aquellos asistentes que nos visitan desde otras regiones de Argentina y del exterior, les dejamos las siguientes pautas de movilidad urbana dentro de la ciudad de Rosario:</p>
+
+            <div class="logistic-grid">
+                <div class="logistic-card">
+                    <h3>Sede del Evento y Conectividad</h3>
+                    <ul>
+                        <li><strong>Transporte Urbano (Colectivos):</strong> En Rosario está vigente el sistema de tarjeta <strong>SUBE</strong> nacional. Sirve la misma tarjeta que se usa en Buenos Aires, Neuquén y el resto del país.</li>
+                        <li><strong>Terminal de Ómnibus Mariano Moreno:</strong> Ubicada a unos 3.5 km del predio. Un viaje en taxi o Uber desde allí demora entre 10 y 15 minutos.</li>
+                    </ul>
+                </div>
+
+                <div class="logistic-card">
+                    <h3>Costos y Aplicaciones de Viaje</h3>
+                    <ul>
+                        <li><strong>Plataformas digitales:</strong> En la ciudad funcionan con total normalidad las aplicaciones <strong>Uber</strong> y <strong>Cabify</strong>. Un viaje promedio desde el centro hacia la sede ronda los $3.500 - $5.000 ARS (valores de referencia).</li>
+                        <li><strong>Taxis Oficiales:</strong> Rosario cuenta con una amplia flota de taxis (color negro y amarillo) que operan con reloj taxímetro digital regulado.</li>
+                    </ul>
+                </div>
+            </div>
         </section>
     </div>
 
+    <div class="global-contact-bar">
+        Para mayor información, podés escribirnos a: <a href="mailto:estoa.sur@gmail.com">estoa.sur@gmail.com</a>
+    </div>
+
     <footer>
-        <p>&copy; 2026 X Congreso Internacional. Desarrollado por <strong>Meraki Creative</strong>.</p>
+        <p class="share-text">Te animamos a compartir esta información en tus redes:</p>
+        <div class="share-buttons">
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p class="credits-text">&copy; 2028 Comité Organizador. Desarrollado por Meraki Creative.</p>
     </footer>
 
 </body>
