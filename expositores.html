@@ -3,70 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expositores - Simposio 2028</title>
+    <title>Expositores - Simposio Internacional de Estudios Clásicos 2028</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         :root {
-            --color-principal: #2a445e; /* Azul Profundo */
-            --rosa-pompeya: #b84a39;
-            --crema-antiguo: #f5f0e6;
-            --marfil-suave: #ffffff;
-            --texto-oscuro: #2c2523;
-            --oro-viejo: #c5a059;
+            --blanco-marfil: #fcfbfa;
+            --superficie-pura: #ffffff;
+            --azul-academico: #1a2e40;
+            --rojo-pompeya-delicado: #a33829;
+            --oro-atenas: #b59353;
+            --texto-principal: #2d3135;
+            --texto-suave: #64748b;
+            --borde-fino: rgba(181, 147, 83, 0.25);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Roboto', sans-serif; color: var(--texto-oscuro); background-color: var(--crema-antiguo); line-height: 1.8; }
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.25s ease; }
+        
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            color: var(--texto-principal); 
+            background-color: var(--blanco-marfil);
+            line-height: 1.6; 
+        }
 
-        .top-bar { background-color: var(--rosa-pompeya); color: var(--marfil-suave); padding: 8px 20px; display: flex; justify-content: flex-end; gap: 15px; font-size: 0.85rem; font-weight: 500; }
-        .top-bar a { color: var(--marfil-suave); text-decoration: none; }
+        /* BARRA SUPERIOR */
+        .top-bar { 
+            background-color: var(--azul-academico); 
+            color: rgba(255, 255, 255, 0.85); 
+            padding: 6px 24px; 
+            display: flex; 
+            justify-content: flex-end; 
+            gap: 18px; 
+            font-size: 0.78rem; 
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--oro-atenas);
+        }
+        .top-bar a { color: rgba(255, 255, 255, 0.85); text-decoration: none; display: flex; align-items: center; gap: 4px; }
+        .top-bar a:hover { color: var(--oro-atenas); }
 
-        nav { background-color: var(--marfil-suave); border-bottom: 4px solid var(--color-principal); padding: 1.2rem 2rem; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; }
-        .nav-logo { font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.1rem; color: var(--color-principal); }
-        .nav-links { list-style: none; display: flex; gap: 20px; }
-        .nav-links a { text-decoration: none; color: var(--texto-oscuro); font-weight: 500; font-size: 1rem; padding: 6px 12px; }
-        .nav-links a:hover, .nav-links a.active { color: var(--color-principal); background-color: rgba(42, 68, 94, 0.08); border-radius: 4px; }
+        /* NAVEGACIÓN UNIFICADA */
+        nav { 
+            background: var(--superficie-pura); 
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06); 
+            padding: 1rem 2rem; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        .nav-logo { 
+            font-family: 'Cinzel', serif; 
+            font-weight: 800; 
+            font-size: 1.15rem; 
+            color: var(--azul-academico); 
+            letter-spacing: 1px;
+        }
+        .nav-links { list-style: none; display: flex; gap: 8px; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--texto-suave); 
+            font-weight: 500; 
+            font-size: 0.88rem; 
+            padding: 8px 14px; 
+            border-radius: 4px;
+        }
+        .nav-links a:hover, .nav-links a.active { 
+            color: var(--rojo-pompeya-delicado); 
+            background: rgba(163, 56, 41, 0.04); 
+        }
 
-        .banner-container { width: 100%; max-width: 1200px; margin: 30px auto; border-radius: 15px; overflow: hidden; background-color: #cedae5; border: 3px solid var(--oro-viejo); }
-        .banner-placeholder { padding: 60px 20px; text-align: center; }
-        .banner-placeholder h1 { font-family: 'Cinzel', serif; color: var(--color-principal); }
-        .banner-placeholder p { color: var(--rosa-pompeya); font-weight: 700; letter-spacing: 1px; }
+        .main-container { max-width: 1050px; margin: 0 auto; padding: 40px 20px; }
 
-        .main-container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-        section { margin-bottom: 40px; background: var(--marfil-suave); padding: 45px; border-radius: 12px; border: 1px solid rgba(197, 160, 89, 0.2); border-top: 6px solid var(--color-principal); }
-        section h2 { font-family: 'Cinzel', serif; color: var(--color-principal); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--crema-antiguo); }
+        /* ENCABEZADO DE PÁGINA SESTENTADO */
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .page-header h1 {
+            font-family: 'Cinzel', serif;
+            color: var(--azul-academico);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        .page-header p {
+            color: var(--texto-suave);
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
 
-        /* Cuadrícula de expositores */
-        .speakers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 25px; margin-top: 25px; }
-        .speaker-card { background: #fafafa; padding: 20px; border-radius: 8px; border: 1px solid #e9e3d8; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
-        .avatar-placeholder { width: 90px; height: 90px; background-color: #e2dacc; border-radius: 50%; margin: 0 auto 15px auto; display: flex; align-items: center; justify-content: center; color: var(--color-principal); font-size: 2rem; border: 2px solid var(--oro-viejo); }
-        .speaker-card h3 { font-size: 1.1rem; color: var(--texto-oscuro); margin-bottom: 5px; }
-        .speaker-card p { font-size: 0.85rem; color: #666; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+        /* CUADRÍCULA EDITORIAL DE EXPOSITORES */
+        .expositores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
 
-        .global-contact-bar { background-color: #eee6d8; text-align: center; padding: 20px; margin-top: 50px; border-top: 1px dashed var(--oro-viejo); border-bottom: 1px dashed var(--oro-viejo); font-size: 1rem; }
-        .global-contact-bar a { color: var(--rosa-pompeya); font-weight: 700; text-decoration: none; }
+        .expositor-card {
+            background: var(--superficie-pura);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-top: 4px solid var(--azul-academico);
+            border-radius: 6px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .expositor-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(181, 147, 83, 0.08);
+            border-top-color: var(--rojo-pompeya-delicado);
+        }
 
-        footer { background-color: var(--texto-oscuro); color: var(--crema-antiguo); text-align: center; padding: 40px 20px; border-top: 5px solid var(--oro-viejo); }
-        .share-text { font-size: 1.1rem; font-weight: 500; color: var(--crema-antiguo); margin-bottom: 12px; }
-        .share-buttons { margin-bottom: 30px; }
-        .share-buttons a { color: var(--crema-antiguo); margin: 0 12px; font-size: 1.4rem; }
-        .credits-text { font-size: 0.8rem; color: #a09592; letter-spacing: 0.5px; }
+        .expositor-info h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--azul-academico);
+            font-size: 1.25rem;
+            margin-bottom: 4px;
+        }
+
+        .expositor-institucion {
+            font-size: 0.85rem;
+            color: var(--oro-atenas);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+
+        .expositor-ponencia {
+            font-size: 0.95rem;
+            color: var(--texto-principal);
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 15px;
+            border-left: 2px solid var(--borde-fino);
+        }
+
+        /* BOTÓN DE DESCARGA RESUMEN */
+        .btn-abstract {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--rojo-pompeya-delicado);
+            border: 1px solid var(--rojo-pompeya-delicado);
+            text-decoration: none;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        .btn-abstract:hover {
+            background: var(--rojo-pompeya-delicado);
+            color: white;
+        }
+
+        /* BARRA DE CONTACTO */
+        .global-contact-bar { 
+            background: var(--superficie-pura); 
+            text-align: center; 
+            padding: 20px; 
+            border-radius: 6px;
+            margin: 40px 0; 
+            border: 1px solid rgba(0,0,0,0.05); 
+            font-size: 0.95rem;
+        }
+        .global-contact-bar a { color: var(--rojo-pompeya-delicado); font-weight: 600; text-decoration: none; }
+
+        /* PIE DE PÁGINA */
+        footer { 
+            background-color: var(--azul-academico); 
+            color: rgba(255,255,255,0.7); 
+            text-align: center; 
+            padding: 40px 20px; 
+            border-top: 2px solid var(--oro-atenas); 
+            font-size: 0.88rem;
+        }
+        .share-text { 
+            font-size: 1rem; 
+            font-weight: 600; 
+            margin-bottom: 15px; 
+            color: var(--oro-atenas); 
+            font-family: 'Cinzel', serif; 
+        }
+        .share-buttons a { color: rgba(255,255,255,0.7); margin: 0 12px; font-size: 1.3rem; }
+        .share-buttons a:hover { color: var(--oro-atenas); }
     </style>
 </head>
 <body>
 
+    <!-- BARRA SUPERIOR -->
     <div class="top-bar">
-        <span>Nuestras redes:</span>
         <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
         <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
-        <a href="#"><i class="fab fa-whatsapp"></i> Canal de WhatsApp</a>
+        <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
     </div>
 
+    <!-- MENÚ -->
     <nav>
         <div class="nav-logo">SIMPOSIO ESTUDIOS CLÁSICOS 2028</div>
         <ul class="nav-links">
@@ -79,65 +231,100 @@
         </ul>
     </nav>
 
-    <div class="banner-container">
-        <div class="banner-placeholder">
-            <h1>Expositores y ponentes</h1>
-            <p>CONOCÉ A LOS PARTICIPANTES DEL SIMPOSIO</p>
-        </div>
-    </div>
-
+    <!-- CONTENIDO PRINCIPAL -->
     <div class="main-container">
-        <section>
-            <h2>Investigadores y conferencistas invitados</h2>
-            <p>A continuación se presentan los docentes, especialistas e investigadores de diversas universidades del país y la región que coordinarán las comisiones, dictarán cursillos o brindarán las conferencias centrales durante los cuatro días del evento[cite: 2, 3].</p>
+        
+        <header class="page-header">
+            <h1>Plenarios y Expositores</h1>
+            <p>Conocé a los destacados especialistas nacionales e internacionales que enriquecerán nuestro Simposio con sus últimas investigaciones y debates epistemológicos.</p>
+        </header>
+
+        <main class="expositores-grid">
             
-            <div class="speakers-grid">
-                <!-- Expositor 1 -->
-                <div class="speaker-card">
-                    <div class="avatar-placeholder"><i class="fas fa-user-graduate"></i></div>
-                    <h3>Dr. Julián Albarracín</h3>
-                    <p>Universidad Nacional de Rosario (UNR)</p>
+            <!-- EXPOSITOR 1 -->
+            <div class="expositor-card">
+                <div class="expositor-info">
+                    <h3>Dr. Alejandro S. Martínez</h3>
+                    <div class="expositor-institucion">Universidad de Buenos Aires (UBA)</div>
+                    <p class="expositor-ponencia">"Ecdótica y variantes críticas en la tradición manuscrita de la Ilíada homérica."</p>
                 </div>
-                <!-- Expositor 2 -->
-                <div class="speaker-card">
-                    <div class="avatar-placeholder"><i class="fas fa-user-graduate"></i></div>
-                    <h3>Dr. Mario Benítez</h3>
-                    <p>Universidad de Buenos Aires (UBA)</p>
-                </div>
-                <!-- Expositor 3 -->
-                <div class="speaker-card">
-                    <div class="avatar-placeholder"><i class="fas fa-user-graduate"></i></div>
-                    <h3>Dra. Laura Estévez</h3>
-                    <p>Universidad Nacional del Sur (UNS)</p>
-                </div>
-                <!-- Expositor 4 -->
-                <div class="speaker-card">
-                    <div class="avatar-placeholder"><i class="fas fa-user-graduate"></i></div>
-                    <h3>Prof. Sergio Antonini</h3>
-                    <p>Universidad de Buenos Aires (UBA)</p>
-                </div>
-                <!-- Expositor 5 -->
-                <div class="speaker-card">
-                    <div class="avatar-placeholder"><i class="fas fa-user-graduate"></i></div>
-                    <h3>Dra. Ivana Chialva</h3>
-                    <p>Universidad Nacional del Litoral (UNL)</p>
-                </div>
-                <!-- Expositor 6 -->
-                <div class="speaker-card">
-                    <div class="avatar-placeholder"><i class="fas fa-user-graduate"></i></div>
-                    <h3>Dra. Ana Clara Sisul</h3>
-                    <p>Universidad Nacional de Río Negro (UNRN)</p>
-                </div>
+                <a href="repositorio/abstract-martinez.pdf" class="btn-abstract" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Descargar Resumen
+                </a>
             </div>
-        </section>
+
+            <!-- EXPOSITOR 2 -->
+            <div class="expositor-card">
+                <div class="expositor-info">
+                    <h3>Dra. Helena Ribeiro</h3>
+                    <div class="expositor-institucion">Universidade de Coimbra</div>
+                    <p class="expositor-ponencia">"Papirología del siglo XXI: Recuperación digital de fragmentos poéticos helenísticos."</p>
+                </div>
+                <a href="repositorio/abstract-ribeiro.pdf" class="btn-abstract" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Descargar Resumen
+                </a>
+            </div>
+
+            <!-- EXPOSITOR 3 -->
+            <div class="expositor-card">
+                <div class="expositor-info">
+                    <h3>Mag. Valeria Rossi</h3>
+                    <div class="expositor-institucion">Universidad Nacional de Rosario (UNR)</div>
+                    <p class="expositor-ponencia">"Relecturas de las metamorfosis ovidianas en la plástica barroca rioplatense."</p>
+                </div>
+                <a href="repositorio/abstract-rossi.pdf" class="btn-abstract" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Descargar Resumen
+                </a>
+            </div>
+
+            <!-- EXPOSITOR 4 -->
+            <div class="expositor-card">
+                <div class="expositor-info">
+                    <h3>Dr. Marcus Dupont</h3>
+                    <div class="expositor-institucion">Sorbonne Université</div>
+                    <p class="expositor-ponencia">"El giro computacional: Redes neuronales aplicadas a la paleografía latina."</p>
+                </div>
+                <a href="repositorio/abstract-dupont.pdf" class="btn-abstract" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Descargar Resumen
+                </a>
+            </div>
+
+            <!-- EXPOSITOR 5 -->
+            <div class="expositor-card">
+                <div class="expositor-info">
+                    <h3>Dra. Claudia M. Fontana</h3>
+                    <div class="expositor-institucion">Universidad Nacional de Córdoba (UNC)</div>
+                    <p class="expositor-ponencia">"Mito y tragedia: La vigencia del lamento ético en el teatro contemporáneo argentino."</p>
+                </div>
+                <a href="repositorio/abstract-fontana.pdf" class="btn-abstract" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Descargar Resumen
+                </a>
+            </div>
+
+            <!-- EXPOSITOR 6 -->
+            <div class="expositor-card">
+                <div class="expositor-info">
+                    <h3>Dr. Julian Vance</h3>
+                    <div class="expositor-institucion">University of Oxford</div>
+                    <p class="expositor-ponencia">"Arqueología de la memoria monumental: Nuevos hallazgos en el foro de Augusto."</p>
+                </div>
+                <a href="repositorio/abstract-vance.pdf" class="btn-abstract" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Descargar Resumen
+                </a>
+            </div>
+
+        </main>
+
     </div>
 
+    <!-- CONTACTO -->
     <div class="global-contact-bar">
-        Para mayor información, podés escribirnos a: <a href="mailto:stoa.sur@gmail.com">stoa.sur@gmail.com</a>
+        ¿Sos expositor y necesitás realizar una consulta técnica? Escribinos a: <a href="mailto:estoa.sur@gmail.com">estoa.sur@gmail.com</a>
     </div>
 
+    <!-- PIE DE PÁGINA -->
     <footer>
-        <p class="share-text">Si te interesa el simposio, compartilo en tus redes:</p>
+        <p class="share-text">Te animamos a compartir esta info en tus redes:</p>
         <div class="share-buttons">
             <a href="#"><i class="fab fa-x-twitter"></i></a>
             <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -145,7 +332,7 @@
             <a href="#"><i class="fab fa-whatsapp"></i></a>
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
-        <p class="credits-text">&copy; 2028 Comité Organizador. Desarrollado por Meraki Creative.</p>
+        <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 25px;">&copy; 2028 Comité Organizador. Desarrollado con elegancia por Meraki Creative.</p>
     </footer>
 
 </body>
