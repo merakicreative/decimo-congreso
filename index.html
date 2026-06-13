@@ -35,10 +35,10 @@
         .main-container { max-width: 1100px; margin: 0 auto; padding: 20px; }
         
         /* BANNER / TRÁILER VISUAL EN CONTINUO (16 Slides) */
-        .carousel-wrapper { width: 100%; max-width: 1200px; margin: 20px auto 40px auto; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.15); border: 3px solid var(--oro-viejo); }
+        .carousel-wrapper { width: 100%; max-width: 1200px; margin: 20px auto 40px auto; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.15); border: 3px solid var(--oro-viejo); display: block !important; }
         .slider { display: flex; width: 1600%; height: 520px; animation: trailerVisual 64s infinite ease-in-out; }
         .slide { width: 6.25%; height: 100%; position: relative; }
-        .slide img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.65); }
+        .slide img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.65); display: block; }
         
         .slide-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.95)); color: white; padding: 45px; text-align: left; }
         .slide-caption h3 { font-family: 'Cinzel', serif; font-size: 1.7rem; margin-bottom: 5px; color: var(--oro-viejo); text-shadow: 1px 1px 4px rgba(0,0,0,0.6); }
@@ -107,3 +107,158 @@
             <li><a href="contacto.html">Contacto</a></li>
         </ul>
     </nav>
+
+    <!-- TRÁILER VISUAL VINCULADO A LA CARPETA SIMPLE 'banner' -->
+    <div class="carousel-wrapper">
+        <div class="slider">
+            
+            <div class="slide">
+                <img src="banner/banner-1.jpeg" alt="Filología y Crítica Textual">
+                <div class="slide-caption">
+                    <h3>Filología, Crítica Textual y Lingüística Clásica</h3>
+                    <p>El estudio de las tradiciones manuscritas y la reconstrucción ecdótica de las fuentes primarias.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="banner/banner-2.jpeg" alt="Papirología antigua">
+                <div class="slide-caption">
+                    <h3>Papirología y recuperación de fragmentos antiguos</h3>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="banner/banner-3.jpeg" alt="Restauración documental">
+                <div class="slide-caption">
+                    <h3>Tecnologías aplicadas a la restauración and conservación documental</h3>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="banner/banner-4.jpeg" alt="Paleografía crítica">
+                <div class="slide-caption">
+                    <h3>Paleografía y lectura crítica en los repositorios de libre acceso</h3>
+                </div>
+            </div>
+
+            <div class="slide">
+                <img src="banner/banner-5.jpeg" alt="Arqueología del Mundo Antiguo">
+                <div class="slide-caption">
+                    <h3>Historia, Historiografía y Arqueología del Mundo Antiguo</h3>
+                    <p>Análisis de las estructuras materiales, políticas y sociales de Grecia y Roma.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="banner/banner-6.jpeg" alt="Representaciones plásticas antiguas">
+                <div class="slide-caption">
+                    <h3>La circulación del saber poético en las representaciones plásticas</h3>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="banner/banner-7.jpeg" alt="Historiografía monumental">
+                <div class="slide-caption">
+                    <h3>Historiografía monumental y la construcción de la memoria clásica</h3>
+                </div>
+            </div>
+
+            <div class="slide">
+                <img src="banner/banner-8.jpeg" alt="Filosofía Antigua y Mito">
+                <div class="slide-caption">
+                    <h3>Filosofía Antigua, Mito y Producción Poética</h3>
+                    <p>Indagaciones sobre el pensamiento ético, cosmológico y los géneros literarios fundacionales.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="banner/banner-9.jpeg" alt="Épica homérica">
+                <div class="slide-caption">
+                    <h3>Aproximaciones estéticas a la épica homérica en el Neoclasicismo</h3>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="banner/banner-10.jpeg" alt="Mitología ovidiana">
+                <div class="slide-caption">
+                    <h3>La mitología ovidiana y sus relecturas en las artes visuales europeas</h3>
+                </div>
+            </div>
+
+            <div class="slide">
+                <img src="banner/banner-11.jpeg" alt="Tradición Clásica contemporánea">
+                <div class="slide-caption">
+                    <h3>Teoría de la Recepción y Tradición Clásica</h3>
+                    <p>La pervivencia y reescritura del mito y la literatura en las narrativas contemporáneas.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="banner/banner-12.jpeg" alt="Videojuegos e iconografía interactiva">
+                <div class="slide-caption">
+                    <h3>El mundo antiguo en las pantallas: videojuegos e iconografía interactiva</h3>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="banner/banner-13.jpeg" alt="Épica digital actual">
+                <div class="slide-caption">
+                    <h3>Apropiaciones lúdicas y la construcción de la épica digital actual</h3>
+                </div>
+            </div>
+
+            <div class="slide">
+                <img src="banner/banner-14.jpeg" alt="IA aplicada a códices">
+                <div class="slide-caption">
+                    <h3>La mirada de lo antiguo y lo nuevo: Inteligencia Artificial en los Códices</h3>
+                    <p>Modelos predictivos y visión computacional aplicados al rescate filológico.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="banner/banner-15.jpeg" alt="Humanidades Digitales">
+                <div class="slide-caption">
+                    <h3>Humanidades Digitales: Algoritmos frente al patrimonio clásico</h3>
+                </div>
+            </div>
+
+            <div class="slide">
+                <img src="banner/banner-16.jpeg" alt="Estudios Clásicos Siglo XXI">
+                <div class="slide-caption">
+                    <h3>Estudios Clásicos en el Siglo XXI</h3>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="main-container">
+        <section>
+            <h2>Sobre el Simposio</h2>
+            <p>El Simposio de Estudios Clásicos constituye un espacio de intercambio científico de vanguardia que reúne a investigadores, docentes y estudiantes del ámbito nacional e internacional.</p>
+            <div class="btn-container">
+                <a href="programa.html" class="btn-action">Ver cronograma de actividades <i class="fas fa-calendar-alt"></i></a>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/lB3MsSgevAdQ" title="Presentación Institucional del Simposio" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section style="border-top-color: var(--oro-viejo);">
+            <h2>La Sede: Universidad Nacional de Rosario</h2>
+            <div class="sede-container">
+                <div>
+                    <p>Las jornadas académicas se llevarán a cabo en la histórica <strong>Universidad Nacional de Rosario (UNR)</strong>.</p>
+                </div>
+                <div class="sede-img-box">
+                    <img src="banner/sede-unr.jpeg" alt="Patio Histórico UNR">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="global-contact-bar">
+        Para mayor información, podés escribirnos a: <a href="mailto:estoa.sur@gmail.com">estoa.sur@gmail.com</a>
+    </div>
+
+    <footer>
+        <div class="share-buttons">
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p style="font-size: 0.8rem; color: #a09592; margin-top: 15px;">&copy; 2028 Comité Organizador. Desarrollado por Meraki Creative.</p>
+    </footer>
+
+</body>
+</html>
