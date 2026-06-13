@@ -11,7 +11,7 @@
     
     <style>
         :root {
-            --color-principal: #2a445e; /* Azul Profundo */
+            --color-principal: #2a445e;
             --rosa-pompeya: #b84a39;
             --verde-laurel: #4a6b52;
             --crema-antiguo: #f5f0e6;
@@ -23,7 +23,6 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Roboto', sans-serif; color: var(--texto-oscuro); background-color: var(--crema-antiguo); line-height: 1.8; }
 
-        /* Zócalo superior */
         .top-bar { background-color: var(--verde-laurel); color: var(--marfil-suave); padding: 8px 20px; display: flex; justify-content: flex-end; gap: 15px; font-size: 0.85rem; font-weight: 500; }
         .top-bar a { color: var(--marfil-suave); text-decoration: none; }
 
@@ -35,34 +34,36 @@
 
         .main-container { max-width: 1100px; margin: 0 auto; padding: 20px; }
         
-        /* --- GRAN BANNER / TRÁILER VISUAL EN CONTINUO (12 Slides - 48s de animación total) --- */
+        /* BANNER / TRÁILER VISUAL EN CONTINUO (16 Slides) */
         .carousel-wrapper { width: 100%; max-width: 1200px; margin: 20px auto 40px auto; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.15); border: 3px solid var(--oro-viejo); }
-        .slider { display: flex; width: 1200%; height: 520px; animation: trailerVisual 48s infinite ease-in-out; }
-        .slide { width: 8.333%; height: 100%; position: relative; }
+        .slider { display: flex; width: 1600%; height: 520px; animation: trailerVisual 64s infinite ease-in-out; }
+        .slide { width: 6.25%; height: 100%; position: relative; }
         .slide img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.65); }
         
         .slide-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.95)); color: white; padding: 45px; text-align: left; }
         .slide-caption h3 { font-family: 'Cinzel', serif; font-size: 1.7rem; margin-bottom: 5px; color: var(--oro-viejo); text-shadow: 1px 1px 4px rgba(0,0,0,0.6); }
         .slide-caption p { font-size: 1rem; opacity: 0.9; font-weight: 400; }
 
-        /* Animación fluida para 12 imágenes paso a paso (8.33% cada desplazamiento) */
         @keyframes trailerVisual {
-            0%, 6% { transform: translateX(0); }
-            8%, 14% { transform: translateX(-8.333%); }
-            16%, 22% { transform: translateX(-16.666%); }
-            24%, 30% { transform: translateX(-25%); }
-            32%, 38% { transform: translateX(-33.333%); }
-            40%, 46% { transform: translateX(-41.666%); }
-            48%, 54% { transform: translateX(-50%); }
-            56%, 62% { transform: translateX(-58.333%); }
-            64%, 70% { transform: translateX(-66.666%); }
-            72%, 78% { transform: translateX(-75%); }
-            80%, 86% { transform: translateX(-83.333%); }
-            88%, 94% { transform: translateX(-91.666%); }
+            0%, 4.5% { transform: translateX(0); }
+            6.25%, 10.75% { transform: translateX(-6.25%); }
+            12.5%, 17% { transform: translateX(-12.5%); }
+            18.75%, 23.25% { transform: translateX(-18.75%); }
+            25%, 29.5% { transform: translateX(-25%); }
+            31.25%, 35.75% { transform: translateX(-31.25%); }
+            37.5%, 42% { transform: translateX(-37.5%); }
+            43.75%, 48.25% { transform: translateX(-43.75%); }
+            50%, 54.5% { transform: translateX(-50%); }
+            56.25%, 60.75% { transform: translateX(-56.25%); }
+            62.5%, 67% { transform: translateX(-62.5%); }
+            68.75%, 73.25% { transform: translateX(-68.75%); }
+            75%, 79.5% { transform: translateX(-75%); }
+            81.25%, 85.75% { transform: translateX(-81.25%); }
+            87.5%, 92% { transform: translateX(-87.5%); }
+            93.75%, 98.25% { transform: translateX(-93.75%); }
             100% { transform: translateX(0); }
         }
 
-        /* Secciones de Contenido */
         section { margin-bottom: 40px; background: var(--marfil-suave); padding: 45px; border-radius: 12px; border: 1px solid rgba(197, 160, 89, 0.2); border-top: 6px solid var(--color-principal); }
         section h2 { font-family: 'Cinzel', serif; color: var(--color-principal); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--crema-antiguo); }
 
@@ -73,7 +74,6 @@
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000; border-radius: 8px; margin-top: 30px; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        /* Contenedor de Sede Estructurado */
         .sede-container { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 30px; align-items: center; }
         @media (max-width: 768px) { .sede-container { grid-template-columns: 1fr; } }
         .sede-img-box { border-radius: 8px; overflow: hidden; border: 3px solid var(--oro-viejo); height: 320px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); background-color: #eee; }
@@ -108,111 +108,120 @@
         </ul>
     </nav>
 
-    <!-- TRÁILER VISUAL: CARRUSEL FLUIDO SUPERIOR CON EJES IMPLÍCITOS E IMÁGENES MUDAS -->
+    <!-- TRÁILER VISUAL PRINCIPAL (Direccionado a tu nueva carpeta) -->
     <div class="carousel-wrapper">
         <div class="slider">
             
-            <!-- Slide 1: Códices Tradicionales -->
+            <!-- 1. BLOQUE FILOLOGÍA Y CÓDICES -->
             <div class="slide">
-                <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=1200&auto=format&fit=cover" alt="Manuscritos antiguos">
+                <img src="COMPRIMIDAS%20BANNER/banner-1.jpg" alt="Filología y Crítica Textual">
                 <div class="slide-caption">
                     <h3>Filología, Crítica Textual y Lingüística Clásica</h3>
-                    <p>El minucioso estudio y rescate ecdótico de las tradiciones manuscritas de la antigüedad.</p>
+                    <p>El estudio de las tradiciones manuscritas y la reconstrucción ecdótica de las fuentes primarias.</p>
                 </div>
             </div>
-
-            <!-- Slide 2: Papiro Real (Muda) -->
             <div class="slide">
-                <img src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=1200&auto=format&fit=cover" alt="Detalle de pergaminos">
+                <img src="COMPRIMIDAS%20BANNER/banner-2.jpg" alt="Papirología antigua">
                 <div class="slide-caption">
-                    <h3>Lectura y preservación de fuentes primarias</h3>
+                    <h3>Papirología y recuperación de fragmentos antiguos</h3>
                 </div>
             </div>
-
-            <!-- Slide 3: Maquinaria y Restauración Filológica -->
             <div class="slide">
-                <img src="https://images.unsplash.com/photo-1580536513853-4916f1b1305c?q=80&w=1200&auto=format&fit=cover" alt="Trabajo en archivo documental">
+                <img src="COMPRIMIDAS%20BANNER/banner-3.jpg" alt="Restauración documental">
                 <div class="slide-caption">
-                    <h3>Laboratorio Documental y Conservación</h3>
-                    <p>La tecnología aplicada a la salvaguarda de textos medievales y renacentistas.</p>
+                    <h3>Tecnologías aplicadas a la restauración y conservación documental</h3>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="COMPRIMIDAS%20BANNER/banner-4.jpg" alt="Paleografía crítica">
+                <div class="slide-caption">
+                    <h3>Paleografía y lectura crítica en los repositorios de libre acceso</h3>
                 </div>
             </div>
 
-            <!-- Slide 4: Pintura Clásica en Museos (Ulises - Waterhouse) -->
+            <!-- 2. BLOQUE HISTORIA Y ARQUEOLOGÍA -->
             <div class="slide">
-                <img src="https://images.unsplash.com/photo-1549887534-1541e9326642?q=80&w=1200&auto=format&fit=cover" alt="Iconografía clásica en museos">
+                <img src="COMPRIMIDAS%20BANNER/banner-5.jpg" alt="Arqueología del Mundo Antiguo">
                 <div class="slide-caption">
                     <h3>Historia, Historiografía y Arqueología del Mundo Antiguo</h3>
-                    <p>Análisis de los contextos materiales, sociales y estéticos que estructuraron Grecia y Roma.</p>
+                    <p>Análisis de las estructuras materiales, políticas y sociales de Grecia y Roma.</p>
                 </div>
             </div>
-
-            <!-- Slide 5: Pintura Neoclásica Mítica (Muda) -->
             <div class="slide">
-                <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1200&auto=format&fit=cover" alt="Pintura inspirada en la mitología">
+                <img src="COMPRIMIDAS%20BANNER/banner-6.jpg" alt="Representaciones plásticas antiguas">
                 <div class="slide-caption">
-                    <h3>El ideal estético clásico y sus relecturas en las artes plásticas.</h3>
+                    <h3>La circulación del saber poético en las representaciones plásticas</h3>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="COMPRIMIDAS%20BANNER/banner-7.jpg" alt="Historiografía monumental">
+                <div class="slide-caption">
+                    <h3>Historiografía monumental y la construcción de la memoria clásica</h3>
                 </div>
             </div>
 
-            <!-- Slide 6: Literatura y Filosofía (Diógenes) -->
+            <!-- 3. BLOQUE FILOSOFÍA Y MITO -->
             <div class="slide">
-                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=cover" alt="Filosofía clásica y textos">
+                <img src="COMPRIMIDAS%20BANNER/banner-8.jpg" alt="Filosofía Antigua y Mito">
                 <div class="slide-caption">
                     <h3>Filosofía Antigua, Mito y Producción Poética</h3>
-                    <p>Modelos de pensamiento ético, cosmológico y géneros literarios fundacionales.</p>
+                    <p>Indagaciones sobre el pensamiento ético, cosmológico y los géneros literarios fundacionales.</p>
                 </div>
             </div>
-
-            <!-- Slide 7: Recepción en Videojuegos Contemporáneos -->
             <div class="slide">
-                <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=1200&auto=format&fit=cover" alt="Entorno lúdico digital neoclásico">
+                <img src="COMPRIMIDAS%20BANNER/banner-9.jpg" alt="Épica homérica">
                 <div class="slide-caption">
-                    <h3>Teoría de la Recepción: Del Códice a la Pantalla Digital</h3>
-                    <p>La pervivencia del mito y las narrativas de la antigüedad clásica en el desarrollo lúdico interactivo.</p>
+                    <h3>Aproximaciones estéticas a la épica homérica en el Neoclasicismo</h3>
                 </div>
             </div>
-
-            <!-- Slide 8: Estética Gaming / Paisaje Helénico (Muda) -->
             <div class="slide">
-                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=cover" alt="Arquitectura virtual interactiva">
+                <img src="COMPRIMIDAS%20BANNER/banner-10.jpg" alt="Mitología ovidiana">
                 <div class="slide-caption">
-                    <h3>Recreaciones virtuales y simulaciones tridimensionales de ciudades antiguas.</h3>
+                    <h3>La mitología ovidiana y sus relecturas en las artes visuales europeas</h3>
                 </div>
             </div>
 
-            <!-- Slide 9: Modelado 3D de Guerreros/Mitos -->
+            <!-- 4. BLOQUE TEORÍA DE LA RECEPCIÓN Y VIDEOJUEGOS -->
             <div class="slide">
-                <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=1200&auto=format&fit=cover" alt="Diseño interactivo interactivo">
+                <img src="COMPRIMIDAS%20BANNER/banner-11.jpg" alt="Tradición Clásica contemporánea">
                 <div class="slide-caption">
-                    <h3>Narrativas e Iconografía Clásica en Medios Interactivos</h3>
-                    <p>La construcción del héroe clásico en el ecosistema audiovisual de masas.</p>
+                    <h3>Teoría de la Recepción y Tradición Clásica</h3>
+                    <p>La pervivencia y reescritura del mito y la literatura en las narrativas contemporáneas.</p>
                 </div>
             </div>
-
-            <!-- Slide 10: Cruce Conceptual con Inteligencia Artificial -->
             <div class="slide">
-                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=cover" alt="Abstracción digital algorítmica">
+                <img src="COMPRIMIDAS%20BANNER/banner-12.jpg" alt="Videojuegos e iconografía interactiva">
                 <div class="slide-caption">
-                    <h3>Humanidades Digitales e Inteligencia Artificial</h3>
-                    <p>Algoritmos avanzados aplicados a la lectura automatizada y colación de fragmentos dañados.</p>
+                    <h3>El mundo antiguo en las pantallas: videojuegos e iconografía interactiva</h3>
                 </div>
             </div>
-
-            <!-- Slide 11: Visión Artificial sobre Estatuaria (Muda) -->
             <div class="slide">
-                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200&auto=format&fit=cover" alt="Análisis digital de estatuas clásicas">
+                <img src="COMPRIMIDAS%20BANNER/banner-13.jpg" alt="Épica digital actual">
                 <div class="slide-caption">
-                    <h3>Redes neuronales y la reconstrucción predictiva de piezas arqueológicas.</h3>
+                    <h3>Apropiaciones lúdicas y la construcción de la épica digital actual</h3>
                 </div>
             </div>
 
-            <!-- Slide 12: Cierre Estatuaria e Iconografía Fija -->
+            <!-- 5. BLOQUE INTELIGENCIA ARTIFICIAL Y HUMANIDADES DIGITALES -->
             <div class="slide">
-                <img src="https://images.unsplash.com/photo-1606744824163-985d376605aa?q=80&w=1200&auto=format&fit=cover" alt="Escultura clásica de mármol">
+                <img src="COMPRIMIDAS%20BANNER/banner-14.jpg" alt="IA aplicada a códices">
+                <div class="slide-caption">
+                    <h3>La mirada de lo antiguo y lo nuevo: Inteligencia Artificial en los Códices</h3>
+                    <p>Modelos predictivos y visión computacional aplicados al rescate filológico.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="COMPRIMIDAS%20BANNER/banner-15.jpg" alt="Humanidades Digitales">
+                <div class="slide-caption">
+                    <h3>Humanidades Digitales: Algoritmos frente al patrimonio clásico</h3>
+                </div>
+            </div>
+
+            <!-- 6. CIERRE -->
+            <div class="slide">
+                <img src="COMPRIMIDAS%20BANNER/banner-16.jpg" alt="Estudios Clásicos Siglo XXI">
                 <div class="slide-caption">
                     <h3>Estudios Clásicos en el Siglo XXI</h3>
-                    <p>Un espacio permanente para repensar las raíces conceptuales del mañana.</p>
                 </div>
             </div>
 
@@ -230,13 +239,12 @@
                 <a href="programa.html" class="btn-action">Ver cronograma de actividades <i class="fas fa-calendar-alt"></i></a>
             </div>
 
-            <!-- VIDEO RECONSTRUIDO Y FUNCIONANDO -->
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/lB3MsSgevAdQ" title="Presentación Institucional del Simposio" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </section>
 
-        <!-- SECCIÓN DE LA SEDE CON IMAGEN DIRECTA DE LA ENTRADA/PATIO DE LA UNR -->
+        <!-- SECCIÓN SEDE -->
         <section style="border-top-color: var(--oro-viejo);">
             <h2>La Sede: Universidad Nacional de Rosario</h2>
             <div class="sede-container">
@@ -244,9 +252,9 @@
                     <p>Las jornadas académicas se llevarán a cabo en la histórica <strong>Universidad Nacional de Rosario (UNR)</strong>, específicamente en los claustros de la <strong>Facultad de Humanidades y Artes</strong> (Edificio de calle Entre Ríos 758).</p>
                     <p style="margin-top: 15px;">Este imponente edificio de principios del siglo XX, declarado patrimonio arquitectónico de la ciudad, con sus patios vidriados, columnas de orden clásico y galerías concéntricas, ofrece el clima intelectual ideal y la mística académica perfecta para acoger los debates de nuestro simposio.</p>
                 </div>
-                <!-- FOTO REAL Y CORREGIDA DEL PATIO/FACHADA DE LA FACULTAD DE HUMANIDADES (UNR) DESDE SERVIDOR FIJO -->
                 <div class="sede-img-box">
-                    <img src="https://images.unsplash.com/photo-1592280771190-3e2e4d571952?q=80&w=600&auto=format&fit=cover" alt="Patio Histórico de Columnas de la Facultad de Humanidades y Artes UNR">
+                    <!-- Vinculado a la foto de la sede -->
+                    <img src="COMPRIMIDAS%20BANNER/sede-unr.jpg" alt="Patio Histórico de la Facultad de Humanidades y Artes UNR">
                 </div>
             </div>
         </section>
