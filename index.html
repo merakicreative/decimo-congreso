@@ -35,31 +35,42 @@
 
         .main-container { max-width: 1100px; margin: 0 auto; padding: 20px; }
         
-        /* --- ESTILOS DEL CARRUSEL DINÁMICO EN CSS --- */
+        /* --- CARRUSEL CLÁSICO ENLENTECIDO (24s total - 8s por imagen) --- */
         .carousel-wrapper { width: 100%; max-width: 1200px; margin: 20px auto 40px auto; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border: 3px solid var(--oro-viejo); }
-        .slider { display: flex; width: 300%; height: 450px; animation: cambiarFoto 15s infinite ease-in-out; }
+        .slider { display: flex; width: 300%; height: 480px; animation: cambiarFoto 24s infinite ease-in-out; }
         .slide { width: 33.333%; height: 100%; position: relative; }
-        .slide img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); }
-        .slide-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.85)); color: white; padding: 25px; text-align: left; }
-        .slide-caption h3 { font-family: 'Cinzel', serif; font-size: 1.5rem; margin-bottom: 5px; color: var(--oro-viejo); }
-        .slide-caption p { font-size: 0.95rem; font-weight: 400; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.75); }
+        .slide-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.9)); color: white; padding: 30px; text-align: left; }
+        .slide-caption h3 { font-family: 'Cinzel', serif; font-size: 1.6rem; margin-bottom: 5px; color: var(--oro-viejo); }
+        .slide-caption p { font-size: 1rem; font-weight: 400; opacity: 0.9; }
 
-        /* Animación cíclica para que las fotos pasen solas */
         @keyframes cambiarFoto {
-            0%, 25% { transform: translateX(0); }
-            33%, 58% { transform: translateX(-33.333%); }
-            66%, 91% { transform: translateX(-66.666%); }
+            0%, 28% { transform: translateX(0); }
+            33%, 61% { transform: translateX(-33.333%); }
+            66%, 94% { transform: translateX(-66.666%); }
             100% { transform: translateX(0); }
         }
 
+        /* Estructura de Secciones */
         section { margin-bottom: 40px; background: var(--marfil-suave); padding: 45px; border-radius: 12px; border: 1px solid rgba(197, 160, 89, 0.2); border-top: 6px solid var(--color-principal); }
         section h2 { font-family: 'Cinzel', serif; color: var(--color-principal); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--crema-antiguo); }
 
-        /* Contenedor del Video de YouTube Real */
+        /* Botón de Acción solicitado */
+        .btn-container { margin-top: 25px; margin-bottom: 35px; text-align: left; }
+        .btn-action { display: inline-block; background-color: var(--rosa-pompeya); color: white; text-decoration: none; padding: 12px 28px; font-weight: 700; font-family: 'Roboto', sans-serif; border-radius: 4px; box-shadow: 0 3px 6px rgba(0,0,0,0.1); transition: all 0.2s ease; }
+        .btn-action:hover { background-color: var(--color-principal); transform: translateY(-2px); }
+        .btn-action i { margin-left: 8px; }
+
+        /* Grid institucional para la sede */
+        .sede-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px; align-items: center; }
+        @media (max-width: 768px) { .sede-grid { grid-template-columns: 1fr; } }
+        .sede-logo-box { background-color: #fafafa; border: 1px solid #e9e3d8; padding: 30px; border-radius: 8px; text-align: center; font-family: 'Cinzel', serif; color: var(--color-principal); font-weight: 700; }
+
+        /* Contenedor del Video Limpio y Real */
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 8px; margin-top: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        /* Zócalo de contacto global corregido */
+        /* Zócalo de contacto global */
         .global-contact-bar { background-color: #eee6d8; text-align: center; padding: 20px; margin: 60px 0 30px 0; border-top: 1px dashed var(--oro-viejo); border-bottom: 1px dashed var(--oro-viejo); font-size: 1rem; }
         .global-contact-bar a { color: var(--rosa-pompeya); font-weight: 700; text-decoration: none; }
 
@@ -92,49 +103,71 @@
         </ul>
     </nav>
 
-    <!-- CARRUSEL FOTOGRÁFICO ILUSTRATIVO DINÁMICO -->
+    <!-- CARRUSEL CON IMÁGENES DE ARTE Y CÓDICES CLÁSICOS -->
     <div class="carousel-wrapper">
         <div class="slider">
-            <!-- Foto 1: Arquitectura Institucional -->
+            <!-- Diapositiva 1: Estatuaria e Iconografía Clásica -->
             <div class="slide">
-                <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1200&auto=format&fit=cover" alt="Sede del Simposio">
+                <img src="https://images.unsplash.com/photo-1608155686393-8fdd966d784d?q=80&w=1200&auto=format&fit=cover" alt="Arte Griego Antiguo">
                 <div class="slide-caption">
-                    <h3>Sede Institucional</h3>
-                    <p>Facultad de Humanidades y Artes — Espacios históricos acondicionados para las jornadas académicas.</p>
+                    <h3>Tradición e Investigación Filológica</h3>
+                    <p>Un espacio dedicado al examen crítico y reflexivo del legado material, estético y cultural del mundo grecolatino.</p>
                 </div>
             </div>
-            <!-- Foto 2: Aula / Debate -->
+            <!-- Diapositiva 2: Códices y Manuscritos -->
             <div class="slide">
-                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1200&auto=format&fit=cover" alt="Aulas y Comisiones">
+                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=1200&auto=format&fit=cover" alt="Manuscritos Antiguos">
                 <div class="slide-caption">
-                    <h3>Paneles y Comisiones de Lectura</h3>
-                    <p>Mesas de debate interdisciplinario, presentación de actas y conferencias plenarias.</p>
+                    <h3>Análisis de Fuentes Primarias</h3>
+                    <p>Lectura, traducción y debate interdisciplinario sobre las producciones poéticas, filosóficas e históricas de la antigüedad.</p>
                 </div>
             </div>
-            <!-- Foto 3: Rosario / Costanera -->
+            <!-- Diapositiva 3: Cerámica y Relatos Visuales -->
             <div class="slide">
-                <img src="https://images.unsplash.com/photo-1612455949516-ec4fb703e74a?q=80&w=1200&auto=format&fit=cover" alt="Ciudad de Rosario">
+                <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?q=80&w=1200&auto=format&fit=cover" alt="Mitos y Cerámica Griega">
                 <div class="slide-caption">
-                    <h3>Ciudad de Rosario</h3>
-                    <p>Entorno ribereño y cultural que recibirá a las delegaciones e investigadores de todo el país.</p>
+                    <h3>Recepción y Cultura Contemporánea</h3>
+                    <p>Explorando los puentes hermenéuticos que vinculan los mitos y discursos clásicos con los desafíos de nuestro presente.</p>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="main-container">
+        
+        <!-- SECCIÓN SOBRE EL SIMPOSIO (CON EL VIDEO INTEGRADO YA CORREGIDO) -->
         <section>
             <h2>Sobre el Simposio</h2>
-            <p>El Simposio de Estudios Clásicos es un espacio de intercambio científico consolidado que reúne a investigadores del ámbito nacional e internacional. El evento se enfoca en el examen crítico de las fuentes grecolatinas, su recepción lingüística, histórica y filosófica, promoviendo el diálogo interdisciplinario entre especialistas del mundo clásico y la cultura contemporánea.</p>
+            <p>El Simposio de Estudios Clásicos constituye un espacio de intercambio científico consolidado que reúne periódicamente a investigadores, docentes y estudiantes del ámbito nacional e internacional. El evento está orientado a la discusión en torno a las lenguas, literaturas, historia y filosofía de Grecia y Roma antiguas, así como a los procesos de su recepción y pervivencia en la cultura occidental.</p>
             
-            <!-- VIDEO DE YOUTUBE INSTITUCIONAL INTEGRADO REAL -->
+            <div class="btn-container">
+                <a href="programa.html" class="btn-action">Ver cronograma de actividades <i class="fas fa-calendar-alt"></i></a>
+            </div>
+
+            <!-- CONTENEDOR DEL VIDEO REAL FUNCIONANDO -->
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/lB3MsSgevAdQ" title="Presentación Oficial del Simposio" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/lB3MsSgvAdQ" title="Presentación Institucional del Simposio" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </section>
+
+        <!-- SECCIÓN DE LA SEDE: UNIVERSIDAD NACIONAL DE ROSARIO -->
+        <section style="border-top-color: var(--oro-viejo);">
+            <h2>La Sede: Universidad Nacional de Rosario</h2>
+            <div class="sede-grid">
+                <div>
+                    <p>Las jornadas académicas se desarrollarán en el marco de la <strong>Universidad Nacional de Rosario (UNR)</strong>, una institution pública de referencia que destaca por su fuerte compromiso con la excelencia científica y la extensión cultural en la región litoral.</p>
+                    <p style="margin-top: 15px;">Las comisiones, ponencias y conferencias magistrales tendrán lugar en los históricos pabellones de la Facultad de Humanidades y Artes. Este entorno no solo ofrece la infraestructura técnica necesaria para el evento, sino también una mística y una tradición intelectual idóneas para albergar las discusiones sobre las raíces de nuestro pensamiento.</p>
+                </div>
+                <div class="sede-logo-box">
+                    <i class="fas fa-university" style="font-size: 3rem; color: var(--color-principal); margin-bottom: 15px;"></i>
+                    <h3>UNR</h3>
+                    <p style="font-size: 0.85rem; font-family:'Roboto', sans-serif; color: #666; margin-top: 5px;">Universidad Pública e Internacional</p>
+                </div>
+            </div>
+        </section>
+
     </div>
 
-    <!-- CORRECCIÓN DEL MAIL CENTRAL -->
     <div class="global-contact-bar">
         Para mayor información, podés escribirnos a: <a href="mailto:estoa.sur@gmail.com">estoa.sur@gmail.com</a>
     </div>
