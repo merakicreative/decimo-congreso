@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,67 +11,72 @@
     
     <style>
         :root {
-            --verde-malaquita: #167a67;
-            --verde-profundo: #0d4b3f;
-            --crema-marmol: #fbfaf5;
-            --terracota: #c66a46;
-            --texto-oscuro: #212529;
-            --lineas-oro: #d4af37;
+            --rosa-pompeya: #b84a39;
+            --crema-antiguo: #f5f0e6;
+            --marfil-suave: #ffffff;
+            --texto-oscuro: #2c2523;
+            --oro-viejo: #c5a059;
+            --verde-oliva: #4a5d4e;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: var(--crema-marmol);
             color: var(--texto-oscuro);
             line-height: 1.8;
             font-size: 1.1rem;
+            background-color: var(--crema-antiguo);
+            background-image: radial-gradient(rgba(184, 74, 57, 0.02) 1px, transparent 0);
+            background-size: 24px 24px;
         }
 
-        h1, h2, h3 { font-family: 'Cinzel', serif; color: var(--verde-profundo); }
+        h1, h2, h3 { font-family: 'Cinzel', serif; color: var(--rosa-pompeya); }
 
         nav {
-            background-color: #ffffff;
-            border-bottom: 3px solid var(--verde-malaquita);
+            background-color: var(--marfil-suave);
+            border-bottom: 4px solid var(--rosa-pompeya);
             padding: 1.2rem 2rem;
             position: sticky;
             top: 0; z-index: 100;
             display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
-        .nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--verde-profundo); letter-spacing: 1px; }
+        .nav-logo { font-weight: 700; font-size: 1.2rem; color: var(--rosa-pompeya); letter-spacing: 1px; }
         .nav-links { list-style: none; display: flex; gap: 20px; }
         .nav-links a { text-decoration: none; color: var(--texto-oscuro); font-weight: 500; font-size: 1rem; padding: 6px 12px; transition: all 0.2s; border-radius: 4px; }
-        .nav-links a:hover, .nav-links a.active { color: var(--verde-malaquita); background-color: rgba(22, 122, 103, 0.05); }
+        .nav-links a:hover, .nav-links a.active { color: var(--rosa-pompeya); background-color: rgba(184, 74, 57, 0.08); }
 
         .banner-container {
-            width: 100%; max-width: 1200px; margin: 30px auto; border-radius: 12px; overflow: hidden;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.05); background-color: #e2e8f0; border: 1px solid rgba(22, 122, 103, 0.15);
+            width: 100%; max-width: 1200px; margin: 40px auto; border-radius: 15px; overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08); background-color: #dfd5c6; border: 3px solid var(--oro-viejo);
         }
-        .banner-placeholder { padding: 50px 20px; text-align: center; }
+        .banner-placeholder { padding: 60px 20px; text-align: center; }
 
-        .main-container { max-width: 900px; margin: 0 auto; padding: 10px 20px 60px 20px; }
-        section { margin-bottom: 35px; background: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.02); border-left: 6px solid var(--verde-malaquita); }
-        section h2 { font-size: 1.6rem; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #f0f2f5; }
+        .main-container { max-width: 950px; margin: 0 auto; padding: 20px; }
+        section { 
+            margin-bottom: 40px; background: var(--marfil-suave); padding: 45px; border-radius: 12px; 
+            box-shadow: 0 6px 12px rgba(44, 37, 35, 0.03); border: 1px solid rgba(197, 160, 89, 0.2);
+            border-top: 6px solid var(--rosa-pompeya);
+        }
+        section h2 { font-size: 1.8rem; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--crema-antiguo); }
 
+        /* FORMULARIO MEJORADO Y CÁLIDO */
         .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-weight: 500; margin-bottom: 8px; color: var(--verde-profundo); }
+        .form-group label { display: block; font-weight: 500; margin-bottom: 8px; color: var(--rosa-pompeya); }
         .form-group input, .form-group textarea {
-            width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 6px;
+            width: 100%; padding: 14px; border: 2px solid #e2e8f0; border-radius: 8px;
             font-family: 'Roboto', sans-serif; font-size: 1rem; background-color: #fafafa;
         }
-        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--verde-malaquita); background-color: #ffffff; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--rosa-pompeya); background-color: var(--marfil-suave); }
         
         .btn-submit {
-            background-color: var(--terracota); color: #ffffff; border: none; padding: 14px 35px;
-            font-family: 'Roboto', sans-serif; font-weight: 700; border-radius: 6px; cursor: pointer; transition: background 0.2s;
+            background-color: var(--rosa-pompeya); color: #ffffff; border: none; padding: 15px 40px;
+            font-family: 'Roboto', sans-serif; font-weight: 700; border-radius: 8px; cursor: pointer; transition: background 0.2s;
+            font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;
         }
-        .btn-submit:hover { background-color: var(--verde-profundo); }
+        .btn-submit:hover { background-color: var(--texto-oscuro); }
 
-        .faq-item { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px dashed #e2e8f0; }
-        .faq-item h3 { font-family: 'Roboto', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--verde-profundo); margin-bottom: 5px; }
-        
-        footer { background-color: var(--verde-profundo); color: #ffffff; text-align: center; padding: 45px 20px; margin-top: 60px; border-top: 4px solid var(--lineas-oro); }
+        footer { background-color: var(--texto-oscuro); color: var(--crema-antiguo); text-align: center; padding: 50px 20px; margin-top: 80px; border-top: 5px solid var(--oro-viejo); }
     </style>
 </head>
 <body>
@@ -91,43 +95,34 @@
 
     <div class="banner-container">
         <div class="banner-placeholder">
-            <h1>CONTACTO Y AYUDA</h1>
-            <p style="color: var(--terracota); font-weight: 700; letter-spacing: 0.5px;">ESTAMOS PARA RESOLVER TUS DUDAS</p>
+            <h1>Contacto y Ayuda</h1>
+            <p style="color: var(--verde-oliva); font-weight: 700;">ESTAMOS PARA RESOLVER TUS DUDAS</p>
         </div>
     </div>
 
     <div class="main-container">
         <section>
             <h2>Escríbenos directamente</h2>
-            <p style="margin-bottom: 20px;">Completa los campos a continuación y el comité organizador te responderá en un plazo máximo de 48 horas hábiles.</p>
+            <p style="margin-bottom: 25px;">Completa los campos a continuación y el comité organizador te responderá en un plazo máximo de 48 horas hábiles.</p>
             
-            <form action="#" method="POST">
+            <!-- FORMULARIO INTEGRADO CON FORMSPREE -->
+            <form action="https://formspree.io/f/xjgdpxl" method="POST">
                 <div class="form-group">
                     <label for="nombre">Nombre completo:</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Ej. María García" required>
+                    <input type="text" id="nombre" name="name" placeholder="Ej. María García" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Correo electrónico:</label>
-                    <input type="email" id="email" name="email" placeholder="Ej. maria@correo.com" required>
+                    <input type="email" id="email" name="_replyto" placeholder="Ej. maria@correo.com" required>
                 </div>
                 <div class="form-group">
                     <label for="mensaje">Tu consulta o mensaje:</label>
-                    <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe aquí tu duda..." required></textarea>
+                    <textarea id="mensaje" name="message" rows="6" placeholder="Escribe aquí tu duda..." required></textarea>
                 </div>
+                <!-- Para que Formspree sepa a qué correo enviar el mensaje -->
+                <input type="hidden" name="_subject" value="Nueva consulta desde la web del Congreso">
                 <button type="submit" class="btn-submit">Enviar Mensaje</button>
             </form>
-        </section>
-
-        <section>
-            <h2>Preguntas Frecuentes</h2>
-            <div class="faq-item">
-                <h3>¿El congreso entrega certificados de asistencia?</h3>
-                <p>Sí. Se emitirán certificados digitales oficiales tanto para los ponentes como para los asistentes que cumplan con el 80% de participación.</p>
-            </div>
-            <div class="faq-item">
-                <h3>¿Puedo participar de forma virtual?</h3>
-                <p>Sí, el evento cuenta con una modalidad híbrida. Al registrarte podrás elegir si asistirás presencialmente o mediante las transmisiones en vivo.</p>
-            </div>
         </section>
     </div>
 
