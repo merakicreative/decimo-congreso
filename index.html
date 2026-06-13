@@ -30,7 +30,7 @@
             line-height: 1.6; 
         }
 
-        /* BARRA SUPERIOR REDEFINIDA */
+        /* BARRA SUPERIOR */
         .top-bar { 
             background-color: var(--azul-academico); 
             color: rgba(255, 255, 255, 0.85); 
@@ -46,7 +46,7 @@
         .top-bar a { color: rgba(255, 255, 255, 0.85); text-decoration: none; display: flex; align-items: center; gap: 4px; }
         .top-bar a:hover { color: var(--oro-atenas); }
 
-        /* NAVEGACIÓN PROFESIONAL */
+        /* NAVEGACIÓN */
         nav { 
             background: var(--superficie-pura); 
             border-bottom: 1px solid rgba(0, 0, 0, 0.06); 
@@ -82,7 +82,7 @@
 
         .main-container { max-width: 1050px; margin: 0 auto; padding: 30px 20px; }
         
-        /* COCHE CINEMATOGRÁFICO DE BANNER (Más alto, 540px y ciclo lento) */
+        /* BANNER PRINCIPAL CINEMATOGRÁFICO */
         .carousel-wrapper { 
             width: 100%; 
             margin: 0 auto 40px auto; 
@@ -93,11 +93,9 @@
             border: 1px solid var(--borde-fino); 
         }
         
-        /* Animación lenta de 96 segundos para recorrer las 16 imágenes con pausa */
         .slider { display: flex; width: 1600%; height: 540px; animation: trailerVisual 96s infinite ease-in-out; }
         .slide { width: 6.25%; height: 100%; position: relative; overflow: hidden; }
         
-        /* Animación: El fondo entra sutilmente desde la izquierda */
         .slide img { 
             width: 100%; 
             height: 100%; 
@@ -108,7 +106,6 @@
             animation: paneoIzquierda 6s infinite alternate ease-in-out;
         }
         
-        /* Animación: Los textos entran flotando desde la derecha */
         .slide-caption { 
             position: absolute; 
             bottom: 0; left: 0; right: 0; 
@@ -126,7 +123,6 @@
         }
         .slide-caption p { font-size: 0.98rem; color: #f8fafc; opacity: 0.9; max-width: 800px; }
 
-        /* Keyframes Efectos Cruzados */
         @keyframes paneoIzquierda {
             0% { transform: scale(1.03) translateX(-10px); }
             100% { transform: scale(1.03) translateX(0px); }
@@ -136,7 +132,6 @@
             100% { opacity: 1; transform: translateX(0); }
         }
 
-        /* Transición del carrusel principal */
         @keyframes trailerVisual {
             0%, 4.5% { transform: translateX(0); }
             6.25%, 10.75% { transform: translateX(-6.25%); }
@@ -204,7 +199,7 @@
             transform: translateY(-1px); 
         }
 
-        /* REPRODUCTOR INTEGRADO SEGURO - EL CANTO DE AQUILES */
+        /* REPRODUCTOR DE VIDEO CULTURAL E ILUSTRATIVO */
         .video-container { 
             position: relative; 
             padding-bottom: 56.25%; 
@@ -229,7 +224,6 @@
             height: 320px; 
             position: relative;
         }
-        /* Ancho de 200% para albergar exactamente 2 imágenes */
         .unr-slider {
             display: flex;
             width: 200%;
@@ -247,7 +241,6 @@
             display: block;
         }
 
-        /* Animación ultra pausada para alternar entre las 2 fotos reales */
         @keyframes unrVisualLento {
             0%, 45% { transform: translateX(0); }
             50%, 95% { transform: translateX(-50%); }
@@ -296,7 +289,7 @@
         <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
     </div>
 
-    <!-- MENÚ CORREGIDO -->
+    <!-- MENÚ -->
     <nav>
         <div class="nav-logo">SIMPOSIO ESTUDIOS CLÁSICOS 2028</div>
         <ul class="nav-links">
@@ -446,13 +439,13 @@
                 <a href="programa.html" class="btn-action">Ver cronograma de actividades <i class="fas fa-calendar-alt"></i></a>
             </div>
 
-            <!-- REPRODUCTOR DE VIDEO REINICIADO CON TEMÁTICA DEL CANTO DE AQUILES -->
+            <!-- REPRODUCTOR DE VIDEO CULTURAL SELECCIONADO (Recreación arqueo-musical con instrumentos antiguos) -->
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/UP7AVA__Fdw" title="La Canción de Aquiles - Ambientación Épica Homérica" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/lvgI97Zf2pE" title="Ancient Greek Music - Recreación Arqueológica e Ilustrativa" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </section>
 
-        <!-- SECCIÓN SEDE OPTIMIZADA (SÓLO 2 FOTOS REALES Y LENTAS) -->
+        <!-- SECCIÓN SEDE -->
         <section>
             <h2>La Sede: Universidad Nacional de Rosario</h2>
             <div class="sede-container">
@@ -461,11 +454,11 @@
                     <p style="margin-top: 15px;">Este distinguido espacio, reconocido como patrimonio arquitectónico invaluable de la ciudad, destaca por su imponente estructura de principios del siglo pasado. Sus galerías concéntricas, techos vidriados que bañan de luz natural los patios comunes y detalles ornamentales de corte clásico, configuran la atmósfera perfecta para albergar los altos debates, las conferencias magistrales y el enriquecedor intercambio intelectual de nuestro simposio.</p>
                 </div>
                 
-                <!-- MINI CARRUSEL PAUSADO EXCLUSIVO PARA DOS FOTOS -->
+                <!-- MINI CARRUSEL EXCLUSIVO PARA LAS 2 FOTOS OK -->
                 <div class="unr-carousel-box">
                     <div class="unr-slider">
-                        <div class="unr-slide"><img src="unr/unr-1.jpg" alt="UNR Fachada Claustros"></div>
-                        <div class="unr-slide"><img src="unr/unr-2.jpg" alt="UNR Detalles Interiores"></div>
+                        <div class="unr-slide"><img src="unr/unr-1.jpg" alt="UNR Sede Claustros"></div>
+                        <div class="unr-slide"><img src="unr/unr-2.jpg" alt="UNR Fachada Histórica"></div>
                     </div>
                 </div>
             </div>
