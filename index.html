@@ -4,285 +4,132 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>X Congreso Internacional - Inicio</title>
-    
-    <!-- FUENTES DE ALTA LEGIBILIDAD (Roboto para texto fluido, Cinzel para títulos cortos) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- Iconos de Redes Sociales -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        /* PALETA ACCESIBLE - INSPIRACIÓN MINERAL GRECIA */
         :root {
-            --verde-malaquita: #167a67;
-            --verde-profundo: #0d4b3f;
-            --crema-marmol: #fbfaf5; /* Fondo suave para evitar fatiga visual */
-            --terracota: #c66a46;
-            --texto-oscuro: #212529; /* Alto contraste accesible según WCAG */
-            --lineas-oro: #d4af37;
+            --rosa-pompeya: #b84a39; /* El terracota rojizo cálido de los frescos */
+            --crema-antiguo: #f5f0e6; /* Un fondo más cálido, tipo pergamino o piedra al sol */
+            --marfil-suave: #ffffff;
+            --texto-oscuro: #2c2523; /* Un marrón casi negro, más suave que el negro puro */
+            --oro-viejo: #c5a059;
+            --verde-oliva: #4a5d4e;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-
+        
         body {
-            font-family: 'Roboto', sans-serif; /* Lectura fluida para neurodivergencias */
-            background-color: var(--crema-marmol);
+            font-family: 'Roboto', sans-serif;
             color: var(--texto-oscuro);
             line-height: 1.8;
             font-size: 1.1rem;
+            
+            /* MARCA DE AGUA: Greca Griega (Meandro) generada por código en el fondo */
+            background-color: var(--crema-antiguo);
+            background-image: linear-gradient(90deg, rgba(184, 74, 57, 0.03) 1px, transparent 1px),
+                              linear-gradient(0deg, rgba(184, 74, 57, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
         }
 
-        /* TÍTULOS - Estilo clásico pero espaciado */
-        h1, h2, h3 {
-            font-family: 'Cinzel', serif;
-            color: var(--verde-profundo);
-            letter-spacing: 0.5px;
-        }
+        h1, h2, h3 { font-family: 'Cinzel', serif; color: var(--rosa-pompeya); }
 
-        /* MENÚ DE NAVEGACIÓN CORREGIDO */
+        /* NAVEGACIÓN */
         nav {
-            background-color: #ffffff;
-            border-bottom: 3px solid var(--verde-malaquita);
+            background-color: var(--marfil-suave);
+            border-bottom: 4px solid var(--rosa-pompeya);
             padding: 1.2rem 2rem;
             position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+            top: 0; z-index: 100;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
+        .nav-logo { font-weight: 700; font-size: 1.2rem; color: var(--rosa-pompeya); letter-spacing: 1px; }
+        .nav-links { list-style: none; display: flex; gap: 20px; }
+        .nav-links a { text-decoration: none; color: var(--texto-oscuro); font-weight: 500; font-size: 1rem; padding: 6px 12px; transition: all 0.2s; border-radius: 4px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--rosa-pompeya); background-color: rgba(184, 74, 57, 0.08); }
 
-        .nav-logo {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--verde-profundo);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        /* BANNER PRINCIPAL CON MARCO ARQUEOLÓGICO */
+        .hero-container {
+            width: 100%; max-width: 1200px; margin: 40px auto; border-radius: 15px; overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08); background-color: #dfd5c6; 
+            border: 3px solid var(--oro-viejo); position: relative;
         }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--texto-oscuro);
-            font-weight: 500;
-            font-size: 1rem;
-            padding: 6px 12px;
-            transition: all 0.2s ease;
-            border-radius: 4px;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--verde-malaquita);
-            background-color: rgba(22, 122, 103, 0.05);
-        }
-
-        /* CONTENEDOR DEL BANNER REEMPLAZABLE */
-        .banner-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 30px auto;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.05);
-            background-color: #e2e8f0;
-            border: 1px solid rgba(22, 122, 103, 0.15);
-        }
-
-        /* Cuando subas tu imagen, esta etiqueta se ajustará sola perfectamente */
-        .banner-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .banner-placeholder {
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .banner-placeholder h1 {
-            font-size: 2.3rem;
-            margin-bottom: 15px;
-        }
-
-        /* CUERPO CENTRAL ACCESIBLE */
-        .main-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 10px 20px 60px 20px;
-        }
-
-        section {
-            margin-bottom: 35px;
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.02);
-            border-left: 6px solid var(--verde-malaquita);
-        }
-
-        section h2 {
-            font-size: 1.6rem;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #f0f2f5;
-        }
-
-        section p {
-            margin-bottom: 15px;
-        }
-
-        /* BOTONES DE ACCIÓN */
-        .btn-action {
-            display: inline-block;
-            background-color: var(--terracota);
-            color: #ffffff;
-            padding: 14px 32px;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 8px; /* Bordes más sutiles y profesionales */
-            margin-top: 15px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(198, 106, 70, 0.25);
-        }
-
-        .btn-action:hover {
-            background-color: var(--verde-profundo);
-            transform: translateY(-1px);
-        }
-
-        /* COMPARTIR BLOQUE */
-        .share-block {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #f0f2f5;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .share-block span {
-            font-size: 0.9rem;
-            color: #64748b;
-            font-weight: 500;
-        }
-
-        .share-icon {
-            color: var(--verde-malaquita);
-            font-size: 1.2rem;
-            transition: color 0.2s;
-        }
-
-        .share-icon:hover { color: var(--terracota); }
-
-        /* FOOTER CON FIRMA BRANDING */
-        footer {
-            background-color: var(--verde-profundo);
-            color: #ffffff;
-            text-align: center;
-            padding: 45px 20px;
-            margin-top: 60px;
-            border-top: 4px solid var(--lineas-oro);
-        }
-
-        footer p { font-size: 1rem; color: #f1f5f9; }
         
-        .footer-socials {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 25px;
+        /* Guarda decorativa de Greca simulada arriba y abajo del banner */
+        .hero-container::before {
+            content: "░░▓▓░░▓▓░░▓▓░░▓▓░░▓▓░░▓▓░░▓▓░░▓▓░░▓▓░░▓▓░░▓▓░░▓▓░░▓▓░░▓▓";
+            display: block; background: var(--rosa-pompeya); color: rgba(255,255,255,0.3);
+            text-align: center; font-size: 0.7rem; letter-spacing: 4px; padding: 3px 0;
         }
 
-        .footer-socials a {
-            color: #ffffff;
-            font-size: 1.6rem;
-            transition: all 0.2s;
-        }
+        .hero-placeholder { padding: 80px 20px; text-align: center; }
+        .hero-placeholder h1 { font-size: 2.5rem; margin-bottom: 10px; color: var(--rosa-pompeya); }
+        .hero-placeholder p { font-size: 1.2rem; font-weight: 500; color: var(--verde-oliva); letter-spacing: 1px; }
 
-        .footer-socials a:hover {
-            color: var(--lineas-oro);
+        /* CONTENEDOR PRINCIPAL */
+        .main-container { max-width: 950px; margin: 0 auto; padding: 20px; }
+        
+        /* Bloques de información con calidez */
+        section { 
+            margin-bottom: 40px; 
+            background: var(--marfil-suave); 
+            padding: 45px; 
+            border-radius: 12px; 
+            box-shadow: 0 6px 12px rgba(44, 37, 35, 0.03); 
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-top: 6px solid var(--rosa-pompeya); /* El acento arriba le da peso visual */
         }
+        
+        section h2 { font-size: 1.8rem; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--crema-antiguo); }
+
+        /* FOOTER DE ESTILO CLÁSICO */
+        footer { 
+            background-color: var(--texto-oscuro); 
+            color: var(--crema-antiguo); 
+            text-align: center; 
+            padding: 50px 20px; 
+            margin-top: 80px; 
+            border-top: 5px solid var(--oro-viejo); 
+        }
+        footer p { font-size: 1rem; }
     </style>
 </head>
 <body>
 
-    <!-- MENÚ DE NAVEGACIÓN -->
     <nav>
-        <!-- Quitamos "Meraki" y pusimos una referencia limpia al evento -->
         <div class="nav-logo">X CONGRESO 2026</div>
         <ul class="nav-links">
             <li><a href="index.html" class="active">Inicio</a></li>
             <li><a href="expositores.html">Expositores</a></li>
             <li><a href="programa.html">Programa</a></li>
-            <li><a href="logistica.html">Logística</a></li>
+            <li><a href="util.html">Información Útil</a></li>
+            <li><a href="repositorio.html">Repositorio</a></li>
             <li><a href="contacto.html">Contacto</a></li>
         </ul>
     </nav>
 
-    <!-- ZONA DEL BANNER REEMPLAZABLE -->
-    <div class="banner-container">
-        <!-- 
-          EXPLICACIÓN PARA EL BANNER: 
-          Cuando subas tu imagen (ej. banner-inicio.jpg) a GitHub, solo debes cambiar 
-          este bloque de abajo por: <img src="banner-inicio.jpg" alt="Banner del Congreso">
-        -->
-        <div class="banner-placeholder">
+    <div class="hero-container">
+        <div class="hero-placeholder">
             <h1>X CONGRESO INTERNACIONAL</h1>
-            <p style="color: var(--terracota); font-weight: 700; letter-spacing: 0.5px;">LA ANTIGÜEDAD CLÁSICA EN LOS TIEMPOS MODERNOS</p>
+            <p>ARQUEOLOGÍA, HISTORIA Y CULTURA CLÁSICA</p>
         </div>
     </div>
 
-    <!-- CONTENIDO ACCESIBLE -->
     <div class="main-container">
         
         <section>
-            <h2>Sobre el Encuentro Académico</h2>
-            <p>Nos complace darles la bienvenida al X Congreso Internacional. Este es un espacio abierto, accesible y rigurosamente diseñado para centralizar los debates más profundos de nuestra disciplina, bajo la inspiración y los matices del pensamiento clásico.</p>
-            <p>Este año, el comité organizador ha dispuesto un entorno híbrido con el propósito de facilitar el intercambio internacional de saberes colectivos y asegurar una participación cómoda para todos.</p>
-            
-            <a href="contacto.html" class="btn-action">Asegurar Inscripción</a>
-
-            <div class="share-block">
-                <span>Compartir sección:</span>
-                <a href="#" class="share-icon"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#" class="share-icon"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="share-icon"><i class="fa-solid fa-share-nodes"></i></a>
-            </div>
-        </section>
-
-        <section>
-            <h2>Ejes Temáticos</h2>
-            <p>El congreso se articulará en torno a debates contemporáneos con profundas raíces en la filosofía clásica, la evolución del ecosistema investigativo actual y los nuevos lenguajes metodológicos adaptados a la era digital.</p>
-            
-            <div class="share-block">
-                <span>Compartir sección:</span>
-                <a href="#" class="share-icon"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#" class="share-icon"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="share-icon"><i class="fa-solid fa-share-nodes"></i></a>
-            </div>
+            <h2>Sobre el Congreso</h2>
+            <p>Bienvenidos a la sede virtual del X Congreso Internacional. Este espacio académico está diseñado para reunir a investigadores, docentes y estudiantes en torno a las últimas metodologías y descubrimientos del mundo antiguo.</p>
+            <p style="margin-top: 15px;">A través de un entorno accesible y una estética inspirada en las raíces de nuestra disciplina, buscamos garantizar una experiencia de intercambio fluida y enriquecedora para todos los participantes.</p>
         </section>
 
     </div>
 
-    <!-- PIE DE PÁGINA: MERAKI PASA A SER EL DUEÑO/CREADOR AQUÍ ABAJO -->
     <footer>
-        <p>&copy; 2026 X Congreso Internacional. Desarrollado por <strong>Meraki Creative</strong>.</p>
-        <p style="font-size: 0.9rem; margin-top: 6px; opacity: 0.85;">Diseño adaptado para alta legibilidad y accesibilidad cognitiva.</p>
-        
-        <div class="footer-socials">
-            <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-        </div>
+        <p>&copy; 2026 X Congreso Internacional. Desarrollado con dedicación por <strong>Meraki Creative</strong>.</p>
     </footer>
 
 </body>
