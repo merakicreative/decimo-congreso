@@ -1,0 +1,192 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X Congreso - Programa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --verde-malaquita: #167a67;
+            --verde-profundo: #0d4b3f;
+            --crema-marmol: #fbfaf5;
+            --terracota: #c66a46;
+            --texto-oscuro: #212529;
+            --lineas-oro: #d4af37;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--crema-marmol);
+            color: var(--texto-oscuro);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        h1, h2, h3 { font-family: 'Cinzel', serif; color: var(--verde-profundo); }
+
+        /* NAVEGACIÓN */
+        nav {
+            background-color: #ffffff;
+            border-bottom: 3px solid var(--verde-malaquita);
+            padding: 1.2rem 2rem;
+            position: sticky;
+            top: 0; z-index: 100;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+        }
+        .nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--verde-profundo); letter-spacing: 1px; }
+        .nav-links { list-style: none; display: flex; gap: 20px; }
+        .nav-links a { text-decoration: none; color: var(--texto-oscuro); font-weight: 500; font-size: 1rem; padding: 6px 12px; transition: all 0.2s; border-radius: 4px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--verde-malaquita); background-color: rgba(22, 122, 103, 0.05); }
+
+        /* BANNER */
+        .banner-container {
+            width: 100%; max-width: 1200px; margin: 30px auto; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05); background-color: #e2e8f0; border: 1px solid rgba(22, 122, 103, 0.15);
+        }
+        .banner-placeholder { padding: 50px 20px; text-align: center; }
+
+        .main-container { max-width: 900px; margin: 0 auto; padding: 10px 20px 60px 20px; }
+        
+        /* CRONOGRAMA ACCESIBLE */
+        .dia-titulo {
+            background-color: var(--verde-profundo);
+            color: #ffffff;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1.3rem;
+            margin: 30px 0 20px 0;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .timeline-item {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.01);
+            border-left: 6px solid var(--terracota);
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Bloque de hora destacado */
+        .time-badge {
+            font-weight: 700;
+            color: var(--verde-malaquita);
+            font-size: 1.1rem;
+            white-space: nowrap;
+            min-width: 110px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .activity-details h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--texto-oscuro);
+            margin-bottom: 5px;
+        }
+
+        .activity-speaker {
+            font-size: 0.95rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        /* FOOTER */
+        footer { background-color: var(--verde-profundo); color: #ffffff; text-align: center; padding: 45px 20px; margin-top: 60px; border-top: 4px solid var(--lineas-oro); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-logo">X CONGRESO 2026</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="expositores.html">Expositores</a></li>
+            <li><a href="programa.html" class="active">Programa</a></li>
+            <li><a href="util.html">Información Útil</a></li>
+            <li><a href="repositorio.html">Repositorio</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <div class="banner-container">
+        <div class="banner-placeholder">
+            <h1>CRONOGRAMA DE ACTIVIDADES</h1>
+            <p style="color: var(--terracota); font-weight: 700; letter-spacing: 0.5px;">PLANIFICA TU PARTICIPACIÓN PASO A PASO</p>
+        </div>
+    </div>
+
+    <div class="main-container">
+
+        <!-- DÍA 1 -->
+        <div class="dia-titulo">DÍA 1 — JUEVES 15 DE OCTUBRE</div>
+        
+        <div class="timeline">
+            
+            <div class="timeline-item" style="border-left-color: var(--verde-malaquita);">
+                <div class="time-badge"><i class="fa-regular fa-clock"></i> 09:00 - 10:00</div>
+                <div class="activity-details">
+                    <h3>Acreditaciones y entrega de material</h3>
+                    <p style="color: #64748b;">Recepción presencial en el hall central del auditorio.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time-badge"><i class="fa-regular fa-clock"></i> 10:00 - 11:30</div>
+                <div class="activity-details">
+                    <h3>Conferencia de Apertura: Nuevos horizontes en la investigación clásica</h3>
+                    <div class="activity-speaker">A cargo del Dr. Alejandro Magno (Universidad de Atenas)</div>
+                </div>
+            </div>
+
+            <div class="timeline-item" style="border-left-color: #cbd5e1;">
+                <div class="time-badge"><i class="fa-regular fa-clock"></i> 11:30 - 12:00</div>
+                <div class="activity-details">
+                    <h3>Pausa para Café (Coffee Break)</h3>
+                    <p style="color: #64748b;">Espacio de vinculación en los jardines del predio.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- DÍA 2 -->
+        <div class="dia-titulo">DÍA 2 — VIERNES 16 DE OCTUBRE</div>
+        
+        <div class="timeline">
+            
+            <div class="timeline-item">
+                <div class="time-badge"><i class="fa-regular fa-clock"></i> 10:00 - 11:30</div>
+                <div class="activity-details">
+                    <h3>Mesa de Debate: Filosofía antigua aplicada a dilemas del siglo XXI</h3>
+                    <div class="activity-speaker">Modera: Dra. Athena Palas (Universidad Autónoma de Madrid)</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 X Congreso Internacional. Desarrollado por <strong>Meraki Creative</strong>.</p>
+    </footer>
+
+</body>
+</html>
