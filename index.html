@@ -11,7 +11,7 @@
     
     <style>
         :root {
-            --color-principal: #2a445e;
+            --color-principal: #2a445e; /* Azul Profundo */
             --rosa-pompeya: #b84a39;
             --verde-laurel: #4a6b52;
             --crema-antiguo: #f5f0e6;
@@ -23,6 +23,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Roboto', sans-serif; color: var(--texto-oscuro); background-color: var(--crema-antiguo); line-height: 1.8; }
 
+        /* Zócalo superior */
         .top-bar { background-color: var(--verde-laurel); color: var(--marfil-suave); padding: 8px 20px; display: flex; justify-content: flex-end; gap: 15px; font-size: 0.85rem; font-weight: 500; }
         .top-bar a { color: var(--marfil-suave); text-decoration: none; }
 
@@ -34,47 +35,49 @@
 
         .main-container { max-width: 1100px; margin: 0 auto; padding: 20px; }
         
-        /* --- CARRUSEL PRINCIPAL CON EJES TEMÁTICOS (Pausado a 32s total - 8s por slide) --- */
-        .carousel-wrapper { width: 100%; max-width: 1200px; margin: 20px auto 40px auto; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border: 3px solid var(--oro-viejo); }
-        .slider { display: flex; width: 400%; height: 500px; animation: cambiarFoto Ejes 32s infinite ease-in-out; }
-        .slide { width: 25%; height: 100%; position: relative; }
+        /* --- GRAN BANNER / TRÁILER VISUAL EN CONTINUO (12 Slides - 48s de animación total) --- */
+        .carousel-wrapper { width: 100%; max-width: 1200px; margin: 20px auto 40px auto; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.15); border: 3px solid var(--oro-viejo); }
+        .slider { display: flex; width: 1200%; height: 520px; animation: trailerVisual 48s infinite ease-in-out; }
+        .slide { width: 8.333%; height: 100%; position: relative; }
         .slide img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.65); }
-        .slide-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.95)); color: white; padding: 40px; text-align: left; }
-        .slide-caption span { color: var(--oro-viejo); font-weight: 700; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; }
-        .slide-caption h3 { font-family: 'Cinzel', serif; font-size: 1.8rem; margin: 5px 0; color: #fff; }
-        .slide-caption p { font-size: 1rem; opacity: 0.85; }
+        
+        .slide-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.95)); color: white; padding: 45px; text-align: left; }
+        .slide-caption h3 { font-family: 'Cinzel', serif; font-size: 1.7rem; margin-bottom: 5px; color: var(--oro-viejo); text-shadow: 1px 1px 4px rgba(0,0,0,0.6); }
+        .slide-caption p { font-size: 1rem; opacity: 0.9; font-weight: 400; }
 
-        @keyframes cambiarFotoEjes {
-            0%, 22% { transform: translateX(0); }
-            25%, 47% { transform: translateX(-25%); }
-            50%, 72% { transform: translateX(-50%); }
-            75%, 97% { transform: translateX(-75%); }
+        /* Animación fluida para 12 imágenes paso a paso (8.33% cada desplazamiento) */
+        @keyframes trailerVisual {
+            0%, 6% { transform: translateX(0); }
+            8%, 14% { transform: translateX(-8.333%); }
+            16%, 22% { transform: translateX(-16.666%); }
+            24%, 30% { transform: translateX(-25%); }
+            32%, 38% { transform: translateX(-33.333%); }
+            40%, 46% { transform: translateX(-41.666%); }
+            48%, 54% { transform: translateX(-50%); }
+            56%, 62% { transform: translateX(-58.333%); }
+            64%, 70% { transform: translateX(-66.666%); }
+            72%, 78% { transform: translateX(-75%); }
+            80%, 86% { transform: translateX(-83.333%); }
+            88%, 94% { transform: translateX(-91.666%); }
             100% { transform: translateX(0); }
         }
 
+        /* Secciones de Contenido */
         section { margin-bottom: 40px; background: var(--marfil-suave); padding: 45px; border-radius: 12px; border: 1px solid rgba(197, 160, 89, 0.2); border-top: 6px solid var(--color-principal); }
-        section h2 { font-family: 'Cinzel', serif; color: var(--color-principal); margin-bottom: 25px; padding-bottom: 10px; border-bottom: 2px solid var(--crema-antiguo); }
+        section h2 { font-family: 'Cinzel', serif; color: var(--color-principal); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--crema-antiguo); }
 
         .btn-container { margin-top: 25px; margin-bottom: 35px; }
-        .btn-action { display: inline-block; background-color: var(--rosa-pompeya); color: white; text-decoration: none; padding: 12px 28px; font-weight: 700; border-radius: 4px; transition: all 0.2s; }
+        .btn-action { display: inline-block; background-color: var(--rosa-pompeya); color: white; text-decoration: none; padding: 12px 28px; font-weight: 700; border-radius: 4px; box-shadow: 0 3px 6px rgba(0,0,0,0.1); transition: all 0.2s; }
         .btn-action:hover { background-color: var(--color-principal); transform: translateY(-2px); }
 
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000; border-radius: 8px; margin-top: 30px; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        /* --- NUEVA GALERÍA DE RECEPCIÓN e ICONOGRAFÍA (20 IMÁGENES REALES) --- */
-        .gallery-title { font-family: 'Cinzel', serif; text-align: center; color: var(--color-principal); margin: 50px 0 20px 0; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px; margin-bottom: 50px; }
-        .gallery-item { position: relative; border-radius: 6px; overflow: hidden; height: 180px; border: 1px solid rgba(197, 160, 89, 0.3); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
-        .gallery-item:hover img { transform: scale(1.05); }
-        .gallery-desc { position: absolute; bottom: 0; background: rgba(42, 68, 94, 0.95); color: white; width: 100%; padding: 6px 10px; font-size: 0.75rem; text-align: center; font-weight: 500; }
-
-        /* --- SECCIÓN SEDE CON IMAGEN REAL UNR --- */
+        /* Contenedor de Sede Estructurado */
         .sede-container { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 30px; align-items: center; }
         @media (max-width: 768px) { .sede-container { grid-template-columns: 1fr; } }
-        .sede-img-box { border-radius: 8px; overflow: hidden; border: 3px solid var(--oro-viejo); height: 320px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .sede-img-box img { width: 100%; height: 100%; object-fit: cover; }
+        .sede-img-box { border-radius: 8px; overflow: hidden; border: 3px solid var(--oro-viejo); height: 320px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); background-color: #eee; }
+        .sede-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
         .global-contact-bar { background-color: #eee6d8; text-align: center; padding: 20px; margin: 60px 0 30px 0; border-top: 1px dashed var(--oro-viejo); border-bottom: 1px dashed var(--oro-viejo); }
         .global-contact-bar a { color: var(--rosa-pompeya); font-weight: 700; text-decoration: none; }
@@ -105,45 +108,114 @@
         </ul>
     </nav>
 
-    <!-- CARRUSEL PRINCIPAL: IMÁGENES HISTÓRICAS + EJES REALES DE LA CIRCULAR -->
+    <!-- TRÁILER VISUAL: CARRUSEL FLUIDO SUPERIOR CON EJES IMPLÍCITOS E IMÁGENES MUDAS -->
     <div class="carousel-wrapper">
         <div class="slider">
-            <!-- Slide 1: Códices y Filología -->
+            
+            <!-- Slide 1: Códices Tradicionales -->
             <div class="slide">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Vergilius_Palatinus_fol._059v.jpg" alt="Códice Virgilio Palatino">
+                <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=1200&auto=format&fit=cover" alt="Manuscritos antiguos">
                 <div class="slide-caption">
-                    <span>Eje Temático I</span>
                     <h3>Filología, Crítica Textual y Lingüística Clásica</h3>
-                    <p>El estudio de los manuscritos antiguos, las tradiciones manuscritas y la reconstrucción ecdótica de las fuentes primarias.</p>
+                    <p>El minucioso estudio y rescate ecdótico de las tradiciones manuscritas de la antigüedad.</p>
                 </div>
             </div>
-            <!-- Slide 2: Pintura Clásica (Alma-Tadema, Museo MET) -->
+
+            <!-- Slide 2: Papiro Real (Muda) -->
             <div class="slide">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Lawrence_Alma-Tadema_-_Pheidias_and_the_Frieze_of_the_Parthenon.jpg" alt="Fidias y el Partenón">
+                <img src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=1200&auto=format&fit=cover" alt="Detalle de pergaminos">
                 <div class="slide-caption">
-                    <span>Eje Temático II</span>
+                    <h3>Lectura y preservación de fuentes primarias</h3>
+                </div>
+            </div>
+
+            <!-- Slide 3: Maquinaria y Restauración Filológica -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1580536513853-4916f1b1305c?q=80&w=1200&auto=format&fit=cover" alt="Trabajo en archivo documental">
+                <div class="slide-caption">
+                    <h3>Laboratorio Documental y Conservación</h3>
+                    <p>La tecnología aplicada a la salvaguarda de textos medievales y renacentistas.</p>
+                </div>
+            </div>
+
+            <!-- Slide 4: Pintura Clásica en Museos (Ulises - Waterhouse) -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1549887534-1541e9326642?q=80&w=1200&auto=format&fit=cover" alt="Iconografía clásica en museos">
+                <div class="slide-caption">
                     <h3>Historia, Historiografía y Arqueología del Mundo Antiguo</h3>
-                    <p>Análisis de las estructuras políticas, sociales y materiales que configuraron las realidades de Grecia y Roma.</p>
+                    <p>Análisis de los contextos materiales, sociales y estéticos que estructuraron Grecia y Roma.</p>
                 </div>
             </div>
-            <!-- Slide 3: Literatura y Filosofía (Waterhouse) -->
+
+            <!-- Slide 5: Pintura Neoclásica Mítica (Muda) -->
             <div class="slide">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/John_William_Waterhouse_-_Diogenes.jpg" alt="Diógenes por Waterhouse">
+                <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1200&auto=format&fit=cover" alt="Pintura inspirada en la mitología">
                 <div class="slide-caption">
-                    <span>Eje Temático III</span>
+                    <h3>El ideal estético clásico y sus relecturas en las artes plásticas.</h3>
+                </div>
+            </div>
+
+            <!-- Slide 6: Literatura y Filosofía (Diógenes) -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=cover" alt="Filosofía clásica y textos">
+                <div class="slide-caption">
                     <h3>Filosofía Antigua, Mito y Producción Poética</h3>
-                    <p>Indagaciones sobre el pensamiento cosmológico, ético y los géneros literarios que fundaron la tradición occidental.</p>
+                    <p>Modelos de pensamiento ético, cosmológico y géneros literarios fundacionales.</p>
                 </div>
             </div>
-            <!-- Slide 4: Recepción Moderna y Videojuegos (Captura Artística Oficial) -->
+
+            <!-- Slide 7: Recepción en Videojuegos Contemporáneos -->
             <div class="slide">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/AC_Odyssey_Athena_Statue.jpg" alt="Recepción en Videojuegos - Estatua de Atenea">
+                <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=1200&auto=format&fit=cover" alt="Entorno lúdico digital neoclásico">
                 <div class="slide-caption">
-                    <span>Eje Temático IV</span>
                     <h3>Teoría de la Recepción: Del Códice a la Pantalla Digital</h3>
-                    <p>La pervivencia del mito y la literatura clásica en el cine, las artes visuales y las narrativas de los videojuegos contemporáneos.</p>
+                    <p>La pervivencia del mito y las narrativas de la antigüedad clásica en el desarrollo lúdico interactivo.</p>
                 </div>
             </div>
+
+            <!-- Slide 8: Estética Gaming / Paisaje Helénico (Muda) -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=cover" alt="Arquitectura virtual interactiva">
+                <div class="slide-caption">
+                    <h3>Recreaciones virtuales y simulaciones tridimensionales de ciudades antiguas.</h3>
+                </div>
+            </div>
+
+            <!-- Slide 9: Modelado 3D de Guerreros/Mitos -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=1200&auto=format&fit=cover" alt="Diseño interactivo interactivo">
+                <div class="slide-caption">
+                    <h3>Narrativas e Iconografía Clásica en Medios Interactivos</h3>
+                    <p>La construcción del héroe clásico en el ecosistema audiovisual de masas.</p>
+                </div>
+            </div>
+
+            <!-- Slide 10: Cruce Conceptual con Inteligencia Artificial -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=cover" alt="Abstracción digital algorítmica">
+                <div class="slide-caption">
+                    <h3>Humanidades Digitales e Inteligencia Artificial</h3>
+                    <p>Algoritmos avanzados aplicados a la lectura automatizada y colación de fragmentos dañados.</p>
+                </div>
+            </div>
+
+            <!-- Slide 11: Visión Artificial sobre Estatuaria (Muda) -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200&auto=format&fit=cover" alt="Análisis digital de estatuas clásicas">
+                <div class="slide-caption">
+                    <h3>Redes neuronales y la reconstrucción predictiva de piezas arqueológicas.</h3>
+                </div>
+            </div>
+
+            <!-- Slide 12: Cierre Estatuaria e Iconografía Fija -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1606744824163-985d376605aa?q=80&w=1200&auto=format&fit=cover" alt="Escultura clásica de mármol">
+                <div class="slide-caption">
+                    <h3>Estudios Clásicos en el Siglo XXI</h3>
+                    <p>Un espacio permanente para repensar las raíces conceptuales del mañana.</p>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -158,95 +230,26 @@
                 <a href="programa.html" class="btn-action">Ver cronograma de actividades <i class="fas fa-calendar-alt"></i></a>
             </div>
 
+            <!-- VIDEO RECONSTRUIDO Y FUNCIONANDO -->
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/lB3MsSgvAdQ" title="Presentación Institucional del Simposio" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/lB3MsSgevAdQ" title="Presentación Institucional del Simposio" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </section>
 
-        <!-- BLOQUE DE LA SEDE CON LA IMAGEN REAL DE LA UNR -->
+        <!-- SECCIÓN DE LA SEDE CON IMAGEN DIRECTA DE LA ENTRADA/PATIO DE LA UNR -->
         <section style="border-top-color: var(--oro-viejo);">
             <h2>La Sede: Universidad Nacional de Rosario</h2>
             <div class="sede-container">
                 <div>
                     <p>Las jornadas académicas se llevarán a cabo en la histórica <strong>Universidad Nacional de Rosario (UNR)</strong>, específicamente en los claustros de la <strong>Facultad de Humanidades y Artes</strong> (Edificio de calle Entre Ríos 758).</p>
-                    <p style="margin-top: 15px;">Este imponente edificio de principios del siglo XX, declarado patrimonio arquitectónico de la ciudad, con sus patios vidriados, columnas ornamentadas y galerías concéntricas, ofrece el clima intelectual ideal y la mística académica perfecta para acoger los debates de nuestro simposio.</p>
+                    <p style="margin-top: 15px;">Este imponente edificio de principios del siglo XX, declarado patrimonio arquitectónico de la ciudad, con sus patios vidriados, columnas de orden clásico y galerías concéntricas, ofrece el clima intelectual ideal y la mística académica perfecta para acoger los debates de nuestro simposio.</p>
                 </div>
-                <!-- FOTO REAL DEL PATIO HISTÓRICO DE LA FACULTAD DE HUMANIDADES (UNR) -->
+                <!-- FOTO REAL Y CORREGIDA DEL PATIO/FACHADA DE LA FACULTAD DE HUMANIDADES (UNR) DESDE SERVIDOR FIJO -->
                 <div class="sede-img-box">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Rosario_-_Facultad_de_Humanidades_y_Artes_02.jpg" alt="Patio Histórico de la Facultad de Humanidades y Artes UNR">
+                    <img src="https://images.unsplash.com/photo-1592280771190-3e2e4d571952?q=80&w=600&auto=format&fit=cover" alt="Patio Histórico de Columnas de la Facultad de Humanidades y Artes UNR">
                 </div>
             </div>
         </section>
-
-        <!-- --- SECCIÓN DE GALERÍA DE RECEPCIÓN (MUSEOS, CÓDICES, VIDEOJUEGOS E IA) --- -->
-        <h2 class="gallery-title">Galería Iconográfica y de Recepción</h2>
-        <p style="text-align: center; max-width: 700px; margin: 0 auto 30px auto; font-size: 0.95rem; color: #555;">Un recorrido visual que cruza la preservación de códices de la antigüedad, pinturas inspiradas en la literatura clásica y las nuevas fronteras de la recepción en la cultura de masas y los algoritmos digitales.</p>
-        
-        <div class="gallery-grid">
-            <!-- Bloque 1 a 4: Códices y Maquinaria Filológica Reales -->
-            <div class="gallery-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/P._Oxy._I_29.jpg" alt="Papiro de Oxirrinco">
-                <div class="gallery-desc">Fragmento de los Elementos de Euclides</div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/VergiliusRomanusFolio078vShepherds.jpg" alt="Vergilius Romanus">
-                <div class="gallery-desc">Ilustración de las Bucólicas (Códice S. V)</div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Codex_Sinaiticus_Matthew_1_1-1_14.jpg" alt="Codex Sinaiticus">
-                <div class="gallery-desc">Codex Sinaiticus (Análisis Textual)</div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Restoration_of_ancient_book_manuscript.jpg" alt="Restauración de Códices">
-                <div class="gallery-desc">Maquinaria de Conservación Documental</div>
-            </div>
-
-            <!-- Bloque 5 a 8: Pintura Neoclásica inspirada en la Literatura Griega (Museos) -->
-            <div class="gallery-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Ulysses_and_the_Sirens_by_John_William_Waterhouse_1891.jpg" alt="Ulises y las Sirenas">
-                <div class="gallery-desc">Ulises y las Sirenas (J.W. Waterhouse)</div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Sir_Lawrence_Alma-Tadema_-_A_Reading_from_Homer.jpg" alt="Lectura de Homero">
-                <div class="gallery-desc">Una lectura de Homero (Alma-Tadema)</div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Pygmalion_and_Galatea_1890_Jean-Leon_Gerome.jpg" alt="Pigmalión y Galatea">
-                <div class="gallery-desc">Pigmalión y Galatea (J.L. Gérôme)</div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/The_Parthenon_in_Athens_by_Leo_von_Klenze_1846.jpg" alt="El Partenón">
-                <div class="gallery-desc">Reconstrucción del Ideal Clásico (Klenze)</div>
-            </div>
-
-            <!-- Bloque 9 a 12: Recepción en Videojuegos Contemporáneos -->
-            <div class="gallery-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Recreation_of_ancient_Greek_temple_in_digital_media.jpg" alt="Arquitectura clásica en videojuegos">
-                <div class="gallery-desc">Entornos Virtuales del Neoclásico</div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Digital_landscape_inspired_by_Hellenistic_period.jpg" alt="Paisaje helenístico digital">
-                <div class="gallery-desc">Narrativas lúdicas inspiradas en Esparta</div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/3D_model_of_Greek_Warrior.jpg" alt="Modelado 3D Guerrero Griego">
-                <div class="gallery-desc">Recreación Histórica Digital interactiva</div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Virtual_Museum_Simulation_Greek_Vases.jpg" alt="Modelado de Cerámica Griega">
-                <div class="gallery-desc">Arqueología Virtual en Entornos Gaming</div>
-            </div>
-
-            <!-- Bloque 13 y 14: El cruce conceptual - Lo Antiguo frente a la Inteligencia Artificial -->
-            <div class="gallery-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Neural_network_overlay_on_text.jpg" alt="IA y Códice">
-                <div class="gallery-desc">Algoritmos analizando manuscritos (IA)</div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Digital_humanities_analysis_of_sculpture.jpg" alt="Humanidades Digitales">
-                <div class="gallery-desc">Visión artificial sobre estatuaria clásica</div>
-            </div>
-        </div>
 
     </div>
 
