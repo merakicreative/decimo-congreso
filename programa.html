@@ -6,7 +6,7 @@
     <title>Programa - Simposio Internacional de Estudios Clásicos 2028</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2 family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
@@ -100,21 +100,10 @@
             font-size: 1.05rem;
         }
 
-        /* ESTRUCTURA DE TABS (Control de flujo garantizado) */
-        .tabs-container {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .program-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 35px;
-            flex-wrap: wrap;
-            order: 1;
-        }
-
+        /* ESTRUCTURA DE TABS */
+        .tabs-container { display: flex; flex-direction: column; }
+        .program-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 35px; flex-wrap: wrap; order: 1; }
+        
         .tab-label {
             padding: 12px 24px;
             background: var(--superficie-pura);
@@ -129,7 +118,6 @@
 
         .tab-radio { display: none; }
 
-        /* LÓGICA DE ACTIVACIÓN DE PESTAÑAS (Mapeo Estricto) */
         #tab1:checked ~ .program-tabs [for="tab1"],
         #tab2:checked ~ .program-tabs [for="tab2"],
         #tab3:checked ~ .program-tabs [for="tab3"],
@@ -139,26 +127,19 @@
             border-color: var(--azul-academico);
         }
 
-        /* CONTENEDORES DE CONTENIDO */
-        .day-content { 
-            display: none; 
-            animation: fadeIn 0.4s ease-in-out; 
-            order: 2;
-        }
+        .day-content { display: none; animation: fadeIn 0.4s ease-in-out; order: 2; }
 
         #tab1:checked ~ #content1,
         #tab2:checked ~ #content2,
         #tab3:checked ~ #content3,
-        #tab4:checked ~ #content4 { 
-            display: block !important; 
-        }
+        #tab4:checked ~ #content4 { display: block !important; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* LÍNEA DE TIEMPO EDITORIAL */
+        /* TIMELINE EDITORIAL */
         .timeline {
             background: var(--superficie-pura);
             border: 1px solid rgba(0,0,0,0.06);
@@ -188,7 +169,6 @@
             gap: 6px;
         }
 
-        /* BADGES */
         .space-badge {
             display: inline-block;
             font-size: 0.72rem;
@@ -211,18 +191,53 @@
             margin-bottom: 8px;
         }
 
+        /* DETALLES DE PONENCIAS Y BOTÓN DE DESCARGA */
         .sub-papers-list {
             margin-top: 12px;
             padding-left: 15px;
             border-left: 2px solid var(--borde-fino);
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 16px;
         }
 
-        .paper-entry { font-size: 0.92rem; }
-        .paper-title { color: var(--texto-principal); font-weight: 500; font-style: italic; }
+        .paper-entry { 
+            position: relative;
+            padding-right: 140px;
+        }
+        @media(max-width: 550px) {
+            .paper-entry { padding-right: 0; }
+        }
+
+        .paper-title { color: var(--texto-principal); font-weight: 500; font-style: italic; font-size: 0.95rem; }
         .paper-author { color: var(--oro-atenas); font-size: 0.82rem; font-weight: 600; text-transform: uppercase; margin-top: 2px; }
+
+        /* BOTÓN DESCARGAR MATERIAL */
+        .download-btn {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: 1px solid var(--rojo-pompeya-delicado);
+            color: var(--rojo-pompeya-delicado);
+            padding: 6px 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+        .download-btn:hover {
+            background: var(--rojo-pompeya-delicado);
+            color: white;
+        }
+        @media(max-width: 550px) {
+            .download-btn { position: static; transform: none; margin-top: 8px; }
+        }
 
         .break-item {
             background: var(--blanco-marfil);
@@ -240,11 +255,12 @@
         .global-contact-bar { 
             background: var(--superficie-pura); 
             text-align: center; 
-            padding: 20px; 
+            padding: 24px; 
             border-radius: 6px;
             margin: 40px 0; 
             border: 1px solid rgba(0,0,0,0.05); 
-            font-size: 0.95rem;
+            font-size: 0.98rem;
+            color: var(--texto-principal);
         }
         .global-contact-bar a { color: var(--rojo-pompeya-delicado); font-weight: 600; text-decoration: none; }
 
@@ -276,7 +292,7 @@
         <div class="nav-logo">SIMPOSIO ESTUDIOS CLÁSICOS 2028</div>
         <ul class="nav-links">
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="expositores.html">Expositores</a></li>
+            <li><a href="expositores.html">Expositores/as</a></li>
             <li><a href="programa.html" class="active">Programa</a></li>
             <li><a href="util.html">Información Útil</a></li>
             <li><a href="repositorio.html">Repositorio</a></li>
@@ -289,19 +305,16 @@
         
         <header class="page-header">
             <h1>Cronograma de Actividades</h1>
-            <p>Distribución horaria detallada, comisiones en paralelo y asignación de espacios físicos.</p>
+            <p>Distribución horaria detallada de los bloques de ponencias de nuestros/as expositores y expositoras.</p>
         </header>
 
-        <!-- CONTENEDOR ENVOLVENTE SEGURO PARA TABS -->
         <div class="tabs-container">
             
-            <!-- Inputs de control en la raíz del contenedor -->
             <input type="radio" id="tab1" name="days" class="tab-radio" checked>
             <input type="radio" id="tab2" name="days" class="tab-radio">
             <input type="radio" id="tab3" name="days" class="tab-radio">
             <input type="radio" id="tab4" name="days" class="tab-radio">
 
-            <!-- Botones selectores -->
             <div class="program-tabs">
                 <label for="tab1" class="tab-label">Martes 24</label>
                 <label for="tab2" class="tab-label">Miércoles 25</label>
@@ -309,22 +322,22 @@
                 <label for="tab4" class="tab-label">Viernes 27</label>
             </div>
 
-            <!-- CONTENIDO CONTENEDOR: MARTES 24 -->
+            <!-- MARTES 24 -->
             <div id="content1" class="day-content">
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="time-box">08:00 a 09:15<span class="space-badge badge-galeria">Galería Central</span></div>
                         <div class="event-details">
-                            <h3>Acreditaciones Generales y Apertura de Mesa de Informes</h3>
-                            <p>Recepción de participantes, entrega de carpetas institucionales, credenciales y certificaciones base.</p>
+                            <h3>Acreditaciones Generales e Inicio de Jornada</h3>
+                            <p>Recepción de expositores y expositoras, entrega de carpetas institucionales y credenciales de acceso.</p>
                         </div>
                     </div>
                     
                     <div class="timeline-item">
                         <div class="time-box">09:15 a 11:00<span class="space-badge badge-actos">Salón de Actos</span></div>
                         <div class="event-details">
-                            <h3>Acto de Apertura del Simposio e Inicio de Sesiones Plenarias</h3>
-                            <p>Palabras de bienvenida de las autoridades de la Facultad de Humanidades y Artes (UNR) y el comité ejecutivo.</p>
+                            <h3>Acto de Apertura del Simposio</h3>
+                            <p>Palabras de bienvenida a cargo del comité ejecutivo y autoridades académicas.</p>
                         </div>
                     </div>
 
@@ -341,10 +354,12 @@
                                 <div class="paper-entry">
                                     <p class="paper-title">"Análisis métrico y variantes críticas en las fuentes primarias homéricas"</p>
                                     <div class="paper-author">Dr. Alejandro S. Martínez (UBA)</div>
+                                    <a href="#" class="download-btn"><i class="fas fa-file-download"></i> Material</a>
                                 </div>
                                 <div class="paper-entry">
                                     <p class="paper-title">"Tradición manuscrita y problemas de ecdótica en los textos trágicos"</p>
                                     <div class="paper-author">Prof. Lucas Di Marco (UNC)</div>
+                                    <a href="#" class="download-btn"><i class="fas fa-file-download"></i> Material</a>
                                 </div>
                             </div>
                         </div>
@@ -356,60 +371,67 @@
                     </div>
 
                     <div class="timeline-item">
-                        <div class="time-box">15:00 a 16:30<span class="space-badge badge-aula4">Aula 4</span></div>
+                        <div class="time-box">15:00 a 17:00<span class="space-badge badge-aula4">Aula 4</span></div>
                         <div class="event-details">
                             <h3>Mesas Temáticas Paralelas (Mesas 7 a 12)</h3>
-                            <p>Ejes integrados sobre historia, historiografía antigua y metodologías de preservación arqueológica.</p>
+                            <div class="sub-papers-list">
+                                <div class="paper-entry">
+                                    <p class="paper-title">"Papirología del siglo XXI: Fronteras y metodologías del rescate digital"</p>
+                                    <div class="paper-author">Dra. Helena Ribeiro (Univ. de Coimbra)</div>
+                                    <a href="#" class="download-btn"><i class="fas fa-file-download"></i> Material</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- CONTENIDO CONTENEDOR: MIÉRCOLES 25 -->
+            <!-- MIÉRCOLES 25 -->
             <div id="content2" class="day-content">
                 <div class="timeline">
                     <div class="timeline-item">
-                        <div class="time-box">08:30 a 10:30<span class="space-badge badge-aula3">Aula 3</span></div>
+                        <div class="time-box">08:30 a 11:00<span class="space-badge badge-aula3">Aula 3</span></div>
                         <div class="event-details">
-                            <h3>Mesas de Comunicaciones Simultáneas (Mesas 13 a 18)</h3>
-                            <p>Presentaciones enfocadas en Filosofía Antigua, Lecturas éticas, morales y cosmológicas de las fuentes platónicas.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="time-box">10:30 a 12:00<span class="space-badge badge-aula4">Aula 4</span></div>
-                        <div class="event-details">
-                            <h3>Mesas en Paralelo: Espacio de Graduados (Mesas 19 a 24)</h3>
-                            <div class="sub-papers-list">
-                                <div class="paper-entry">
-                                    <p class="paper-title">"La pervivencia del mito clásico y las transformaciones estéticas barrocas en el Plata"</p>
-                                    <div class="paper-author">Mag. Valeria Rossi (UNR)</div>
-                                </div>
-                            </div>
+                            <h3>Mesas de Comunicaciones Simultáneas (Mesas 13 a 20)</h3>
+                            <p>Ejes integrados sobre historia, historiografía antigua y metodologías de preservación clásica.</p>
                         </div>
                     </div>
 
                     <div class="break-item">
                         <span><i class="fas fa-coffee"></i> Receso para Café</span>
-                        <small>12:00 a 12:30 Hs</small>
+                        <small>11:00 a 11:30 Hs</small>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="time-box">11:30 a 13:00<span class="space-badge badge-aula4">Aula 4</span></div>
+                        <div class="event-details">
+                            <h3>Mesas en Paralelo: Espacio de Graduados/as</h3>
+                            <div class="sub-papers-list">
+                                <div class="paper-entry">
+                                    <p class="paper-title">"La pervivencia del mito clásico y las transformaciones estéticas barrocas en el Plata"</p>
+                                    <div class="paper-author">Mag. Valeria Rossi (UNR)</div>
+                                    <a href="#" class="download-btn"><i class="fas fa-file-download"></i> Material</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="break-item" style="border-left-color: var(--azul-academico);">
                         <span><i class="fas fa-utensils"></i> Receso Libre para Almuerzo</span>
-                        <small>12:30 a 14:30 Hs</small>
+                        <small>13:00 a 15:00 Hs</small>
                     </div>
 
                     <div class="timeline-item">
-                        <div class="time-box">14:30 a 17:00<span class="space-badge badge-aula3">Aula 3</span></div>
+                        <div class="time-box">15:00 a 17:30<span class="space-badge badge-aula3">Aula 3</span></div>
                         <div class="event-details">
-                            <h3>Mesas Simultáneas de la Tarde (Mesas 25 a 30)</h3>
-                            <p>Ejes dedicados a la mitología clásica, géneros poéticos y sus lecturas críticas del siglo XIX.</p>
+                            <h3>Mesas Simultáneas de la Tarde (Mesas 21 a 28)</h3>
+                            <p>Ejes dedicados a la mitología clásica, géneros poéticos y sus lecturas críticas en el siglo XIX.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- CONTENIDO CONTENEDOR: JUEVES 26 -->
+            <!-- JUEVES 26 -->
             <div id="content3" class="day-content">
                 <div class="timeline">
                     <div class="timeline-item">
@@ -420,6 +442,7 @@
                                 <div class="paper-entry">
                                     <p class="paper-title">"Modelos computacionales y redes neuronales predictivas aplicadas a la paleografía"</p>
                                     <div class="paper-author">Dr. Marcus Dupont (Sorbonne)</div>
+                                    <a href="#" class="download-btn"><i class="fas fa-file-download"></i> Material</a>
                                 </div>
                             </div>
                         </div>
@@ -433,8 +456,8 @@
                     <div class="timeline-item">
                         <div class="time-box">11:30 a 13:15<span class="space-badge badge-aula3">Aula 3</span></div>
                         <div class="event-details">
-                            <h3>Mesas en Simultáneo: Investigadores en Formación (Mesas 31 a 35)</h3>
-                            <p>Comisiones organizadas para la puesta en común de proyectos de adscripción y becas de grado.</p>
+                            <h3>Mesas en Simultáneo: Investigadores/as en Formación</h3>
+                            <p>Comisiones organizadas para la puesta en común de proyectos de adscripción y becas de grado de estudiantes.</p>
                         </div>
                     </div>
 
@@ -442,17 +465,25 @@
                         <span><i class="fas fa-utensils"></i> Receso Libre para Almuerzo</span>
                         <small>13:15 a 15:15 Hs</small>
                     </div>
+
+                    <div class="timeline-item">
+                        <div class="time-box">15:15 a 17:30<span class="space-badge badge-aula4">Aula 4</span></div>
+                        <div class="event-details">
+                            <h3>Mesa: Entornos Digitales e Iconografía Interactiva</h3>
+                            <p>Debate sobre la transposición de narrativas clásicas y épica antigua en pantallas actuales.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- CONTENIDO CONTENEDOR: VIERNES 27 -->
+            <!-- VIERNES 27 (Fiel reflejo de la captura de Salta) -->
             <div id="content4" class="day-content">
                 <div class="timeline">
                     <div class="timeline-item">
-                        <div class="time-box">15:00 a 16:30<span class="space-badge badge-aula4">Aula 4</span></div>
+                        <div class="time-box">15:00 a 16:30<span class="space-badge badge-aula4">Sede 2</span></div>
                         <div class="event-details">
                             <h3>Mesas Simultáneas Finales (Mesas 36 a 42)</h3>
-                            <p>Cierre formal de las exposiciones correspondientes al área didáctica y metodológica.</p>
+                            <p>Cierre formal de las exposiciones correspondientes al área didáctica, literaria y metodológica del simposio.</p>
                         </div>
                     </div>
 
@@ -462,18 +493,29 @@
                     </div>
 
                     <div class="timeline-item">
-                        <div class="time-box">17:00 a 18:15<span class="space-badge badge-actos">Salón de Actos</span></div>
+                        <div class="time-box">17:00 a 18:15<span class="space-badge badge-actos">Sede 1</span></div>
                         <div class="event-details">
-                            <h3>Panel Especial: Lenguas Clásicas del Presente</h3>
-                            <p>La enseñanza del latín y del griego en el siglo XXI: Experiencias pedagógicas e institucionales.</p>
+                            <h3>Panel: Lenguas Clásicas del presente. La enseñanza del latín y del griego en el siglo XXI</h3>
                             <div class="sub-papers-list">
                                 <div class="paper-entry">
                                     <p class="paper-title">"Experiencias de enseñanza de las formas no personales del verbo en latín: los participios absolutos"</p>
                                     <div class="paper-author">Dra. Cadina Palachi (UNL)</div>
+                                    <a href="#" class="download-btn"><i class="fas fa-file-download"></i> Material</a>
                                 </div>
                                 <div class="paper-entry">
                                     <p class="paper-title">"Experiencias en la aplicación del método inductivo-contextual para la enseñanza del latín: balance y propuestas"</p>
                                     <div class="paper-author">Prof. Mariana Ventura (UBA)</div>
+                                    <a href="#" class="download-btn"><i class="fas fa-file-download"></i> Material</a>
+                                </div>
+                                <div class="paper-entry">
+                                    <p class="paper-title">"Dialoguías para la enseñanza inicial del griego clásico"</p>
+                                    <div class="paper-author">Dra. Ivana Chialva (UNL)</div>
+                                    <a href="#" class="download-btn"><i class="fas fa-file-download"></i> Material</a>
+                                </div>
+                                <div class="paper-entry">
+                                    <p class="paper-title">"Recorriendo Esopo. Lecciones de griego. Una selección de fábulas esópicas con explicaciones gramaticales"</p>
+                                    <div class="paper-author">Prof. María Inés Moretti (UNLP)</div>
+                                    <a href="#" class="download-btn"><i class="fas fa-file-download"></i> Material</a>
                                 </div>
                             </div>
                         </div>
@@ -485,12 +527,14 @@
                     </div>
 
                     <div class="timeline-item">
-                        <div class="time-box">18:30 Hs en adelante<span class="space-badge badge-actos">Sede 1</span></div>
+                        <div class="time-box">18:30 Hs<span class="space-badge badge-actos">Sede 1</span></div>
                         <div class="event-details">
-                            <h3>Celos divinos. Hera, la madraza, Heracles, el hijastro</h3>
+                            <h3>Conferencia de Cierre</h3>
                             <div class="sub-papers-list">
                                 <div class="paper-entry">
+                                    <p class="paper-title">"Celos divinos. Hera, la madraza, Heracles, el hijastro"</p>
                                     <div class="paper-author">Dra. María de Fátima Sousa e Silva (Universidad de Coimbra, Portugal)</div>
+                                    <a href="#" class="download-btn"><i class="fas fa-file-download"></i> Material</a>
                                 </div>
                             </div>
                         </div>
@@ -499,20 +543,20 @@
                     <div class="timeline-item">
                         <div class="time-box">19:30 Hs<span class="space-badge badge-actos">Sede 1</span></div>
                         <div class="event-details">
-                            <h3>Cierre de Jornadas</h3>
-                            <p>Acto formal de clausura institucional del Simposio Internacional.</p>
+                            <h3>Cierre Institucional</h3>
+                            <p>Clausura de actividades del encuentro internacional.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-        </div> <!-- Fin de tabs-container -->
+        </div> <!-- Fin tabs-container -->
 
     </div>
 
-    <!-- CONTACTO REDISEÑADO -->
+    <!-- CONTACTO REDISEÑADO SEGÚN TUS INDICACIONES -->
     <div class="global-contact-bar">
-        Para realizar consultas específicas referentes a la asignación de espacios o cronogramas, podés comunicarte a: <a href="mailto:estoa.sur@gmail.com">estoa.sur@gmail.com</a>
+        Ante alguna consulta específica sobre cronograma u otros temas, sabés que podés escribirnos a: <a href="mailto:estoa.sur@gmail.com">estoa.sur@gmail.com</a>
     </div>
 
     <!-- PIE DE PÁGINA -->
