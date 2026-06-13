@@ -1,0 +1,184 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X Congreso - Expositores</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --verde-malaquita: #167a67;
+            --verde-profundo: #0d4b3f;
+            --crema-marmol: #fbfaf5;
+            --terracota: #c66a46;
+            --texto-oscuro: #212529;
+            --lineas-oro: #d4af37;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--crema-marmol);
+            color: var(--texto-oscuro);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        h1, h2, h3 { font-family: 'Cinzel', serif; color: var(--verde-profundo); }
+
+        /* NAVEGACIÓN */
+        nav {
+            background-color: #ffffff;
+            border-bottom: 3px solid var(--verde-malaquita);
+            padding: 1.2rem 2rem;
+            position: sticky;
+            top: 0; z-index: 100;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+        }
+        .nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--verde-profundo); letter-spacing: 1px; }
+        .nav-links { list-style: none; display: flex; gap: 20px; }
+        .nav-links a { text-decoration: none; color: var(--texto-oscuro); font-weight: 500; font-size: 1rem; padding: 6px 12px; transition: all 0.2s; border-radius: 4px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--verde-malaquita); background-color: rgba(22, 122, 103, 0.05); }
+
+        /* BANNER */
+        .banner-container {
+            width: 100%; max-width: 1200px; margin: 30px auto; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05); background-color: #e2e8f0; border: 1px solid rgba(22, 122, 103, 0.15);
+        }
+        .banner-placeholder { padding: 50px 20px; text-align: center; }
+
+        .main-container { max-width: 900px; margin: 0 auto; padding: 10px 20px 60px 20px; }
+        
+        /* CONTENEDOR DE EXPOSITORES (Fácil de leer) */
+        .expositores-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .expositor-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+            border-left: 6px solid var(--verde-malaquita);
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        /* Espacio para la foto de perfil */
+        .expositor-avatar {
+            width: 100px;
+            height: 100px;
+            background-color: #e2e8f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--verde-malaquita);
+            font-size: 2rem;
+            flex-shrink: 0;
+            border: 2px solid var(--verde-malaquita);
+        }
+
+        /* Cuando tengas fotos reales, se usarán así: */
+        .expositor-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .expositor-info h2 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .expositor-institucion {
+            font-weight: 700;
+            color: var(--terracota);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .expositor-bio {
+            font-size: 1.05rem;
+            color: #4a5568;
+        }
+
+        /* FOOTER */
+        footer { background-color: var(--verde-profundo); color: #ffffff; text-align: center; padding: 45px 20px; margin-top: 60px; border-top: 4px solid var(--lineas-oro); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-logo">X CONGRESO 2026</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="expositores.html" class="active">Expositores</a></li>
+            <li><a href="programa.html">Programa</a></li>
+            <li><a href="util.html">Información Útil</a></li>
+            <li><a href="repositorio.html">Repositorio</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <div class="banner-container">
+        <div class="banner-placeholder">
+            <h1>EXPOSITORES</h1>
+            <p style="color: var(--terracota); font-weight: 700; letter-spacing: 0.5px;">INVITADOS Y CONFERENCISTAS DE HONOR</p>
+        </div>
+    </div>
+
+    <div class="main-container">
+        
+        <p style="margin-bottom: 25px; text-align: center; color: #4a5568;">Nos honra contar con la presencia de destacados investigadores y académicos internacionales que guiarán las mesas de debate y conferencias magistrales.</p>
+
+        <div class="expositores-grid">
+            
+            <!-- EXPOSITOR 1 -->
+            <div class="expositor-card">
+                <div class="expositor-avatar">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    <!-- Cuando subas su foto en el futuro, pones: <img src="foto1.jpg" alt="Nombre"> -->
+                </div>
+                <div class="expositor-info">
+                    <h2>Dr. Alejandro Magno</h2>
+                    <div class="expositor-institucion">Universidad de Atenas</div>
+                    <p class="expositor-bio">Especialista en arqueología clásica y evolución de los lenguajes metodológicos en la Europa antigua. Cuenta con más de 15 años de trayectoria en investigación de ecosistemas culturales.</p>
+                </div>
+            </div>
+
+            <!-- EXPOSITOR 2 -->
+            <div class="expositor-card">
+                <div class="expositor-avatar">
+                    <i class="fa-solid fa-user-graduate"></i>
+                </div>
+                <div class="expositor-info">
+                    <h2>Dra. Athena Palas</h2>
+                    <div class="expositor-institucion">Universidad Autónoma de Madrid</div>
+                    <p class="expositor-bio">Investigadora principal en filosofía clásica y adaptaciones del pensamiento antiguo a las problemáticas sociales del siglo XXI. Autora de múltiples publicaciones sobre ética y ciudadanía.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 X Congreso Internacional. Desarrollado por <strong>Meraki Creative</strong>.</p>
+    </footer>
+
+</body>
+</html>
