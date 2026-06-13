@@ -3,97 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programa - Simposio 2028</title>
+    <title>Programa - Simposio Internacional de Estudios Clásicos 2028</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         :root {
-            --color-principal: #2a445e; /* Azul Profundo */
-            --rosa-pompeya: #b84a39;
-            --crema-antiguo: #f5f0e6;
-            --marfil-suave: #ffffff;
-            --texto-oscuro: #2c2523;
-            --oro-viejo: #c5a059;
+            --blanco-marfil: #fcfbfa;
+            --superficie-pura: #ffffff;
+            --azul-academico: #1a2e40;
+            --rojo-pompeya-delicado: #a33829;
+            --oro-atenas: #b59353;
+            --texto-principal: #2d3135;
+            --texto-suave: #64748b;
+            --borde-fino: rgba(181, 147, 83, 0.25);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Roboto', sans-serif; color: var(--texto-oscuro); background-color: var(--crema-antiguo); line-height: 1.8; }
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.25s ease; }
+        
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            color: var(--texto-principal); 
+            background-color: var(--blanco-marfil);
+            line-height: 1.6; 
+        }
 
-        .top-bar { background-color: var(--rosa-pompeya); color: var(--marfil-suave); padding: 8px 20px; display: flex; justify-content: flex-end; gap: 15px; font-size: 0.85rem; font-weight: 500; }
-        .top-bar a { color: var(--marfil-suave); text-decoration: none; }
+        /* BARRA SUPERIOR */
+        .top-bar { 
+            background-color: var(--azul-academico); 
+            color: rgba(255, 255, 255, 0.85); 
+            padding: 6px 24px; 
+            display: flex; 
+            justify-content: flex-end; 
+            gap: 18px; 
+            font-size: 0.78rem; 
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--oro-atenas);
+        }
+        .top-bar a { color: rgba(255, 255, 255, 0.85); text-decoration: none; display: flex; align-items: center; gap: 4px; }
+        .top-bar a:hover { color: var(--oro-atenas); }
 
-        nav { background-color: var(--marfil-suave); border-bottom: 4px solid var(--color-principal); padding: 1.2rem 2rem; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; }
-        .nav-logo { font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.1rem; color: var(--color-principal); }
-        .nav-links { list-style: none; display: flex; gap: 20px; }
-        .nav-links a { text-decoration: none; color: var(--texto-oscuro); font-weight: 500; font-size: 1rem; padding: 6px 12px; }
-        .nav-links a:hover, .nav-links a.active { color: var(--color-principal); background-color: rgba(42, 68, 94, 0.08); border-radius: 4px; }
+        /* NAVEGACIÓN UNIFICADA */
+        nav { 
+            background: var(--superficie-pura); 
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06); 
+            padding: 1rem 2rem; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        .nav-logo { 
+            font-family: 'Cinzel', serif; 
+            font-weight: 800; 
+            font-size: 1.15rem; 
+            color: var(--azul-academico); 
+            letter-spacing: 1px;
+        }
+        .nav-links { list-style: none; display: flex; gap: 8px; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--texto-suave); 
+            font-weight: 500; 
+            font-size: 0.88rem; 
+            padding: 8px 14px; 
+            border-radius: 4px;
+        }
+        .nav-links a:hover, .nav-links a.active { 
+            color: var(--rojo-pompeya-delicado); 
+            background: rgba(163, 56, 41, 0.04); 
+        }
 
-        .banner-container { width: 100%; max-width: 1200px; margin: 30px auto; border-radius: 15px; overflow: hidden; background-color: #cedae5; border: 3px solid var(--oro-viejo); }
-        .banner-placeholder { padding: 60px 20px; text-align: center; }
-        .banner-placeholder h1 { font-family: 'Cinzel', serif; color: var(--color-principal); }
-        .banner-placeholder p { color: var(--rosa-pompeya); font-weight: 700; letter-spacing: 1px; }
+        .main-container { max-width: 1050px; margin: 0 auto; padding: 40px 20px; }
 
-        .main-container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-        section { margin-bottom: 40px; background: var(--marfil-suave); padding: 45px; border-radius: 12px; border-top: 6px solid var(--color-principal); border: 1px solid rgba(197, 160, 89, 0.2); }
-        section h2 { font-family: 'Cinzel', serif; color: var(--color-principal); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--crema-antiguo); }
+        /* ENCABEZADO */
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .page-header h1 {
+            font-family: 'Cinzel', serif;
+            color: var(--azul-academico);
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
+        .page-header p {
+            color: var(--texto-suave);
+            font-size: 1.05rem;
+        }
 
-        /* Sistema de 4 Pestañas en CSS */
-        .tabs-container { display: flex; flex-direction: column; margin-top: 20px; }
+        /* ARQUITECTURA DE TABS (Pestañas interactivas CSS) */
+        .program-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .tab-label {
+            padding: 12px 24px;
+            background: var(--superficie-pura);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--texto-suave);
+            text-align: center;
+        }
+
         .tab-radio { display: none; }
-        .tabs-nav { display: flex; gap: 8px; border-bottom: 2px solid var(--crema-antiguo); padding-bottom: 10px; margin-bottom: 20px; overflow-x: auto; }
-        .tab-label { padding: 10px 16px; background: #e6dfd3; border-radius: 6px; cursor: pointer; font-weight: 500; transition: all 0.3s; white-space: nowrap; font-size: 0.95rem; }
-        .tab-label:hover { background: #dfd5c4; }
-        
-        .tab-content { display: none; background: #fafafa; padding: 30px; border-radius: 8px; border: 1px solid #e6e0d4; }
 
-        /* Lógica de activación de las 4 pestañas */
-        #tab1:checked ~ .tabs-nav .label1,
-        #tab2:checked ~ .tabs-nav .label2,
-        #tab3:checked ~ .tabs-nav .label3,
-        #tab4:checked ~ .tabs-nav .label4 { background: var(--color-principal); color: white; font-weight: bold; }
-        
-        #tab1:checked ~ .content-container #content1,
-        #tab2:checked ~ .content-container #content2,
-        #tab3:checked ~ .content-container #content3,
-        #tab4:checked ~ .content-container #content4 { display: block; }
+        /* Lógica de activación de pestañas mediante CSS */
+        #tab1:checked ~ .program-tabs [for="tab1"],
+        #tab2:checked ~ .program-tabs [for="tab2"],
+        #tab3:checked ~ .program-tabs [for="tab3"],
+        #tab4:checked ~ .program-tabs [for="tab4"] {
+            background: var(--azul-academico);
+            color: white;
+            border-color: var(--azul-academico);
+        }
 
-        /* Ítems del cronograma */
-        .agenda-item { display: grid; grid-template-columns: 140px 1fr 120px; gap: 15px; padding: 15px 0; border-bottom: 1px solid #eee; align-items: start; }
-        .agenda-item:last-child { border-bottom: none; }
-        .time { font-weight: 700; color: var(--rosa-pompeya); }
-        .activity-details h4 { font-size: 1.1rem; color: var(--texto-oscuro); margin-bottom: 4px; }
-        .activity-details p { font-size: 0.95rem; color: #555; line-height: 1.5; }
-        .location { font-size: 0.9rem; font-weight: 500; color: var(--color-principal); background: rgba(42,68,94,0.08); padding: 4px 8px; border-radius: 4px; text-align: center; }
-        
-        .session-divider { background: #dfd5c4; padding: 6px 15px; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; border-radius: 4px; margin: 20px 0 10px 0; color: var(--texto-oscuro); }
-        .repo-inline-link { display: inline-block; margin-top: 8px; color: var(--rosa-pompeya); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
-        .repo-inline-link:hover { text-decoration: underline; }
+        .day-content { display: none; animation: fadeIn 0.4s ease-in-out; }
 
-        .global-contact-bar { background-color: #eee6d8; text-align: center; padding: 20px; margin-top: 50px; border-top: 1px dashed var(--oro-viejo); border-bottom: 1px dashed var(--oro-viejo); font-size: 1rem; }
-        .global-contact-bar a { color: var(--rosa-pompeya); font-weight: 700; text-decoration: none; }
+        #tab1:checked ~ #content1,
+        #tab2:checked ~ #content2,
+        #tab3:checked ~ #content3,
+        #tab4:checked ~ #content4 { display: block; }
 
-        footer { background-color: var(--texto-oscuro); color: var(--crema-antiguo); text-align: center; padding: 40px 20px; border-top: 5px solid var(--oro-viejo); }
-        .share-text { font-size: 1.1rem; font-weight: 500; color: var(--crema-antiguo); margin-bottom: 12px; }
-        .share-buttons { margin-bottom: 30px; }
-        .share-buttons a { color: var(--crema-antiguo); margin: 0 12px; font-size: 1.4rem; }
-        .credits-text { font-size: 0.8rem; color: #a09592; letter-spacing: 0.5px; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* LÍNEA DE TIEMPO EDITORIAL (CRONOGRAMA diario) */
+        .timeline {
+            background: var(--superficie-pura);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.01);
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .timeline-item:last-child { border-bottom: none; }
+        @media(max-width: 650px) {
+            .timeline-item { grid-template-columns: 1fr; gap: 10px; }
+        }
+
+        .time-box {
+            font-weight: 700;
+            color: var(--rojo-pompeya-delicado);
+            font-size: 1.1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        /* BADGES (Etiquetas de Espacios Ficticios) */
+        .space-badge {
+            display: inline-block;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 3px;
+            width: fit-content;
+            letter-spacing: 0.3px;
+        }
+        .badge-actos { background: rgba(26, 46, 64, 0.08); color: var(--azul-academico); }
+        .badge-aula3 { background: rgba(163, 56, 41, 0.08); color: var(--rojo-pompeya-delicado); }
+        .badge-aula4 { background: rgba(181, 147, 83, 0.15); color: #8a6d3b; }
+        .badge-galeria { background: #e2e8f0; color: #475569; }
+
+        .event-details h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--azul-academico);
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+
+        .event-details .speaker {
+            font-size: 0.88rem;
+            color: var(--oro-atenas);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .event-details p {
+            color: var(--texto-principal);
+            font-size: 0.95rem;
+        }
+
+        /* BLOQUES ESPECIALES (Cortes, Almuerzos) */
+        .break-item {
+            background: var(--blanco-marfil);
+            border-left: 4px solid var(--oro-atenas);
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .break-item span { font-weight: 600; font-size: 0.9rem; color: var(--texto-suave); text-transform: uppercase; }
+        .break-item i { color: var(--oro-atenas); margin-right: 8px; }
+
+        /* BARRA DE CONTACTO */
+        .global-contact-bar { 
+            background: var(--superficie-pura); 
+            text-align: center; 
+            padding: 20px; 
+            border-radius: 6px;
+            margin: 40px 0; 
+            border: 1px solid rgba(0,0,0,0.05); 
+            font-size: 0.95rem;
+        }
+        .global-contact-bar a { color: var(--rojo-pompeya-delicado); font-weight: 600; text-decoration: none; }
+
+        /* PIE DE PÁGINA */
+        footer { 
+            background-color: var(--azul-academico); 
+            color: rgba(255,255,255,0.7); 
+            text-align: center; 
+            padding: 40px 20px; 
+            border-top: 2px solid var(--oro-atenas); 
+            font-size: 0.88rem;
+        }
+        .share-text { 
+            font-size: 1rem; 
+            font-weight: 600; 
+            margin-bottom: 15px; 
+            color: var(--oro-atenas); 
+            font-family: 'Cinzel', serif; 
+        }
+        .share-buttons a { color: rgba(255,255,255,0.7); margin: 0 12px; font-size: 1.3rem; }
+        .share-buttons a:hover { color: var(--oro-atenas); }
     </style>
 </head>
 <body>
 
+    <!-- BARRA SUPERIOR -->
     <div class="top-bar">
-        <span>Nuestras redes:</span>
         <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
         <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
-        <a href="#"><i class="fab fa-whatsapp"></i> Canal de WhatsApp</a>
+        <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
     </div>
 
+    <!-- MENÚ -->
     <nav>
-        <div class="nav-logo">SIMPOSIO ESTUDIOS CLÁSICOS 2028</div>
+        <div class="nav-logo">SIMPOSIO ESTUDIOS CLÁSICES 2028</div>
         <ul class="nav-links">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="expositores.html">Expositores</a></li>
@@ -104,143 +278,196 @@
         </ul>
     </nav>
 
-    <div class="banner-container">
-        <div class="banner-placeholder">
-            <h1>Cronograma académico</h1>
-            <p>DISEÑO DE LAS SESIONES Y MESAS DE TRABAJO</p>
-        </div>
-    </div>
-
+    <!-- CONTENIDO PRINCIPAL -->
     <div class="main-container">
-        <section>
-            <h2>Programa completo de actividades</h2>
-            <p>Navegá por las pestañas para revisar la distribución de los bloques académicos correspondientes a cada una de las jornadas[cite: 3].</p>
+        
+        <header class="page-header">
+            <h1>Cronograma de Actividades</h1>
+            <p>Estructura horaria y distribución espacial de las jornadas de nuestro Simposio.</p>
+        </header>
 
-            <div class="tabs-container">
-                <!-- Selectores de pestaña -->
-                <input type="radio" id="tab1" name="program-tabs" class="tab-radio" checked>
-                <input type="radio" id="tab2" name="program-tabs" class="tab-radio">
-                <input type="radio" id="tab3" name="program-tabs" class="tab-radio">
-                <input type="radio" id="tab4" name="program-tabs" class="tab-radio">
+        <!-- Inputs ocultos para controlar las pestañas -->
+        <input type="radio" id="tab1" name="days" class="tab-radio" checked>
+        <input type="radio" id="tab2" name="days" class="tab-radio">
+        <input type="radio" id="tab3" name="days" class="tab-radio">
+        <input type="radio" id="tab4" name="days" class="tab-radio">
 
-                <!-- Etiquetas de navegación -->
-                <div class="tabs-nav">
-                    <label for="tab1" class="tab-label label1">Martes 24</label>
-                    <label for="tab2" class="tab-label label2">Miércoles 25</label>
-                    <label for="tab3" class="tab-label label3">Jueves 26</label>
-                    <label for="tab4" class="tab-label label4">Viernes 27</label>
+        <!-- Botones selectores -->
+        <div class="program-tabs">
+            <label for="tab1" class="tab-label">Martes 24</label>
+            <label for="tab2" class="tab-label">Miércoles 25</label>
+            <label for="tab3" class="tab-label">Jueves 26</label>
+            <label for="tab4" class="tab-label">Viernes 27</label>
+        </div>
+
+        <!-- CONTENIDO: MARTES 24 -->
+        <div id="content1" class="day-content">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time-box">08:30 - 09:30<span class="space-badge badge-galeria">Galería Central</span></div>
+                    <div class="event-details">
+                        <h3>Acreditaciones y Entrega de Materiales</h3>
+                        <p>Recepción de los asistentes, docentes y estudiantes en el ala central de la facultad.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time-box">09:30 - 11:00<span class="space-badge badge-actos">Salón de Actos</span></div>
+                    <div class="event-details">
+                        <h3>Mesa 1: Tradición y Crítica Textual</h3>
+                        <div class="speaker">Modera: Prof. Carlos Segovia</div>
+                        <p>Exposiciones sobre variantes manuscritas en la literatura grecolatina fundacional.</p>
+                    </div>
+                </div>
+                
+                <div class="break-item">
+                    <span><i class="fas fa-coffee"></i> Pausa para Café</span>
+                    <small>11:00 - 11:30</small>
                 </div>
 
-                <div class="content-container">
-                    
-                    <!-- MARTES 24 -->
-                    <div id="content1" class="tab-content">
-                        <div class="session-divider">Bloque mañana</div>
-                        <div class="agenda-item">
-                            <div class="time">08:00 hs.</div>
-                            <div class="activity-details">
-                                <h4>Acreditación institucional</h4>
-                                <p>Recepción de participantes académicos y entrega de carpetas materiales[cite: 3].</p>
-                            </div>
-                            <div class="location">Aula 3</div>
-                        </div>
-                        <div class="agenda-item">
-                            <div class="time">09:00 a 10:00 hs.</div>
-                            <div class="activity-details">
-                                <h4>Apertura formal</h4>
-                                <p>Discursos de bienvenida institucionales[cite: 1, 3].</p>
-                            </div>
-                            <div class="location">Salón de actos</div>
-                        </div>
-                        <div class="agenda-item">
-                            <div class="time">12:30 hs.</div>
-                            <div class="activity-details">
-                                <h4>Lunch de bienvenida</h4>
-                                <p>Brindis y recepción para los expositores registrados[cite: 3].</p>
-                            </div>
-                            <div class="location">Galería central</div>
-                        </div>
+                <div class="timeline-item">
+                    <div class="time-box">11:30 - 13:00<span class="space-badge badge-aula3">Aula 3</span></div>
+                    <div class="event-details">
+                        <h3>Comunicaciones: Bloque A</h3>
+                        <p>Presentaciones breves a cargo de investigadores graduados y adscritos.</p>
                     </div>
+                </div>
 
-                    <!-- MIÉRCOLES 25 -->
-                    <div id="content2" class="tab-content">
-                        <div class="session-divider">Bloque mañana</div>
-                        <div class="agenda-item">
-                            <div class="time">08:30 a 09:45 hs.</div>
-                            <div class="activity-details">
-                                <h4>Cursillos temáticos (Segundo encuentro)</h4>
-                                <p>Continuidad de los talleres formativos concurrentes[cite: 3].</p>
-                            </div>
-                            <div class="location">Aulas 3 y 5</div>
-                        </div>
-                        <div class="session-divider">Bloque tarde</div>
-                        <div class="agenda-item">
-                            <div class="time">15:00 a 16:30 hs.</div>
-                            <div class="activity-details">
-                                <h4>Mesas de ponencias asociadas</h4>
-                                <p>Exposición de trabajos libres sobre tradiciones y lírica antigua[cite: 2, 3].</p>
-                                <a href="repositorio.html#miercoles-tarde" class="repo-inline-link"><i class="fas fa-download"></i> Descargar material compartido de estas mesas</a>
-                            </div>
-                            <div class="location">Aula 5</div>
-                        </div>
+                <div class="break-item" style="border-left-color: var(--azul-academico);">
+                    <span><i class="fas fa-utensils"></i> Receso para Almuerzo Libre</span>
+                    <small>13:00 - 15:00</small>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="time-box">15:00 - 17:00<span class="space-badge badge-aula4">Aula 4</span></div>
+                    <div class="event-details">
+                        <h3>Mesa Temática: Mitología y Plástica</h3>
+                        <p>Disertaciones sobre las relecturas visuales del mito clásico en el arte colonial y moderno.</p>
                     </div>
-
-                    <!-- JUEVES 26 -->
-                    <div id="content3" class="tab-content">
-                        <div class="session-divider">Bloque mañana</div>
-                        <div class="agenda-item">
-                            <div class="time">08:30 a 09:45 hs.</div>
-                            <div class="activity-details">
-                                <h4>Cursillos temáticos (Módulo B - Primer encuentro)</h4>
-                                <p><strong>Cursillo 3:</strong> <em>Herramientas rítmicas aplicadas a la métrica homérica</em>. Prof. Sergio Antonini (UBA)[cite: 3].</p>
-                            </div>
-                            <div class="location">Aula 3</div>
-                        </div>
-                        <div class="session-divider">Bloque tarde</div>
-                        <div class="agenda-item">
-                            <div class="time">17:00 a 18:00 hs.</div>
-                            <div class="activity-details">
-                                <h4>Panel plenario de discusión</h4>
-                                <p><em>Lecturas filosóficas en torno al concepto de amor carnal y platónico</em>[cite: 3].</p>
-                            </div>
-                            <div class="location">Salón de actos</div>
-                        </div>
-                    </div>
-
-                    <!-- VIERNES 27 -->
-                    <div id="content4" class="tab-content">
-                        <div class="session-divider">Bloque mañana</div>
-                        <div class="agenda-item">
-                            <div class="time">10:15 a 11:45 hs.</div>
-                            <div class="activity-details">
-                                <h4>Mesas de ponencias de cierre</h4>
-                                <p>Debates finales e informes de proyectos consolidados[cite: 2, 3].</p>
-                                <a href="repositorio.html#viernes-cierre" class="repo-inline-link"><i class="fas fa-download"></i> Descargar actas provisionales de estas mesas</a>
-                            </div>
-                            <div class="location">Aula 5</div>
-                        </div>
-                        <div class="session-divider">Bloque tarde</div>
-                        <div class="agenda-item">
-                            <div class="time">18:30 hs.</div>
-                            <div class="activity-details">
-                                <h4>Sesión de clausura</h4>
-                                <p>Palabras de cierre de las jornadas académicas y balance general[cite: 3].</p>
-                            </div>
-                            <div class="location">Salón de actos</div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
-        </section>
+        </div>
+
+        <!-- CONTENIDO: MIÉRCOLES 25 -->
+        <div id="content2" class="day-content">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time-box">09:00 - 11:00<span class="space-badge badge-actos">Salón de Actos</span></div>
+                    <div class="event-details">
+                        <h3>Mesa 2: Arqueología e Historiografía</h3>
+                        <div class="speaker">Modera: Dra. Beatriz Fuentes</div>
+                        <p>Análisis de las estructuras materiales y la configuración monumental en el Mediterráneo antiguo.</p>
+                    </div>
+                </div>
+
+                <div class="break-item">
+                    <span><i class="fas fa-coffee"></i> Pausa para Café</span>
+                    <small>11:00 - 11:30</small>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="time-box">11:30 - 13:00<span class="space-badge badge-aula3">Aula 3</span></div>
+                    <div class="event-details">
+                        <h3>Paneles de Investigadores en Formación</h3>
+                        <p>Eje destinado a las exposiciones de estudiantes de grado de universidades nacionales.</p>
+                    </div>
+                </div>
+
+                <div class="break-item" style="border-left-color: var(--azul-academico);">
+                    <span><i class="fas fa-utensils"></i> Receso para Almuerzo Libre</span>
+                    <small>13:00 - 15:00</small>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="time-box">15:00 - 17:30<span class="space-badge badge-aula4">Aula 4</span></div>
+                    <div class="event-details">
+                        <h3>Mesa Colectiva: Filosofía Antigua</h3>
+                        <p>Lecturas éticas y cosmológicas de las fuentes platónicas y aristotélicas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTENIDO: JUEVES 26 -->
+        <div id="content3" class="day-content">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time-box">09:00 - 11:00<span class="space-badge badge-aula3">Aula 3</span></div>
+                    <div class="event-details">
+                        <h3>Mesa 3: Humanidades Digitales</h3>
+                        <p>Uso de herramientas informáticas y modelos computacionales aplicados al rescate de códices.</p>
+                    </div>
+                </div>
+
+                <div class="break-item">
+                    <span><i class="fas fa-coffee"></i> Pausa para Café</span>
+                    <small>11:00 - 11:30</small>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="time-box">11:30 - 13:00<span class="space-badge badge-aula4">Aula 4</span></div>
+                    <div class="event-details">
+                        <h3>Comunicaciones: Bloque B</h3>
+                        <p>Espacio lúdico e interactivo sobre la recepción del mundo clásico en los medios actuales.</p>
+                    </div>
+                </div>
+
+                <div class="break-item" style="border-left-color: var(--azul-academico);">
+                    <span><i class="fas fa-utensils"></i> Receso para Almuerzo Libre</span>
+                    <small>13:00 - 15:00</small>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="time-box">15:00 - 17:00<span class="space-badge badge-actos">Salón de Actos</span></div>
+                    <div class="event-details">
+                        <h3>Mesa de Cierre de Ejes Poéticos</h3>
+                        <p>Debate sobre la lírica helenística y las formas de pervivencia contemporánea.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTENIDO: VIERNES 27 -->
+        <div id="content4" class="day-content">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time-box">09:30 - 11:30<span class="space-badge badge-actos">Salón de Actos</span></div>
+                    <div class="event-details">
+                        <h3>Mesa Redonda: Conclusiones del Simposio</h3>
+                        <div class="speaker">Representantes de las Unidades Académicas</div>
+                        <p>Puesta en común de los directores de comités y balance de las lecturas clásicas de este año.</p>
+                    </div>
+                </div>
+
+                <div class="break-item">
+                    <span><i class="fas fa-coffee"></i> Pausa para Café Final</span>
+                    <small>11:30 - 12:00</small>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="time-box">12:00 - 13:30<span class="space-badge badge-actos">Salón de Actos</span></div>
+                    <div class="event-details">
+                        <h3>Acto de Clausura Institucional</h3>
+                        <p>Palabras de las autoridades de la Facultad de Humanidades y Artes (UNR) y entrega simbólica de constancias.</p>
+                    </div>
+                </div>
+
+                <div class="break-item" style="border-left-color: var(--azul-academico); background-color: #f1f5f9;">
+                    <span><i class="fas fa-glass-cheers"></i> Vino de Honor / Cierre de Jornadas</span>
+                    <small>13:30</small>
+                </div>
+            </div>
+        </div>
+
     </div>
 
+    <!-- CONTACTO -->
     <div class="global-contact-bar">
-        Para mayor información, podés escribirnos a: <a href="mailto:stoa.sur@gmail.com">stoa.sur@gmail.com</a>
+        ¿Detectaste alguna superposición horaria en tu mesa asignada? Avisanos a: <a href="mailto:estoa.sur@gmail.com">estoa.sur@gmail.com</a>
     </div>
 
+    <!-- PIE DE PÁGINA -->
     <footer>
-        <p class="share-text">Si te interesa el simposio, compartilo en tus redes:</p>
+        <p class="share-text">Te animamos a compartir esta info en tus redes:</p>
         <div class="share-buttons">
             <a href="#"><i class="fab fa-x-twitter"></i></a>
             <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -248,7 +475,7 @@
             <a href="#"><i class="fab fa-whatsapp"></i></a>
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
-        <p class="credits-text">&copy; 2028 Comité Organizador. Desarrollado por Meraki Creative.</p>
+        <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 25px;">&copy; 2028 Comité Organizador. Desarrollado con elegancia por Meraki Creative.</p>
     </footer>
 
 </body>
