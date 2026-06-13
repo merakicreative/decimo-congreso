@@ -3,144 +3,380 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - Simposio 2028</title>
+    <title>Contacto - Simposio Internacional de Estudios Clásicos 2028</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         :root {
-            --color-principal: #2a445e;
-            --rosa-pompeya: #b84a39;
-            --crema-antiguo: #f5f0e6;
-            --marfil-suave: #ffffff;
-            --texto-oscuro: #2c2523;
-            --oro-viejo: #c5a059;
+            --blanco-marfil: #fcfbfa;
+            --superficie-pura: #ffffff;
+            --azul-academico: #1a2e40;
+            --rojo-pompeya-delicado: #a33829;
+            --oro-atenas: #b59353;
+            --texto-principal: #2d3135;
+            --texto-suave: #64748b;
+            --borde-editorial: rgba(181, 147, 83, 0.4);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Roboto', sans-serif; color: var(--texto-oscuro); background-color: var(--crema-antiguo); line-height: 1.8; }
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.25s ease; }
+        
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            color: var(--texto-principal); 
+            background-color: var(--blanco-marfil);
+            line-height: 1.6; 
+        }
 
-        /* Zócalo superior en color Terracota */
-        .top-bar { background-color: var(--rosa-pompeya); color: var(--marfil-suave); padding: 8px 20px; display: flex; justify-content: flex-end; gap: 15px; font-size: 0.85rem; font-weight: 500; }
-        .top-bar a { color: var(--marfil-suave); text-decoration: none; }
+        /* BARRA SUPERIOR */
+        .top-bar { 
+            background-color: var(--azul-academico); 
+            color: rgba(255, 255, 255, 0.85); 
+            padding: 6px 24px; 
+            display: flex; 
+            justify-content: flex-end; 
+            gap: 18px; 
+            font-size: 0.78rem; 
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--oro-atenas);
+        }
+        .top-bar a { color: rgba(255, 255, 255, 0.85); text-decoration: none; display: flex; align-items: center; gap: 4px; }
+        .top-bar a:hover { color: var(--oro-atenas); }
 
-        nav { background-color: var(--marfil-suave); border-bottom: 4px solid var(--color-principal); padding: 1.2rem 2rem; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; }
-        .nav-logo { font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.1rem; color: var(--color-principal); }
-        .nav-links { list-style: none; display: flex; gap: 20px; }
-        .nav-links a { text-decoration: none; color: var(--texto-oscuro); font-weight: 500; font-size: 1rem; padding: 6px 12px; }
-        .nav-links a:hover, .nav-links a.active { color: var(--color-principal); background-color: rgba(42, 68, 94, 0.08); border-radius: 4px; }
+        /* NAVEGACIÓN OFICIAL EN EL ORDEN ESTABLECIDO */
+        nav { 
+            background: var(--superficie-pura); 
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06); 
+            padding: 1rem 2rem; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        .nav-logo { 
+            font-family: 'Cinzel', serif; 
+            font-weight: 800; 
+            font-size: 1.15rem; 
+            color: var(--azul-academico); 
+            letter-spacing: 1px;
+        }
+        .nav-links { list-style: none; display: flex; gap: 6px; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--texto-suave); 
+            font-weight: 500; 
+            font-size: 0.88rem; 
+            padding: 8px 12px; 
+            border-radius: 4px;
+        }
+        .nav-links a:hover, .nav-links a.active { 
+            color: var(--rojo-pompeya-delicado); 
+            background: rgba(163, 56, 41, 0.04); 
+        }
 
-        .banner-container { width: 100%; max-width: 1200px; margin: 30px auto; border-radius: 15px; overflow: hidden; background-color: #cedae5; border: 3px solid var(--oro-viejo); }
-        .banner-placeholder { padding: 60px 20px; text-align: center; }
-        .banner-placeholder h1 { font-family: 'Cinzel', serif; color: var(--color-principal); }
-        .banner-placeholder p { color: var(--rosa-pompeya); font-weight: 700; letter-spacing: 1px; }
+        .main-container { max-width: 1050px; margin: 0 auto; padding: 50px 20px; }
 
-        .main-container { max-width: 1100px; margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 35px; }
-        @media (max-width: 768px) { .main-container { grid-template-columns: 1fr; } }
+        /* ENCABEZADO EDITORIAL */
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .page-header h1 {
+            font-family: 'Cinzel', serif;
+            color: var(--azul-academico);
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+        .page-header p {
+            color: var(--texto-suave);
+            font-size: 1.05rem;
+            font-style: italic;
+        }
+        .page-header::after {
+            content: "♦   ♦   ♦";
+            display: block;
+            color: var(--oro-atenas);
+            font-size: 0.8rem;
+            margin-top: 15px;
+            letter-spacing: 8px;
+        }
 
-        section { background: var(--marfil-suave); padding: 45px; border-radius: 12px; border: 1px solid rgba(197, 160, 89, 0.2); border-top: 6px solid var(--color-principal); height: fit-content; }
-        section h2 { font-family: 'Cinzel', serif; color: var(--color-principal); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--crema-antiguo); }
+        /* ESTRUCTURA ASIMÉTRICA DE DOS COLUMNAS */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        @media (max-width: 850px) {
+            .contact-grid { grid-template-columns: 1fr; }
+        }
 
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-weight: 500; margin-bottom: 6px; font-size: 0.95rem; }
-        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ced4da; border-radius: 4px; font-family: 'Roboto', sans-serif; font-size: 1rem; }
-        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--color-principal); box-shadow: 0 0 0 3px rgba(42,68,94,0.1); }
-        .btn-submit { background-color: var(--rosa-pompeya); color: white; border: none; padding: 12px 25px; font-weight: 700; border-radius: 4px; cursor: pointer; font-size: 1rem; transition: background 0.2s; }
-        .btn-submit:hover { background-color: var(--color-principal); }
+        /* FORMULARIO ESTILO EPÍSTOLA / MANUSCRITO */
+        .epistola-box {
+            background: var(--superficie-pura);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            outline: 1px solid var(--borde-editorial);
+            outline-offset: -10px;
+            padding: 40px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+            position: relative;
+        }
+        @media (max-width: 600px) {
+            .epistola-box { padding: 30px 20px; }
+        }
 
-        .info-contact-box { background: #fafafa; padding: 25px; border-radius: 6px; border: 1px solid #e9e3d8; margin-top: 20px; }
-        .info-contact-box p { margin-bottom: 12px; }
-        .info-contact-box i { color: var(--rosa-pompeya); margin-right: 10px; width: 20px; }
+        .epistola-box h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--azul-academico);
+            font-size: 1.4rem;
+            margin-bottom: 24px;
+            border-bottom: 1px dashed rgba(0,0,0,0.1);
+            padding-bottom: 10px;
+        }
 
-        /* Espaciado extra de aire solicitado */
-        .global-contact-bar { background-color: #eee6d8; text-align: center; padding: 20px; grid-column: 1 / -1; margin: 60px 0 30px 0; border-top: 1px dashed var(--oro-viejo); border-bottom: 1px dashed var(--oro-viejo); font-size: 1rem; }
-        .global-contact-bar a { color: var(--rosa-pompeya); font-weight: 700; text-decoration: none; }
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--oro-atenas);
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            padding: 10px 4px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--texto-principal);
+            border-radius: 0;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-bottom-color: var(--rojo-pompeya-delicado);
+        }
 
-        footer { background-color: var(--texto-oscuro); color: var(--crema-antiguo); text-align: center; padding: 40px 20px; border-top: 5px solid var(--oro-viejo); grid-column: 1 / -1; }
-        .share-text { font-size: 1.1rem; font-weight: 500; color: var(--crema-antiguo); margin-bottom: 12px; }
-        .share-buttons { margin-bottom: 30px; }
-        .share-buttons a { color: var(--crema-antiguo); margin: 0 12px; font-size: 1.4rem; }
-        .credits-text { font-size: 0.8rem; color: #a09592; letter-spacing: 0.5px; }
+        /* BOTÓN DE ENVÍO EDITORIAL */
+        .submit-btn {
+            background: var(--azul-academico);
+            color: white;
+            border: 1px solid var(--azul-academico);
+            padding: 12px 28px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .submit-btn:hover {
+            background: transparent;
+            color: var(--azul-academico);
+        }
+
+        /* COLUMNA DERECHA: INFORMACIÓN INSTITUTIONAL & MAPA */
+        .info-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .info-card-editorial {
+            background: var(--superficie-pura);
+            border: 1px solid rgba(0,0,0,0.06);
+            padding: 30px;
+            border-top: 4px solid var(--rojo-pompeya-delicado);
+        }
+        .info-card-editorial h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--azul-academico);
+            font-size: 1.15rem;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+        
+        .contact-details-list {
+            list-style: none;
+        }
+        .contact-details-list li {
+            font-size: 0.92rem;
+            color: var(--texto-principal);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .contact-details-list li i {
+            color: var(--oro-atenas);
+            font-size: 1rem;
+            margin-top: 4px;
+            width: 20px;
+            text-align: center;
+        }
+        .contact-details-list a {
+            color: var(--rojo-pompeya-delicado);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .contact-details-list a:hover {
+            text-decoration: underline;
+        }
+
+        /* CONTENEDOR DEL MAPA SUTIL */
+        .map-container {
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: var(--superficie-pura);
+            padding: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+            display: block;
+        }
+
     </style>
 </head>
 <body>
 
+    <!-- BARRA SUPERIOR -->
     <div class="top-bar">
-        <span>Nuestras redes:</span>
         <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
         <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
-        <a href="#"><i class="fab fa-whatsapp"></i> Canal de WhatsApp</a>
+        <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
     </div>
 
+    <!-- MENÚ CON JERARQUÍA EXCLUSIVA -->
     <nav>
-        <div class="nav-logo">SIMPOSIO ESTUDIOS CLÁSICES 2028</div>
+        <div class="nav-logo">SIMPOSIO ESTUDIOS CLÁSICOS 2028</div>
         <ul class="nav-links">
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="expositores.html">Expositores</a></li>
+            <li><a href="expositores.html">Expositores/as</a></li>
             <li><a href="programa.html">Programa</a></li>
-            <li><a href="util.html">Información Útil</a></li>
+            <li><a href="circulares.html">Circulares</a></li>
             <li><a href="repositorio.html">Repositorio</a></li>
+            <li><a href="util.html">Información Útil</a></li>
             <li><a href="contacto.html" class="active">Contacto</a></li>
         </ul>
     </nav>
 
-    <div class="banner-container" style="max-width: 1140px; margin: 30px auto 10px auto;">
-        <div class="banner-placeholder">
-            <h1>Canales de comunicación</h1>
-            <p>ESTAMOS A TU DISPOSICIÓN PARA RESOLVER CUALQUIER CONSULTA</p>
-        </div>
-    </div>
-
+    <!-- CONTENIDO PRINCIPAL -->
     <div class="main-container">
-        <section>
-            <h2>Envía tu consulta</h2>
-            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Mensaje enviado correctamente.');">
-                <div class="form-group">
-                    <label for="nombre">Nombre completo</label>
-                    <input type="text" id="nombre" required placeholder="Ej: Dra. Lucía Torres">
-                </div>
-                <div class="form-group">
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" id="email" required placeholder="Ej: contacto@universidad.edu">
-                </div>
-                <div class="form-group">
-                    <label for="mensaje">Consulta o Mensaje</label>
-                    <textarea id="mensaje" rows="5" required placeholder="Escribí tu consulta académica o logística acá..."></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Enviar formulario</button>
-            </form>
-        </section>
+        
+        <header class="page-header">
+            <h1>Contacto Institucional</h1>
+            <p>Canales de comunicación directa con las secretarías académicas y ejecutivas del Simposio</p>
+        </header>
 
-        <section style="border-top-color: var(--oro-viejo);">
-            <h2>Vías de atención directa</h2>
-            <p>Si preferís una comunicación directa con la secretaría o el comité organizador institucional, podés escribirnos al canal oficial habilitado:</p>
+        <div class="contact-grid">
             
-            <div class="info-contact-box">
-                <p><i class="fas fa-envelope"></i> <strong>Correo central:</strong> <a href="mailto:estoa.sur@gmail.com" style="color:var(--rosa-pompeya); text-decoration:none; font-weight:700;">estoa.sur@gmail.com</a></p>
-                <p><i class="fas fa-clock"></i> <strong>Horario de atención:</strong> Lunes a viernes de 09:00 a 18:00 hs.</p>
-                <p><i class="fas fa-university"></i> <strong>Sede:</strong> Facultad de Humanidades y Artes, Coordinación de simposios.</p>
-            </div>
-        </section>
+            <!-- FORMULARIO ESTILO EPÍSTOLA -->
+            <div class="epistola-box">
+                <h2>Envío de Correspondencia</h2>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="nombre">Nombre y Apellido completo</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Ej. Dr. Marcos Aurelio">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Dirección de correo electrónico</label>
+                        <input type="email" id="email" name="email" required placeholder="ejemplo@universidad.edu.ar">
+                    </div>
 
-        <div class="global-contact-bar">
-            Para mayor información, podés escribirnos a: <a href="mailto:estoa.sur@gmail.com">estoa.sur@gmail.com</a>
-        </div>
-
-        <footer>
-            <p class="share-text">Te animamos a compartir esta información en tus redes:</p>
-            <div class="share-buttons">
-                <a href="#"><i class="fab fa-x-twitter"></i></a>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <div class="form-group">
+                        <label for="institucion">Filiación Institucional / Universidad</label>
+                        <input type="text" id="institucion" name="institucion" placeholder="Ej. Universidad Nacional de Rosario">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="asunto">Asunto de la consulta</label>
+                        <input type="text" id="asunto" name="asunto" required placeholder="Ej. Certificaciones / Aranceles / Consulta de Mesa">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensaje">Cuerpo del mensaje / Consulta</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Escriba aquí sus comentarios de manera detallada..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        Enviar Epístola <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
             </div>
-            <p class="credits-text">&copy; 2028 Comité Organizador. Desarrollado por Meraki Creative.</p>
-        </footer>
+
+            <!-- COLUMNA DERECHA: DATOS INSTITUCIONALES -->
+            <div class="info-sidebar">
+                
+                <div class="info-card-editorial">
+                    <h3>Secretaría del Simposio</h3>
+                    <ul class="contact-details-list">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Consultas Generales:</strong><br>
+                                <a href="mailto:estoa.sur@gmail.com">estoa.sur@gmail.com</a>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Sede Académica:</strong><br>
+                                Facultad de Humanidades y Artes (UNR).<br>
+                                Entre Ríos 758, S2000 Rosario, Santa Fe, Argentina.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- CONTENEDOR DE MAPA (Rosario - Fac. de Humanidades y Artes UNR) -->
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.1189912170327!2d-60.64336042433038!3d-32.94784407359325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7ab1ec09ffec1%3A0x9d5ff1a70cb65e94!2sFacultad%20de%20Humanidades%20y%20Artes%20(UNR)!5e0!3m2!1ses-419!2sar!4v1710000000000!5m2!1ses-419!2sar" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+            </div>
+
+        </div> <!-- Fin contact-grid -->
+
     </div>
+
+    <!-- PIE DE PÁGINA -->
+    <footer style="background-color: var(--azul-academico); color: rgba(255,255,255,0.7); text-align: center; padding: 40px 20px; border-top: 2px solid var(--oro-atenas); font-size: 0.88rem;">
+        <p style="font-size: 1rem; font-weight: 600; margin-bottom: 15px; color: var(--oro-atenas); font-family: 'Cinzel', serif;">Te animamos a compartir esta info en tus redes:</p>
+        <div class="share-buttons" style="margin-bottom: 15px;">
+            <a href="#" style="color: rgba(255,255,255,0.7); margin: 0 12px; font-size: 1.3rem;"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" style="color: rgba(255,255,255,0.7); margin: 0 12px; font-size: 1.3rem;"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" style="color: rgba(255,255,255,0.7); margin: 0 12px; font-size: 1.3rem;"><i class="fab fa-instagram"></i></a>
+            <a href="#" style="color: rgba(255,255,255,0.7); margin: 0 12px; font-size: 1.3rem;"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" style="color: rgba(255,255,255,0.7); margin: 0 12px; font-size: 1.3rem;"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 25px;">&copy; 2028 Comité Organizador. Desarrollado con elegancia por Meraki Creative.</p>
+    </footer>
 
 </body>
 </html>
