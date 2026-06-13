@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simposio Internacional 2028 - Inicio</title>
+    <title>Encuentro Nacional de Estudios Clásicos 2028</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
     
     <style>
         :root {
-            --color-principal: #b84a39; /* Terracota / Rosa Pompeya como protagonista */
+            --color-principal: #b84a39; /* Terracota / Rosa Pompeya */
             --azul-profundo: #2a445e;
             --crema-antiguo: #f5f0e6;
             --marfil-suave: #ffffff;
@@ -26,11 +26,20 @@
             line-height: 1.8;
             font-size: 1.1rem;
             background-color: var(--crema-antiguo);
-            background-image: radial-gradient(rgba(184, 74, 57, 0.02) 1px, transparent 0);
-            background-size: 24px 24px;
         }
 
-        h1, h2, h3 { font-family: 'Cinzel', serif; color: var(--color-principal); }
+        /* Barra Superior de Redes Oficiales */
+        .top-bar {
+            background-color: var(--texto-oscuro);
+            color: var(--crema-antiguo);
+            padding: 8px 20px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+        .top-bar a { color: var(--crema-antiguo); text-decoration: none; transition: color 0.2s; }
+        .top-bar a:hover { color: var(--oro-viejo); }
 
         nav {
             background-color: var(--marfil-suave);
@@ -41,16 +50,17 @@
             display: flex; justify-content: space-between; align-items: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
-        .nav-logo { font-weight: 700; font-size: 1.2rem; color: var(--color-principal); letter-spacing: 1px; }
+        .nav-logo { font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.1rem; color: var(--color-principal); letter-spacing: 1px; }
         .nav-links { list-style: none; display: flex; gap: 20px; }
-        .nav-links a { text-decoration: none; color: var(--texto-oscuro); font-weight: 500; font-size: 1rem; padding: 6px 12px; transition: all 0.2s; border-radius: 4px; }
-        .nav-links a:hover, .nav-links a.active { color: var(--color-principal); background-color: rgba(184, 74, 57, 0.08); }
+        .nav-links a { text-decoration: none; color: var(--texto-oscuro); font-weight: 500; font-size: 1rem; padding: 6px 12px; transition: all 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--color-principal); background-color: rgba(184, 74, 57, 0.08); border-radius: 4px; }
 
         .banner-container {
-            width: 100%; max-width: 1200px; margin: 40px auto; border-radius: 15px; overflow: hidden;
+            width: 100%; max-width: 1200px; margin: 30px auto; border-radius: 15px; overflow: hidden;
             box-shadow: 0 10px 25px rgba(0,0,0,0.08); background-color: #dfd5c6; border: 3px solid var(--oro-viejo);
         }
         .banner-placeholder { padding: 80px 20px; text-align: center; }
+        .banner-placeholder h1 { font-family: 'Cinzel', serif; color: var(--color-principal); font-size: 2.5rem; }
         .banner-placeholder p { color: var(--azul-profundo); font-weight: 700; letter-spacing: 2px; margin-top: 10px; }
 
         .main-container { max-width: 1100px; margin: 0 auto; padding: 20px; }
@@ -59,7 +69,7 @@
             box-shadow: 0 6px 12px rgba(44, 37, 35, 0.03); border: 1px solid rgba(197, 160, 89, 0.2);
             border-top: 6px solid var(--color-principal);
         }
-        section h2 { font-size: 1.8rem; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--crema-antiguo); }
+        section h2 { font-family: 'Cinzel', serif; color: var(--color-principal); font-size: 1.8rem; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--crema-antiguo); }
 
         .btn-action {
             display: inline-block; background-color: var(--color-principal); color: #ffffff; padding: 12px 30px;
@@ -67,13 +77,26 @@
         }
         .btn-action:hover { background-color: var(--azul-profundo); }
 
-        footer { background-color: var(--texto-oscuro); color: var(--crema-antiguo); text-align: center; padding: 50px 20px; margin-top: 80px; border-top: 5px solid var(--oro-viejo); }
+        /* Footer con Compartir */
+        footer { background-color: var(--texto-oscuro); color: var(--crema-antiguo); text-align: center; padding: 40px 20px; margin-top: 80px; border-top: 5px solid var(--oro-viejo); }
+        .share-buttons { margin-bottom: 20px; }
+        .share-buttons a { color: var(--crema-antiguo); margin: 0 10px; font-size: 1.2rem; transition: color 0.2s; }
+        .share-buttons a:hover { color: var(--color-principal); }
     </style>
 </head>
 <body>
 
+    <!-- Canales y Redes Oficiales Institucionales -->
+    <div class="top-bar">
+        <span>Nuestras redes oficiales:</span>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="#" target="_blank"><i class="fab fa-whatsapp"></i> Canal de WhatsApp</a>
+        <a href="#" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+    </div>
+
     <nav>
-        <div class="nav-logo">SIMPOSIO INTERNACIONAL 2028</div>
+        <div class="nav-logo">ENCUENTRO ESTUDIOS CLÁSICOS 2028</div>
         <ul class="nav-links">
             <li><a href="index.html" class="active">Inicio</a></li>
             <li><a href="expositores.html">Expositores</a></li>
@@ -86,21 +109,28 @@
 
     <div class="banner-container">
         <div class="banner-placeholder">
-            <h1>Simposio Internacional 2028</h1>
-            <p>BIENVENIDOS ALPORTAL OFICIAL</p>
+            <h1>Encuentro Nacional e Internacional</h1>
+            <p>BIENVENIDOS A LA SEDE VIRTUAL</p>
         </div>
     </div>
 
     <div class="main-container">
         <section>
-            <h2>Sobre el Simposio</h2>
-            <p>Este espacio reúne a investigadores, profesionales y estudiantes de todo el mundo para debatir los ejes fundamentales de nuestra disciplina con una mirada puesta en el futuro. Un modelo de interacción académica e institucional dinámico.</p>
-            <a href="programa.html" class="btn-action">Ver Cronograma</a>
+            <h2>Sobre las Jornadas</h2>
+            <p>Este espacio académico reúne a investigadores, docentes, graduados y estudiantes del campo de las humanidades para debatir las complejidades de nuestra disciplina desde una perspectiva situada y actual. Buscamos promover un intercambio dinámico y horizontal que enriquezca nuestros trayectos de investigación.</p>
+            <a href="programa.html" class="btn-action">Ver Cronograma de Actividades</a>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2028 Simposio Internacional. Desarrollado por <strong>Meraki Creative</strong>.</p>
+        <div class="share-buttons">
+            <p style="font-size: 0.9rem; margin-bottom: 10px; color: #a09592;">¿Te interesa el evento? Compartilo en tus redes:</p>
+            <a href="#" title="Compartir en Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" title="Compartir en Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" title="Compartir por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" title="Compartir en LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p>&copy; 2028 Comité Organizador. Desarrollado por <strong>Meraki Creative</strong>.</p>
     </footer>
 
 </body>
