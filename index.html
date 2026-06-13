@@ -11,10 +11,10 @@
     
     <style>
         :root {
-            --rosa-pompeya: #b84a39; /* El terracota rojizo cálido de los frescos */
-            --crema-antiguo: #f5f0e6; /* Un fondo más cálido, tipo pergamino o piedra al sol */
+            --rosa-pompeya: #b84a39;
+            --crema-antiguo: #f5f0e6;
             --marfil-suave: #ffffff;
-            --texto-oscuro: #2c2523; /* Un marrón casi negro, más suave que el negro puro */
+            --texto-oscuro: #2c2523;
             --oro-viejo: #c5a059;
             --verde-oliva: #4a5d4e;
         }
@@ -26,12 +26,10 @@
             color: var(--texto-oscuro);
             line-height: 1.8;
             font-size: 1.1rem;
-            
-            /* MARCA DE AGUA: Greca Griega (Meandro) generada por código en el fondo */
             background-color: var(--crema-antiguo);
-            background-image: linear-gradient(90deg, rgba(184, 74, 57, 0.03) 1px, transparent 1px),
-                              linear-gradient(0deg, rgba(184, 74, 57, 0.03) 1px, transparent 1px);
-            background-size: 20px 20px;
+            /* Fondo limpio temporal en lo que subimos la imagen de la greca */
+            background-image: radial-gradient(rgba(184, 74, 57, 0.02) 1px, transparent 0);
+            background-size: 24px 24px;
         }
 
         h1, h2, h3 { font-family: 'Cinzel', serif; color: var(--rosa-pompeya); }
@@ -51,28 +49,20 @@
         .nav-links a { text-decoration: none; color: var(--texto-oscuro); font-weight: 500; font-size: 1rem; padding: 6px 12px; transition: all 0.2s; border-radius: 4px; }
         .nav-links a:hover, .nav-links a.active { color: var(--rosa-pompeya); background-color: rgba(184, 74, 57, 0.08); }
 
-        /* BANNER PRINCIPAL CON MARCO ARQUEOLÓGICO */
+        /* BANNER PURGADO DE REITERACIONES */
         .hero-container {
             width: 100%; max-width: 1200px; margin: 40px auto; border-radius: 15px; overflow: hidden;
             box-shadow: 0 10px 25px rgba(0,0,0,0.08); background-color: #dfd5c6; 
             border: 3px solid var(--oro-viejo); position: relative;
         }
-        
-        /* Guarda decorativa de Greca simulada arriba y abajo del banner */
-        .hero-container::before {
-            content: "░░▓▓░░▓▓░░▓▓░░▓▓░░▓▓░░▓▓░░▓▓░░▓▓░░▓▓░░▓▓░░▓▓░░▓▓░░▓▓░░▓▓";
-            display: block; background: var(--rosa-pompeya); color: rgba(255,255,255,0.3);
-            text-align: center; font-size: 0.7rem; letter-spacing: 4px; padding: 3px 0;
-        }
 
-        .hero-placeholder { padding: 80px 20px; text-align: center; }
-        .hero-placeholder h1 { font-size: 2.5rem; margin-bottom: 10px; color: var(--rosa-pompeya); }
-        .hero-placeholder p { font-size: 1.2rem; font-weight: 500; color: var(--verde-oliva); letter-spacing: 1px; }
+        .hero-placeholder { padding: 90px 20px; text-align: center; }
+        /* Dejamos un mensaje de bienvenida temático en lugar de repetir el nombre del logo */
+        .hero-placeholder h1 { font-size: 2.3rem; margin-bottom: 10px; color: var(--rosa-pompeya); }
+        .hero-placeholder p { font-size: 1.2rem; font-weight: 500; color: var(--verde-oliva); letter-spacing: 1px; text-transform: uppercase; }
 
-        /* CONTENEDOR PRINCIPAL */
         .main-container { max-width: 950px; margin: 0 auto; padding: 20px; }
         
-        /* Bloques de información con calidez */
         section { 
             margin-bottom: 40px; 
             background: var(--marfil-suave); 
@@ -80,12 +70,11 @@
             border-radius: 12px; 
             box-shadow: 0 6px 12px rgba(44, 37, 35, 0.03); 
             border: 1px solid rgba(197, 160, 89, 0.2);
-            border-top: 6px solid var(--rosa-pompeya); /* El acento arriba le da peso visual */
+            border-top: 6px solid var(--rosa-pompeya);
         }
         
         section h2 { font-size: 1.8rem; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--crema-antiguo); }
 
-        /* FOOTER DE ESTILO CLÁSICO */
         footer { 
             background-color: var(--texto-oscuro); 
             color: var(--crema-antiguo); 
@@ -94,7 +83,6 @@
             margin-top: 80px; 
             border-top: 5px solid var(--oro-viejo); 
         }
-        footer p { font-size: 1rem; }
     </style>
 </head>
 <body>
@@ -113,23 +101,21 @@
 
     <div class="hero-container">
         <div class="hero-placeholder">
-            <h1>X CONGRESO INTERNACIONAL</h1>
-            <p>ARQUEOLOGÍA, HISTORIA Y CULTURA CLÁSICA</p>
+            <h1>Bienvenidos al Encuentro</h1>
+            <p>Espacio de Intercambio e Investigación Histórica</p>
         </div>
     </div>
 
     <div class="main-container">
-        
         <section>
-            <h2>Sobre el Congreso</h2>
-            <p>Bienvenidos a la sede virtual del X Congreso Internacional. Este espacio académico está diseñado para reunir a investigadores, docentes y estudiantes en torno a las últimas metodologías y descubrimientos del mundo antiguo.</p>
+            <h2>Presentación</h2>
+            <p>Este espacio académico está diseñado para reunir a investigadores, docentes y estudiantes en torno a las últimas metodologías y descubrimientos del mundo antiguo.</p>
             <p style="margin-top: 15px;">A través de un entorno accesible y una estética inspirada en las raíces de nuestra disciplina, buscamos garantizar una experiencia de intercambio fluida y enriquecedora para todos los participantes.</p>
         </section>
-
     </div>
 
     <footer>
-        <p>&copy; 2026 X Congreso Internacional. Desarrollado con dedicación por <strong>Meraki Creative</strong>.</p>
+        <p>&copy; 2026 X Congreso Internacional. Desarrollado por <strong>Meraki Creative</strong>.</p>
     </footer>
 
 </body>
